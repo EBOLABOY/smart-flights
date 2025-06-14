@@ -7,13 +7,13 @@ This guide will help you get started with Fli quickly.
 ### For Python Usage
 
 ```bash
-pip install flights
+pip install smart-flights
 ```
 
 ### For CLI Usage
 
 ```bash
-pipx install flights
+pipx install smart-flights
 ```
 
 ## Basic Usage

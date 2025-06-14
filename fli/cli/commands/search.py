@@ -17,7 +17,13 @@ from fli.models import (
     SeatType,
     SortBy,
 )
-from fli.models.google_flights.base import TimeRestrictions, TripType
+from fli.models.google_flights.base import (
+    Currency,
+    Language,
+    LocalizationConfig,
+    TimeRestrictions,
+    TripType,
+)
 from fli.search import SearchFlights
 
 
@@ -32,6 +38,8 @@ def search_flights(
     seat: str = "ECONOMY",
     stops: str = "ANY",
     sort: str = "CHEAPEST",
+    language: str = "en",
+    currency: str = "USD",
 ):
     """Core flight search functionality."""
     try:
@@ -42,6 +50,13 @@ def search_flights(
         max_stops = parse_stops(stops)
         airlines = parse_airlines(airlines)
         sort_by = getattr(SortBy, sort.upper())
+
+        # Create localization config
+        lang = (
+            Language.CHINESE if language.lower() in ["zh", "zh-cn", "chinese"] else Language.ENGLISH
+        )
+        curr = Currency.CNY if currency.upper() == "CNY" else Currency.USD
+        localization_config = LocalizationConfig(language=lang, currency=curr)
 
         time_restrictions = None
         if time:
@@ -81,7 +96,7 @@ def search_flights(
         )
 
         # Perform search
-        search_client = SearchFlights()
+        search_client = SearchFlights(localization_config)
         flights = search_client.search(filters)
 
         if not flights:
@@ -89,7 +104,7 @@ def search_flights(
             raise typer.Exit(1)
 
         # Display results
-        display_flight_results(flights)
+        display_flight_results(flights, localization_config)
 
     except (AttributeError, ValueError) as e:
         typer.echo(f"Error: {str(e)}")
@@ -150,6 +165,22 @@ def search(
             help="Sort results by (CHEAPEST, DURATION, DEPARTURE_TIME, ARRIVAL_TIME)",
         ),
     ] = "CHEAPEST",
+    language: Annotated[
+        str,
+        typer.Option(
+            "--language",
+            "-l",
+            help="Language for API requests (en, zh-cn)",
+        ),
+    ] = "en",
+    currency: Annotated[
+        str,
+        typer.Option(
+            "--currency",
+            "-cur",
+            help="Currency for pricing (USD, CNY)",
+        ),
+    ] = "USD",
 ):
     """Search for flights with flexible filtering options.
 
@@ -168,4 +199,6 @@ def search(
         seat=seat,
         stops=stops,
         sort=sort,
+        language=language,
+        currency=currency,
     )

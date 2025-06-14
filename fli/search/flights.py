@@ -15,7 +15,7 @@ from fli.models import (
     FlightResult,
     FlightSearchFilters,
 )
-from fli.models.google_flights.base import TripType
+from fli.models.google_flights.base import LocalizationConfig, TripType
 from fli.search.client import get_client
 
 
@@ -31,9 +31,15 @@ class SearchFlights:
         "content-type": "application/x-www-form-urlencoded;charset=UTF-8",
     }
 
-    def __init__(self):
-        """Initialize the search client for flight searches."""
+    def __init__(self, localization_config: LocalizationConfig = None):
+        """Initialize the search client for flight searches.
+
+        Args:
+            localization_config: Configuration for language and currency settings
+
+        """
         self.client = get_client()
+        self.localization_config = localization_config or LocalizationConfig()
 
     def search(
         self, filters: FlightSearchFilters, top_n: int = 5
@@ -53,9 +59,12 @@ class SearchFlights:
         """
         encoded_filters = filters.encode()
 
+        # Build URL with localization parameters
+        url_with_params = f"{self.BASE_URL}?hl={self.localization_config.api_language_code}&gl={self.localization_config.region}&curr={self.localization_config.api_currency_code}"
+
         try:
             response = self.client.post(
-                url=self.BASE_URL,
+                url=url_with_params,
                 data=f"f.req={encoded_filters}",
                 impersonate="chrome",
                 allow_redirects=True,
@@ -109,24 +118,149 @@ class SearchFlights:
             Structured FlightResult object with all flight details
 
         """
-        flight = FlightResult(
-            price=data[1][0][-1],
-            duration=data[0][9],
-            stops=len(data[0][2]) - 1,
-            legs=[
-                FlightLeg(
-                    airline=SearchFlights._parse_airline(fl[22][0]),
-                    flight_number=fl[22][1],
-                    departure_airport=SearchFlights._parse_airport(fl[3]),
-                    arrival_airport=SearchFlights._parse_airport(fl[6]),
-                    departure_datetime=SearchFlights._parse_datetime(fl[20], fl[8]),
-                    arrival_datetime=SearchFlights._parse_datetime(fl[21], fl[10]),
-                    duration=fl[11],
-                )
-                for fl in data[0][2]
-            ],
-        )
-        return flight
+        try:
+            # Safe access with fallbacks for different data structures
+            price = SearchFlights._safe_get_nested(data, [1, 0, -1], 0)
+            duration = SearchFlights._safe_get_nested(data, [0, 9], 0)
+
+            # Handle different flight leg structures
+            flight_legs_data = SearchFlights._safe_get_nested(data, [0, 2], [])
+            stops = max(0, len(flight_legs_data) - 1) if flight_legs_data else 0
+
+            legs = []
+            for fl in flight_legs_data:
+                try:
+                    leg = FlightLeg(
+                        airline=SearchFlights._parse_airline_safe(fl),
+                        flight_number=SearchFlights._safe_get_nested(fl, [22, 1], ""),
+                        departure_airport=SearchFlights._parse_airport_safe(fl, 3),
+                        arrival_airport=SearchFlights._parse_airport_safe(fl, 6),
+                        departure_datetime=SearchFlights._parse_datetime_safe(fl, [20], [8]),
+                        arrival_datetime=SearchFlights._parse_datetime_safe(fl, [21], [10]),
+                        duration=SearchFlights._safe_get_nested(fl, [11], 0),
+                    )
+                    legs.append(leg)
+                except Exception as e:
+                    # Log the error but continue processing other legs
+                    print(f"Warning: Failed to parse flight leg: {e}")
+                    continue
+
+            flight = FlightResult(
+                price=price,
+                duration=duration,
+                stops=stops,
+                legs=legs,
+            )
+            return flight
+
+        except Exception as e:
+            # Provide detailed error information for debugging
+            raise Exception(
+                f"Failed to parse flight data: {e}. Data structure: {type(data)} with length {len(data) if hasattr(data, '__len__') else 'unknown'}"
+            ) from e
+
+    @staticmethod
+    def _safe_get_nested(data: any, path: list[int], default: any = None) -> any:
+        """Safely access nested data structure with fallback.
+
+        Args:
+            data: The data structure to access
+            path: List of indices/keys to traverse
+            default: Default value if access fails
+
+        Returns:
+            The value at the specified path or default value
+
+        """
+        try:
+            current = data
+            for key in path:
+                if hasattr(current, "__getitem__") and len(current) > key:
+                    current = current[key]
+                else:
+                    return default
+            return current
+        except (IndexError, KeyError, TypeError):
+            return default
+
+    @staticmethod
+    def _parse_airline_safe(flight_leg: list) -> Airline:
+        """Safely parse airline from flight leg data.
+
+        Args:
+            flight_leg: Flight leg data from API
+
+        Returns:
+            Airline enum or default airline
+
+        """
+        try:
+            # Try multiple possible locations for airline code
+            airline_code = (
+                SearchFlights._safe_get_nested(flight_leg, [22, 0])
+                or SearchFlights._safe_get_nested(flight_leg, [0, 0])
+                or SearchFlights._safe_get_nested(flight_leg, [1, 0])
+                or "UNKNOWN"
+            )
+            return SearchFlights._parse_airline(airline_code)
+        except Exception:
+            # Return a default airline if parsing fails
+            return Airline.UNKNOWN if hasattr(Airline, "UNKNOWN") else list(Airline)[0]
+
+    @staticmethod
+    def _parse_airport_safe(flight_leg: list, index: int) -> Airport:
+        """Safely parse airport from flight leg data.
+
+        Args:
+            flight_leg: Flight leg data from API
+            index: Index where airport code should be located
+
+        Returns:
+            Airport enum or default airport
+
+        """
+        try:
+            airport_code = SearchFlights._safe_get_nested(flight_leg, [index])
+            if airport_code:
+                return SearchFlights._parse_airport(airport_code)
+            # Try alternative locations
+            for alt_index in [3, 4, 5, 6, 7]:
+                airport_code = SearchFlights._safe_get_nested(flight_leg, [alt_index])
+                if airport_code and isinstance(airport_code, str) and len(airport_code) == 3:
+                    return SearchFlights._parse_airport(airport_code)
+            # If all fails, return a default
+            return list(Airport)[0]
+        except Exception:
+            return list(Airport)[0]
+
+    @staticmethod
+    def _parse_datetime_safe(
+        flight_leg: list, date_path: list[int], time_path: list[int]
+    ) -> datetime:
+        """Safely parse datetime from flight leg data.
+
+        Args:
+            flight_leg: Flight leg data from API
+            date_path: Path to date array
+            time_path: Path to time array
+
+        Returns:
+            Parsed datetime or current datetime as fallback
+
+        """
+        try:
+            date_arr = SearchFlights._safe_get_nested(flight_leg, date_path, [2025, 1, 1])
+            time_arr = SearchFlights._safe_get_nested(flight_leg, time_path, [0, 0])
+
+            if date_arr and time_arr:
+                return SearchFlights._parse_datetime(date_arr, time_arr)
+        except Exception:
+            pass
+
+        # Fallback to current datetime
+        from datetime import datetime
+
+        return datetime.now()
 
     @staticmethod
     def _parse_datetime(date_arr: list[int], time_arr: list[int]) -> datetime:

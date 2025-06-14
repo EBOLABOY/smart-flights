@@ -4,6 +4,7 @@ This module contains all the data models used for flight searches and results.
 Models are designed to match Google Flights' APIs while providing a clean pythonic interface.
 """
 
+from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
 
@@ -61,10 +62,173 @@ class MaxStops(Enum):
 
 
 class Currency(Enum):
-    """Supported currencies for pricing. Currently only USD."""
+    """Supported currencies for pricing."""
 
-    USD = "USD"
-    # Placeholder for other currencies
+    USD = "USD"  # US Dollar
+    CNY = "CNY"  # Chinese Yuan
+
+
+class Language(Enum):
+    """Supported languages for API requests."""
+
+    ENGLISH = "en"
+    CHINESE = "zh-CN"
+
+
+@dataclass
+class LocalizationConfig:
+    """Configuration for language and currency settings."""
+
+    language: Language = Language.ENGLISH
+    currency: Currency = Currency.USD
+    region: str = "US"  # Default region
+
+    def __post_init__(self):
+        """Initialize after dataclass creation."""
+        pass
+
+    @property
+    def api_language_code(self) -> str:
+        """Get the API language code."""
+        return self.language.value
+
+    @property
+    def api_currency_code(self) -> str:
+        """Get the API currency code."""
+        return self.currency.value
+
+    @property
+    def currency_symbol(self) -> str:
+        """Get the currency symbol for display."""
+        symbols = {Currency.USD: "$", Currency.CNY: "¥"}
+        return symbols.get(self.currency, self.currency.value)
+
+    def get_text(self, key: str) -> str:
+        """Get localized text for the given key."""
+        texts = {
+            Language.ENGLISH: {
+                "one_way_flight_option": "One-way Flight Option",
+                "round_trip_flight_option": "Round-trip Flight Option",
+                "total_price": "Total Price",
+                "total_duration": "Total Duration",
+                "total_stops": "Total Stops",
+                "outbound_price": "Outbound Price",
+                "return_price": "Return Price",
+                "outbound_flight_segments": "Outbound Flight Segments",
+                "return_flight_segments": "Return Flight Segments",
+                "airline": "Airline",
+                "flight": "Flight",
+                "from": "From",
+                "departure": "Departure",
+                "to": "To",
+                "arrival": "Arrival",
+                "cheapest_dates_to_fly": "Cheapest Dates to Fly",
+                "day": "Day",
+                "price": "Price",
+            },
+            Language.CHINESE: {
+                "one_way_flight_option": "单程航班选项",
+                "round_trip_flight_option": "往返航班选项",
+                "total_price": "总价格",
+                "total_duration": "总时长",
+                "total_stops": "总中转次数",
+                "outbound_price": "去程价格",
+                "return_price": "返程价格",
+                "outbound_flight_segments": "去程航班段",
+                "return_flight_segments": "返程航班段",
+                "airline": "航空公司",
+                "flight": "航班号",
+                "from": "出发地",
+                "departure": "出发时间",
+                "to": "目的地",
+                "arrival": "到达时间",
+                "cheapest_dates_to_fly": "最便宜的出行日期",
+                "day": "星期",
+                "price": "价格",
+            },
+        }
+        return texts.get(self.language, texts[Language.ENGLISH]).get(key, key)
+
+    def get_airport_name(self, airport_code: str, english_name: str) -> str:
+        """Get localized airport name."""
+        if self.language == Language.CHINESE:
+            # Common airport translations
+            chinese_airports = {
+                "LHR": "伦敦希思罗机场",
+                "PEK": "北京首都国际机场",
+                "LAX": "洛杉矶国际机场",
+                "NRT": "东京成田国际机场",
+                "ICN": "首尔仁川国际机场",
+                "CDG": "巴黎戴高乐机场",
+                "JFK": "纽约肯尼迪国际机场",
+                "DXB": "迪拜国际机场",
+                "HKG": "香港国际机场",
+                "PVG": "上海浦东国际机场",
+                "SHA": "上海虹桥国际机场",
+                "CSX": "长沙黄花机场",
+                "SZX": "深圳宝安国际机场",
+                "IST": "伊斯坦布尔新机场",
+                "FRA": "法兰克福机场",
+                "VIE": "维也纳国际机场",
+                "SEA": "西雅图塔科马国际机场",
+                "SFO": "旧金山国际机场",
+                "KIX": "关西国际机场",
+            }
+            return chinese_airports.get(airport_code, f"{english_name}")
+        return english_name
+
+    def get_airline_name(self, airline_code: str, english_name: str) -> str:
+        """Get localized airline name."""
+        if self.language == Language.CHINESE:
+            # Load airline translations from JSON file
+            try:
+                import json
+                from pathlib import Path
+
+                # Get the path to the airlines translation file
+                translations_path = (
+                    Path(__file__).parent.parent.parent.parent
+                    / "data"
+                    / "translations"
+                    / "airlines_cn.json"
+                )
+
+                # Load translations if not already cached
+                if not hasattr(self, "_airline_translations"):
+                    with open(translations_path, encoding="utf-8") as f:
+                        self._airline_translations = json.load(f)
+
+                return self._airline_translations.get(airline_code, english_name)
+
+            except (FileNotFoundError, json.JSONDecodeError):
+                # Fallback to hardcoded translations if file is not available
+                chinese_airlines = {
+                    "CA": "中国国际航空",
+                    "MU": "中国东方航空",
+                    "CZ": "中国南方航空",
+                    "HU": "海南航空",
+                    "9C": "春秋航空",
+                    "HO": "吉祥航空",
+                    "3U": "四川航空",
+                    "8L": "祥鹏航空",
+                    "ZH": "深圳航空",
+                    "EK": "阿联酋航空",
+                    "TK": "土耳其航空",
+                    "CX": "国泰航空",
+                    "LH": "汉莎航空",
+                    "OS": "奥地利航空",
+                    "JL": "日本航空",
+                    "NH": "全日空",
+                    "KE": "大韩航空",
+                    "OZ": "韩亚航空",
+                    "SQ": "新加坡航空",
+                    "AS": "阿拉斯加航空",
+                    "AA": "美国航空",
+                    "UA": "美国联合航空",
+                    "HA": "夏威夷航空",
+                }
+                return chinese_airlines.get(airline_code, english_name)
+        return english_name
 
 
 class TimeRestrictions(BaseModel):

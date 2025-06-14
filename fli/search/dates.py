@@ -11,7 +11,7 @@ from datetime import datetime, timedelta
 from pydantic import BaseModel
 
 from fli.models import DateSearchFilters
-from fli.models.google_flights.base import TripType
+from fli.models.google_flights.base import LocalizationConfig, TripType
 from fli.search.client import get_client
 
 
@@ -35,9 +35,15 @@ class SearchDates:
     }
     MAX_DAYS_PER_SEARCH = 61
 
-    def __init__(self):
-        """Initialize the search client for date-based searches."""
+    def __init__(self, localization_config: LocalizationConfig = None):
+        """Initialize the search client for date-based searches.
+
+        Args:
+            localization_config: Configuration for language and currency settings
+
+        """
         self.client = get_client()
+        self.localization_config = localization_config or LocalizationConfig()
 
     def search(self, filters: DateSearchFilters) -> list[DatePrice] | None:
         """Search for flight prices across a date range and search parameters.
@@ -113,9 +119,12 @@ class SearchDates:
         """
         encoded_filters = filters.encode()
 
+        # Build URL with localization parameters
+        url_with_params = f"{self.BASE_URL}?hl={self.localization_config.api_language_code}&gl={self.localization_config.region}&curr={self.localization_config.api_currency_code}"
+
         try:
             response = self.client.post(
-                url=self.BASE_URL,
+                url=url_with_params,
                 data=f"f.req={encoded_filters}",
                 impersonate="chrome",
                 allow_redirects=True,

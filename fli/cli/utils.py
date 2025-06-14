@@ -11,6 +11,7 @@ from rich.text import Text
 from fli.cli.console import console
 from fli.cli.enums import DayOfWeek
 from fli.models import Airline, Airport, MaxStops, TripType
+from fli.models.google_flights.base import LocalizationConfig
 
 
 def validate_date(ctx: Context, param: Parameter, value: str) -> str | None:
@@ -133,14 +134,22 @@ def format_duration(minutes: int) -> str:
     return f"{hours}h {mins}m"
 
 
-def display_flight_results(flights: list):
+def format_price(price: float, currency_symbol: str = "¥") -> str:
+    """Format price with appropriate currency symbol."""
+    return f"{currency_symbol}{price:,.2f}"
+
+
+def display_flight_results(flights: list, localization_config: LocalizationConfig = None):
     """Display flight results in a beautiful format.
 
     Args:
         flights: List of either FlightResult objects (one-way)
         or tuples of (outbound, return) FlightResults (round-trip)
+        localization_config: Configuration for currency and language display
 
     """
+    if localization_config is None:
+        localization_config = LocalizationConfig()
     if not flights:
         console.print(Panel("No flights found matching your criteria", style="red"))
         return
@@ -157,49 +166,81 @@ def display_flight_results(flights: list):
         total_price = flight_segments[0].price
         if is_round_trip:
             total_price += flight_segments[1].price
-        table.add_row("Total Price", f"${total_price:,.2f}")
+        table.add_row(
+            localization_config.get_text("total_price"),
+            format_price(total_price, localization_config.currency_symbol),
+        )
 
         if is_round_trip:
-            table.add_row("Outbound Price", f"${flight_segments[0].price:,.2f}")
-            table.add_row("Return Price", f"${flight_segments[1].price:,.2f}")
+            table.add_row(
+                localization_config.get_text("outbound_price"),
+                format_price(flight_segments[0].price, localization_config.currency_symbol),
+            )
+            table.add_row(
+                localization_config.get_text("return_price"),
+                format_price(flight_segments[1].price, localization_config.currency_symbol),
+            )
 
         total_duration = sum(flight.duration for flight in flight_segments)
-        table.add_row("Total Duration", format_duration(total_duration))
+        table.add_row(
+            localization_config.get_text("total_duration"), format_duration(total_duration)
+        )
         total_stops = sum(flight.stops for flight in flight_segments)
-        table.add_row("Total Stops", str(total_stops))
+        table.add_row(localization_config.get_text("total_stops"), str(total_stops))
 
         # Create segments tables for each direction
         all_segments = []
         for idx, flight in enumerate(flight_segments):
-            direction = "Outbound" if idx == 0 else "Return" if is_round_trip else ""
+            if idx == 0:
+                direction_text = localization_config.get_text("outbound_flight_segments")
+            elif is_round_trip:
+                direction_text = localization_config.get_text("return_flight_segments")
+            else:
+                direction_text = localization_config.get_text("outbound_flight_segments")
+
             segments = Table(
-                title=f"{direction} Flight Segments" if direction else "Flight Segments",
+                title=direction_text,
                 box=box.ROUNDED,
             )
-            segments.add_column("Airline", style="cyan")
-            segments.add_column("Flight", style="magenta")
-            segments.add_column("From", style="yellow", width=30)
-            segments.add_column("Departure", style="green")
-            segments.add_column("To", style="yellow", width=30)
-            segments.add_column("Arrival", style="green")
+            segments.add_column(localization_config.get_text("airline"), style="cyan")
+            segments.add_column(localization_config.get_text("flight"), style="magenta")
+            segments.add_column(localization_config.get_text("from"), style="yellow", width=30)
+            segments.add_column(localization_config.get_text("departure"), style="green")
+            segments.add_column(localization_config.get_text("to"), style="yellow", width=30)
+            segments.add_column(localization_config.get_text("arrival"), style="green")
 
             for leg in flight.legs:
+                # Get localized airline and airport names
+                airline_name = localization_config.get_airline_name(
+                    leg.airline.name, leg.airline.value
+                )
+                departure_airport_name = localization_config.get_airport_name(
+                    leg.departure_airport.name, format_airport(leg.departure_airport)
+                )
+                arrival_airport_name = localization_config.get_airport_name(
+                    leg.arrival_airport.name, format_airport(leg.arrival_airport)
+                )
+
                 segments.add_row(
-                    leg.airline.value,
+                    airline_name,
                     leg.flight_number,
-                    format_airport(leg.departure_airport),
+                    departure_airport_name,
                     leg.departure_datetime.strftime("%H:%M %d-%b"),
-                    format_airport(leg.arrival_airport),
+                    arrival_airport_name,
                     leg.arrival_datetime.strftime("%H:%M %d-%b"),
                 )
             all_segments.extend([segments, Text("")])
 
         # Display in a panel
-        title = "Round-trip Flight" if is_round_trip else "One-way Flight"
+        title_text = (
+            localization_config.get_text("round_trip_flight_option")
+            if is_round_trip
+            else localization_config.get_text("one_way_flight_option")
+        )
         console.print(
             Panel(
                 Group(
-                    Text(f"{title} Option {i}", style="bold blue"),
+                    Text(f"{title_text} {i}", style="bold blue"),
                     Text(""),
                     table,
                     Text(""),
@@ -213,26 +254,30 @@ def display_flight_results(flights: list):
         console.print()
 
 
-def display_date_results(dates: list, trip_type: TripType):
+def display_date_results(
+    dates: list, trip_type: TripType, localization_config: LocalizationConfig = None
+):
     """Display date search results in a beautiful format."""
+    if localization_config is None:
+        localization_config = LocalizationConfig()
     if not dates:
         console.print(Panel("No flights found for these dates", style="red"))
         return
 
-    table = Table(title="Cheapest Dates to Fly", box=box.ROUNDED)
-    table.add_column("Departure", style="cyan")
-    table.add_column("Day", style="yellow")
+    table = Table(title=localization_config.get_text("cheapest_dates_to_fly"), box=box.ROUNDED)
+    table.add_column(localization_config.get_text("departure"), style="cyan")
+    table.add_column(localization_config.get_text("day"), style="yellow")
     if trip_type == TripType.ROUND_TRIP:
         table.add_column("Return", style="cyan")
-        table.add_column("Day", style="yellow")
-    table.add_column("Price", style="green")
+        table.add_column(localization_config.get_text("day"), style="yellow")
+    table.add_column(localization_config.get_text("price"), style="green")
 
     for date_price in dates:
         if trip_type == TripType.ONE_WAY:
             table.add_row(
                 date_price.date[0].strftime("%Y-%m-%d"),
                 date_price.date[0].strftime("%A"),
-                f"${date_price.price:,.2f}",
+                format_price(date_price.price, localization_config.currency_symbol),
             )
         else:
             table.add_row(
@@ -240,7 +285,7 @@ def display_date_results(dates: list, trip_type: TripType):
                 date_price.date[0].strftime("%A"),
                 date_price.date[1].strftime("%Y-%m-%d"),
                 date_price.date[1].strftime("%A"),
-                f"${date_price.price:,.2f}",
+                format_price(date_price.price, localization_config.currency_symbol),
             )
 
     console.print(table)

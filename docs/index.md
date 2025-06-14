@@ -35,10 +35,10 @@ flights and analyze pricing data.
 
 ```bash
 # Install using pip
-pip install flights
+pip install smart-flights
 
 # Or install using pipx (recommended for CLI usage)
-pipx install flights
+pipx install smart-flights
 ```
 
 ### Basic Usage

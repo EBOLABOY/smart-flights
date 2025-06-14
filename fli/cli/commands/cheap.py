@@ -21,6 +21,7 @@ from fli.models import (
     TimeRestrictions,
     TripType,
 )
+from fli.models.google_flights.base import Currency, Language, LocalizationConfig
 from fli.search import SearchDates
 
 
@@ -145,6 +146,22 @@ def cheap(
             callback=validate_time_range,
         ),
     ] = None,
+    language: Annotated[
+        str,
+        typer.Option(
+            "--language",
+            "-l",
+            help="Language for API requests (en, zh-cn)",
+        ),
+    ] = "en",
+    currency: Annotated[
+        str,
+        typer.Option(
+            "--currency",
+            "-cur",
+            help="Currency for pricing (USD, CNY)",
+        ),
+    ] = "USD",
 ):
     """Find the cheapest dates to fly between two airports.
 
@@ -160,6 +177,13 @@ def cheap(
         max_stops = parse_stops(stops)
         seat_type = getattr(SeatType, seat.upper())
         airlines = parse_airlines(airlines)
+
+        # Create localization config
+        lang = (
+            Language.CHINESE if language.lower() in ["zh", "zh-cn", "chinese"] else Language.ENGLISH
+        )
+        curr = Currency.CNY if currency.upper() == "CNY" else Currency.USD
+        localization_config = LocalizationConfig(language=lang, currency=curr)
 
         # Parse time restrictions
         time_restrictions = None
@@ -213,7 +237,7 @@ def cheap(
         )
 
         # Perform search
-        search_client = SearchDates()
+        search_client = SearchDates(localization_config)
         dates = search_client.search(filters)
 
         if not dates:
@@ -249,7 +273,7 @@ def cheap(
             dates.sort(key=lambda x: x.price)
 
         # Display results
-        display_date_results(dates, trip_type)
+        display_date_results(dates, trip_type, localization_config)
 
     except (AttributeError, ValueError) as e:
         if "module 'fli.search' has no attribute 'SearchDates'" in str(e):
