@@ -1,13 +1,13 @@
 [tool.poetry]
 name = "smart-flights"
-version = "0.4.1"
-description = "Smart Python library for Google Flights API with bilingual support and intelligent search features"
+version = "0.5.0"
+description = "Smart Python library for Google Flights API with bilingual support, intelligent search features, and hidden city flights via Kiwi.com API"
 authors = ["Punit Arani <punit@joinslash.com>"]
 readme = "README.md"
 homepage = "https://github.com/punitarani/fli"
 repository = "https://github.com/punitarani/fli"
 documentation = "https://punitarani.github.io/fli"
-keywords = ["smart-flights", "flights", "google-flights", "travel", "api", "flight-search", "bilingual", "intelligent-search"]
+keywords = ["smart-flights", "flights", "google-flights", "travel", "api", "flight-search", "bilingual", "intelligent-search", "hidden-city", "kiwi", "cheap-flights"]
 packages = [
     { include = "fli" }
 ]
