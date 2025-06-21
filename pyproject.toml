@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "smart-flights"
-version = "0.4.0"
+version = "0.4.1"
 description = "Smart Python library for Google Flights API with bilingual support and intelligent search features"
 authors = ["Punit Arani <punit@joinslash.com>"]
 readme = "README.md"

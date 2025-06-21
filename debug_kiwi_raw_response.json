@@ -1,0 +1,1938 @@
+{
+  "data": {
+    "onewayItineraries": {
+      "__typename": "Itineraries",
+      "server": {
+        "requestId": "3b395379de3e4f919249730e85470651",
+        "packageVersion": "git-a5fb0fe8141c2723a786e6da140aa227f7b3614c",
+        "serverToken": "eyJ0b2tlbiI6IkpDMWNOZ0Vma2JTei1nRzBjNFRFaTFaVkYtblJneXl3VnpuRWNiUEZTSndHMThKQmRMRmJsbDN0M09hUlZnX1dRQzRpSnJWYXBENG1mSGhVNFUxN3JyeldYZmt0eTlUU3lsNjhKa3JCSk5yMWxQRHBaZ3BaeVdFczNmVWdTdXJ2dEprRVUyUTY1LWs4VDJVdDZRTXlBOWR5cF9SakxxY2RiUWczOFpYSmE5NHM2VkRaQlU5ckhjOHdsM1g4SkhLM01uYmVYY01JWGdTbkhuUXBIbm14SzUtbVNBRzlRQTZUNWJMMWhSMXNTVzlMeDhoUWlzRGRTV3hVQW9YcWFXbFM3QmV0QmtIUVp3YS1falB4bzdfZU00cGVsM0Noa21uZV8wNGNHbFVWTWFVM1RldkFFaGRPbktoeHdNYTZVT09rMVloNk0wSW5MRnZVd21NWWg4NlRDcy1VSGsxejl6Zzhrb3plMzhXd3hsVlBCbVNnQURnTEZPZDBHcVlaTE40aEJXWFZjTUtCNUhmYzRvWjZQT2xyZ3ZidWFRYldNalA3V09xTTRocm05VU9Sak9GU1NIMlVqNDdVcDh5Xy1wa2VRUzhoN2dVdF9hUGdzYnU0MFRHQmY5MDV4eGc4M2s3emx3a2pRZG8xZHJQaDdmNk1uQ2JmaTA1R0h1ai03N2h6VEwyQ0RTSDFPYmxENFRSYzJfM043UT09IiwidGltZXMiOnsiMSI6MTc1MDUwODU2NC4zMTR9fQ=="
+      },
+      "metadata": {
+        "itinerariesCount": 24,
+        "hasMorePending": false
+      },
+      "itineraries": [
+        {
+          "__typename": "ItineraryOneWay",
+          "id": "ItineraryOneWay:eyJwcm92aWRlcnMiOiJLSVdJLUJBU0lDOktJV0kiLCJyb3V0ZV9kYXRhIjoiTVM6NzgwOkxIUjoxNzUxMzE3ODAwOkNBSToxNzUxMzM1NTAwOmJ1c2luZXNzOkZhbHNlOjo6fE1VOjIyNDpDQUk6MTc1MTM2OTQwMDpQVkc6MTc1MTQwNzIwMDpidXNpbmVzczpUcnVlOjpUcnVlOiIsInByaWNlIjoiMTU2MTYifQ==",
+          "shareId": "eyJyIjoiTVM6NzgwOkxIUjoxNzUxMzE3ODAwOkNBSToxNzUxMzM1NTAwOmJ1c2luZXNzOkZhbHNlOjo6fE1VOjIyNDpDQUk6MTc1MTM2OTQwMDpQVkc6MTc1MTQwNzIwMDpidXNpbmVzczpUcnVlOjpUcnVlOiIsImkiOlsiMGY2NDA3ZTA0ZjJkMDAwMGQ1NjY5MTZiXzB8MDdlMDE3MjI0ZjJlMDAwMDYwYzNmYWQ0XzAiXSwidGhjIjowLCJ0YXQiOjAsInZpIjoxLCJ0IjoiT1cifQ==",
+          "price": {
+            "amount": "15616",
+            "priceBeforeDiscount": "15616"
+          },
+          "priceEur": {
+            "amount": "1887.249416"
+          },
+          "provider": {
+            "name": "Kiwi.com",
+            "code": "KIWI-BASIC",
+            "hasHighProbabilityOfPriceChange": false
+          },
+          "bagsInfo": {
+            "includedCheckedBags": 1,
+            "includedHandBags": 1,
+            "hasNoBaggageSupported": false,
+            "hasNoCheckedBaggage": false,
+            "includedPersonalItem": 0
+          },
+          "bookingOptions": {
+            "edges": [
+              {
+                "node": {
+                  "token": "HhuXCFWp-FIg-GXJfjOGWo93mcTTZLk0DKPoi2VtsJiSY2gsvoB2LQoCG_D08L1ARMNpOfY-xDv53i8Dv-hw0s7v_I9FEMLJkzuC97InTSISBEdGd448GMAj28TeiFhVMd4UF1cvd0qG99wNS7RXfvppgiUXcT9HvyRRrDO4NalzylhAYNdKZEmIKA63mYNsqB_8bMO8ED8mnYVoRpKPhtN78u3mQpTkXTDXFsKBwyIbOXC1UYVTDjA6tPNE8Ipd1VIzKaX5BgyvsC4hLadTrDFEyIFd6lbQm4j1ilMBkVfVacamwj9EU_v3eFI49BplKOU0-rKRGZPP9NcOayC7gY1HdtD0hoALDXFKXtmMxeeL5Nr3vnt2HDCmc7Q33jQVjHteXSgX-qPC2vBH-e9h30K_IKiXkIciuTGBvHZAizIfgiRwxzbdnz_dyKnVJEXuxSeAlEzx76nkmFxprw4-U6O7onhj6e1tb_GhTnOgOiMxzo-NCRRHDYqpoUhuN_J6voMYtqwaPCFrlFqbAU-L94HA-ORX7OT4T8ZVFI8VVYGUKmMb7YOguk8a-CXLpbYVJmEfIYRKwAKG6XSGUZbcyvfSQNj0W0zNo8b5AKjrHJKLy24MxZ_VgtAXkeznADNTa1Aeqs50adpQ1t0P4sVj4k95V4y83uQ2jqj5zhRBjVEi-ARBuTNlJqwc-OoLgvrNAacHrcDOpCig4KYWkoC4PanBFyQ0byXAOd4jXb2_XTG6bg5yjs-hJHkjkgoBO1fguqcAQgtx39iFvLee1RxRIXeRxOFa9xzAow4q56LmZIhmGT3YfKmiIfRG2b9BwEaRWF0DU4GFAsj1V0huvfhXm-UOFSSW9WJyhJ2CH3TEnCPbfmbWi06oWDOE9YFCZ0CJAE9VxCwFeIm0cRANJCW2xj9HxC3X0nGgPeD542yxOGFqMAo67nBQoXj_Kr5_jnC2huHB4yKR8DFwxXP4LmDJjA6Q9nEhLIMEtHLFubDoAEBeaY9O-A9Xuno9naTxubTfpCf-KrE7kdCWZCf-CGk4taXpFBPK2B2BXKCzjN_OvCkk=",
+                  "bookingUrl": "/cn/booking/?direct=true&locale=cn&currency=cny&passengers=1-0-0&token=HhuXCFWp-FIg-GXJfjOGWo93mcTTZLk0DKPoi2VtsJiSY2gsvoB2LQoCG_D08L1ARMNpOfY-xDv53i8Dv-hw0s7v_I9FEMLJkzuC97InTSISBEdGd448GMAj28TeiFhVMd4UF1cvd0qG99wNS7RXfvppgiUXcT9HvyRRrDO4NalzylhAYNdKZEmIKA63mYNsqB_8bMO8ED8mnYVoRpKPhtN78u3mQpTkXTDXFsKBwyIbOXC1UYVTDjA6tPNE8Ipd1VIzKaX5BgyvsC4hLadTrDFEyIFd6lbQm4j1ilMBkVfVacamwj9EU_v3eFI49BplKOU0-rKRGZPP9NcOayC7gY1HdtD0hoALDXFKXtmMxeeL5Nr3vnt2HDCmc7Q33jQVjHteXSgX-qPC2vBH-e9h30K_IKiXkIciuTGBvHZAizIfgiRwxzbdnz_dyKnVJEXuxSeAlEzx76nkmFxprw4-U6O7onhj6e1tb_GhTnOgOiMxzo-NCRRHDYqpoUhuN_J6voMYtqwaPCFrlFqbAU-L94HA-ORX7OT4T8ZVFI8VVYGUKmMb7YOguk8a-CXLpbYVJmEfIYRKwAKG6XSGUZbcyvfSQNj0W0zNo8b5AKjrHJKLy24MxZ_VgtAXkeznADNTa1Aeqs50adpQ1t0P4sVj4k95V4y83uQ2jqj5zhRBjVEi-ARBuTNlJqwc-OoLgvrNAacHrcDOpCig4KYWkoC4PanBFyQ0byXAOd4jXb2_XTG6bg5yjs-hJHkjkgoBO1fguqcAQgtx39iFvLee1RxRIXeRxOFa9xzAow4q56LmZIhmGT3YfKmiIfRG2b9BwEaRWF0DU4GFAsj1V0huvfhXm-UOFSSW9WJyhJ2CH3TEnCPbfmbWi06oWDOE9YFCZ0CJAE9VxCwFeIm0cRANJCW2xj9HxC3X0nGgPeD542yxOGFqMAo67nBQoXj_Kr5_jnC2huHB4yKR8DFwxXP4LmDJjA6Q9nEhLIMEtHLFubDoAEBeaY9O-A9Xuno9naTxubTfpCf-KrE7kdCWZCf-CGk4taXpFBPK2B2BXKCzjN_OvCkk%3D&searchType=oneWay&searchBags=0.0",
+                  "price": {
+                    "amount": "15616"
+                  },
+                  "priceEur": {
+                    "amount": "1887.25"
+                  },
+                  "itineraryProvider": {
+                    "code": "KIWI-BASIC",
+                    "name": "Kiwi.com",
+                    "hasHighProbabilityOfPriceChange": false
+                  }
+                }
+              },
+              {
+                "node": {
+                  "token": "HS5F6gzUqcnE35AyD09BMwkpzgIbg__T-DsI6PlbTTgC1G17ESk2ANG1D20rpKubDsspN34xnz2sSWSFJZi4m_dS1pf636WvHr_T32moZLaWoWfCfQ75g-WOkHY3X9ItbjHh_kv3OS1v79PTUrmdaRnCslRr2wqVFp10pX68KN-pK0wzPJInTsMO679munoyaJ8IxIBSFrA5H65Jd9RHbnrSa3eiiI-yp3FstYfUypCFVw7JdDcmxZNl8PdzcEibimQ1F1YQXVdAWknDYRCD7DhihXIHD2uFPTZg6pmRFBIZNw8oQEvHDeOzMqLgKQxcLTyAM04VVyGz7gr3HQKDnqZoVy820Mmk1phaNgYkXpsLKq-ofBQPpbUXfHZF39_2_N-2lqvoc2gL0ipnvu-pIbo9oJdg9Ud69lyMmkFMvm4lEFnVJe8P4pcWUOq7mWE2VhNo51FCCPdrFiYsLuoFuqIB1QufPq2zOEdYNatYvUqbJ9ijcLPDc5ARm2d9MUQ6X7a2A54QfhIbk_DXJkvu74d03mBqrYx7a2noBaheZYcNmp4HNAjH2np12XLIO08ehibHoKDYXOEdb58ZK8LPyPhYz-N1S0RhYg7F3vCtiVqUCvQZfd_FztWByiYlpjry_Ge9L62UGIRjPrVVt4xm_n-B_3B3i5isP3UGX_qxtgvUPE-9sXltT6SLG3GDdpmb_918nbjBGAudPR4yYWHAxe_PpQD-OGgWTmCL8fn6xKWchq6J0n1E5YdF_Vua7eUHsvK35jU1Nb3RpeNQVV5dDAB5mpjLHDZ6irt5hDOr9BFYASeJHJsCmXUHg3-EWWDqFr9uDUosjaTE4wdXiz3ggW2FxmctCDHoJDDpCm2dBdpYoU7-J_y9_IXsffA3reMjSThVPaU7r477PJ2O4zZnoMD9sv_ToJRp7r30skeOsP_QJR0cQsMGXsXrbSMB94aulNb0Z_VG2QdbnYJHV6ds4r9Je--_iVdVayoy5OIdVxgXENNQKD0cnSmseWC8V5ZTJUWn1xESdfay6OTacHrnFhLmqwt-AjdBFYoj4RbwYjfFAMWj7YGbvcpFcPMlBQg1DFuEv7VDTPCFBbGH00CXJAb5k7-Y3-MyYtlPlmouTWphKZwZZQe_Chbl0S0Hf3aGSZsQoYmq91BfIcM8wdQ6W7aJT4hgSGp_wdhPFzHjeDmR8NEhsTk26UF65sQ9k7HjWuvN1MXKtBPTzxniRZcPyAnGnQQmUISGHRUGphC-B8gE=",
+                  "bookingUrl": "/cn/booking/?direct=true&locale=cn&currency=cny&passengers=1-0-0&token=HS5F6gzUqcnE35AyD09BMwkpzgIbg__T-DsI6PlbTTgC1G17ESk2ANG1D20rpKubDsspN34xnz2sSWSFJZi4m_dS1pf636WvHr_T32moZLaWoWfCfQ75g-WOkHY3X9ItbjHh_kv3OS1v79PTUrmdaRnCslRr2wqVFp10pX68KN-pK0wzPJInTsMO679munoyaJ8IxIBSFrA5H65Jd9RHbnrSa3eiiI-yp3FstYfUypCFVw7JdDcmxZNl8PdzcEibimQ1F1YQXVdAWknDYRCD7DhihXIHD2uFPTZg6pmRFBIZNw8oQEvHDeOzMqLgKQxcLTyAM04VVyGz7gr3HQKDnqZoVy820Mmk1phaNgYkXpsLKq-ofBQPpbUXfHZF39_2_N-2lqvoc2gL0ipnvu-pIbo9oJdg9Ud69lyMmkFMvm4lEFnVJe8P4pcWUOq7mWE2VhNo51FCCPdrFiYsLuoFuqIB1QufPq2zOEdYNatYvUqbJ9ijcLPDc5ARm2d9MUQ6X7a2A54QfhIbk_DXJkvu74d03mBqrYx7a2noBaheZYcNmp4HNAjH2np12XLIO08ehibHoKDYXOEdb58ZK8LPyPhYz-N1S0RhYg7F3vCtiVqUCvQZfd_FztWByiYlpjry_Ge9L62UGIRjPrVVt4xm_n-B_3B3i5isP3UGX_qxtgvUPE-9sXltT6SLG3GDdpmb_918nbjBGAudPR4yYWHAxe_PpQD-OGgWTmCL8fn6xKWchq6J0n1E5YdF_Vua7eUHsvK35jU1Nb3RpeNQVV5dDAB5mpjLHDZ6irt5hDOr9BFYASeJHJsCmXUHg3-EWWDqFr9uDUosjaTE4wdXiz3ggW2FxmctCDHoJDDpCm2dBdpYoU7-J_y9_IXsffA3reMjSThVPaU7r477PJ2O4zZnoMD9sv_ToJRp7r30skeOsP_QJR0cQsMGXsXrbSMB94aulNb0Z_VG2QdbnYJHV6ds4r9Je--_iVdVayoy5OIdVxgXENNQKD0cnSmseWC8V5ZTJUWn1xESdfay6OTacHrnFhLmqwt-AjdBFYoj4RbwYjfFAMWj7YGbvcpFcPMlBQg1DFuEv7VDTPCFBbGH00CXJAb5k7-Y3-MyYtlPlmouTWphKZwZZQe_Chbl0S0Hf3aGSZsQoYmq91BfIcM8wdQ6W7aJT4hgSGp_wdhPFzHjeDmR8NEhsTk26UF65sQ9k7HjWuvN1MXKtBPTzxniRZcPyAnGnQQmUISGHRUGphC-B8gE%3D&searchType=oneWay&searchBags=0.0",
+                  "price": {
+                    "amount": "16284"
+                  },
+                  "priceEur": {
+                    "amount": "1967.98"
+                  },
+                  "itineraryProvider": {
+                    "code": "KIWI",
+                    "name": "Kiwi.com",
+                    "hasHighProbabilityOfPriceChange": false
+                  }
+                }
+              }
+            ]
+          },
+          "travelHack": {
+            "isTrueHiddenCity": false,
+            "isVirtualInterlining": true,
+            "isThrowawayTicket": false
+          },
+          "duration": 89400,
+          "pnrCount": 2,
+          "sector": {
+            "id": "Sector:b68dcf73aec87c34b7a2d4440494c8d89568ceca~0c28234a7ce9ee08c040b7fd20b811d57ddf41e7|d1b69279d3eff06b3aa0589907d60b9355a94144",
+            "duration": 89400,
+            "sectorSegments": [
+              {
+                "guarantee": null,
+                "segment": {
+                  "id": "Segment:0c28234a7ce9ee08c040b7fd20b811d57ddf41e7",
+                  "source": {
+                    "localTime": "2025-06-30T22:10:00",
+                    "utcTimeIso": "2025-06-30T21:10:00Z",
+                    "station": {
+                      "name": "伦敦希思罗机场",
+                      "code": "LHR",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "伦敦"
+                      },
+                      "country": {
+                        "code": "GB",
+                        "name": "英国"
+                      }
+                    }
+                  },
+                  "destination": {
+                    "localTime": "2025-07-01T05:05:00",
+                    "utcTimeIso": "2025-07-01T02:05:00Z",
+                    "station": {
+                      "name": "开罗国际机场",
+                      "code": "CAI",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "开罗"
+                      },
+                      "country": {
+                        "code": "EG",
+                        "name": "埃及"
+                      }
+                    }
+                  },
+                  "hiddenDestination": null,
+                  "duration": 17700,
+                  "type": "FLIGHT",
+                  "code": "780",
+                  "carrier": {
+                    "name": "Egyptair",
+                    "code": "MS"
+                  },
+                  "operatingCarrier": {
+                    "name": "Egyptair",
+                    "code": "MS"
+                  },
+                  "cabinClass": "BUSINESS"
+                },
+                "layover": null
+              },
+              {
+                "guarantee": "KIWI_COM",
+                "segment": {
+                  "id": "Segment:d1b69279d3eff06b3aa0589907d60b9355a94144",
+                  "source": {
+                    "localTime": "2025-07-01T14:30:00",
+                    "utcTimeIso": "2025-07-01T11:30:00Z",
+                    "station": {
+                      "name": "开罗国际机场",
+                      "code": "CAI",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "开罗"
+                      },
+                      "country": {
+                        "code": "EG",
+                        "name": "埃及"
+                      }
+                    }
+                  },
+                  "destination": {
+                    "localTime": "2025-07-02T06:00:00",
+                    "utcTimeIso": "2025-07-01T22:00:00Z",
+                    "station": {
+                      "name": "上海浦东国际机场",
+                      "code": "PVG",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "上海市"
+                      },
+                      "country": {
+                        "code": "CN",
+                        "name": "中国"
+                      }
+                    }
+                  },
+                  "hiddenDestination": null,
+                  "duration": 37800,
+                  "type": "FLIGHT",
+                  "code": "224",
+                  "carrier": {
+                    "name": "China Eastern Airlines",
+                    "code": "MU"
+                  },
+                  "operatingCarrier": {
+                    "name": "China Eastern Airlines",
+                    "code": "MU"
+                  },
+                  "cabinClass": "BUSINESS"
+                },
+                "layover": {
+                  "duration": 33900,
+                  "isBaggageRecheck": true
+                }
+              }
+            ]
+          },
+          "lastAvailable": {
+            "seatsLeft": 9
+          }
+        },
+        {
+          "__typename": "ItineraryOneWay",
+          "id": "ItineraryOneWay:eyJwcm92aWRlcnMiOiJLSVdJLUJBU0lDOktJV0kiLCJyb3V0ZV9kYXRhIjoiQkE6NDAwOkxIUjoxNzUxMzA0MDAwOkNBSToxNzUxMzIyMDAwOmJ1c2luZXNzOkZhbHNlOjo6fE1VOjIyNDpDQUk6MTc1MTM2OTQwMDpQVkc6MTc1MTQwNzIwMDpidXNpbmVzczpUcnVlOjpUcnVlOiIsInByaWNlIjoiMTU0ODcifQ==",
+          "shareId": "eyJyIjoiQkE6NDAwOkxIUjoxNzUxMzA0MDAwOkNBSToxNzUxMzIyMDAwOmJ1c2luZXNzOkZhbHNlOjo6fE1VOjIyNDpDQUk6MTc1MTM2OTQwMDpQVkc6MTc1MTQwNzIwMDpidXNpbmVzczpUcnVlOjpUcnVlOiIsImkiOlsiMGY2NDA3ZTA0ZjJkMDAwMDc3MDM4ZDllXzB8MDdlMDE3MjI0ZjJlMDAwMDYwYzNmYWQ0XzAiXSwidGhjIjowLCJ0YXQiOjAsInZpIjoxLCJ0IjoiT1cifQ==",
+          "price": {
+            "amount": "15487",
+            "priceBeforeDiscount": "15487"
+          },
+          "priceEur": {
+            "amount": "1871.659305"
+          },
+          "provider": {
+            "name": "Kiwi.com",
+            "code": "KIWI-BASIC",
+            "hasHighProbabilityOfPriceChange": false
+          },
+          "bagsInfo": {
+            "includedCheckedBags": 1,
+            "includedHandBags": 1,
+            "hasNoBaggageSupported": false,
+            "hasNoCheckedBaggage": false,
+            "includedPersonalItem": 0
+          },
+          "bookingOptions": {
+            "edges": [
+              {
+                "node": {
+                  "token": "H2UEDVpiJ7cbqBw9iZ5o1LeW0nJglJ85MnebJp0trDkotcypvXflObZ6_Xwau1qwpO0b1zWuZweXR1t-zXWuOxbMretIX6RhrZiAPpdgx8Q8Z5_wb6Mo08SKvu-3EMYZg9E7lGiUV7RfY7F9KG-NzDUUf26ITV7hMTDfb23Yc8XSr_sez8dk4MSaduOXSsodCncGNKylNV9Eup4s1y2wP3YYcMqgquXr2nvp4VLoTtHadExymE9hrDv9RCrm0zdm5xBGTeYBYTyGYNnWZoVaUWU_xJtx5IDvnu1g5CwljU4oqdn_e0tvzF7RkAfGazCtr3hTj4LL93lCizgk4QZcM7Hj-I7hQzpnqFww4493260jxLm21i-v5zOw1_soks8MAY9PQtLzGyLTW1mYzid4B2vw2857oBrA-Bjf9CJp3tJ-KH5vPQRLmg77k6elzi8HUFdfAF1fdmu_5mmpiI7CJg10pYwg1hnEQ0h4LNuiMSLkAiw549MBLfzOF_VJ7MWzzMRKxrC7jVOMdSUxT-CqT4G8mrOAnyeAXcxi5F7_p0knACMgMxv4UnO2e6Ns2OYCUZb7f83WpnhuA9Hc677jAOdA3cKuY7hae9F0rNPCGv0AkyL45eEKtCSFM-4UYBDmVqArmb1noIOOce-UVvZryw_48jRDaZYiWUUtsZxcYOKijgN7z0KXxoIkcnLuL-X4ojo_Jr2Fqz5kFEOa5KNI96LdJYtie2Ok7ZJEVQZ44wc5PUv8qPgRw7HriOWw7W4L_itfX8xUmSZmcasNfbGPJVRdOg1MmiTk6438yLOaXfuXaUoT8_jwOoeSc_il2tWuUIx9VC6ORjwGGKXwuUIV8CJdYSEkIzbL26qq6HtEZFhc13U0qmbauQIywPAyPfP5YyIgA2-mvfjIeZfcrnysOhMSYZa0jrVdSkNfcTs_ZCSpMJZyQ15tPYbCgx-EUueAaVjcXmNl0Ie0lj3yCpgDECwl9Z6a9Tw9qK1OZhtk2Y4peBwB_gqacWpDu0xTBLpTZor08ETMSbtgjr08fnb6UM1mTgNl0IIrHemMTOl9rSnY=",
+                  "bookingUrl": "/cn/booking/?direct=true&locale=cn&currency=cny&passengers=1-0-0&token=H2UEDVpiJ7cbqBw9iZ5o1LeW0nJglJ85MnebJp0trDkotcypvXflObZ6_Xwau1qwpO0b1zWuZweXR1t-zXWuOxbMretIX6RhrZiAPpdgx8Q8Z5_wb6Mo08SKvu-3EMYZg9E7lGiUV7RfY7F9KG-NzDUUf26ITV7hMTDfb23Yc8XSr_sez8dk4MSaduOXSsodCncGNKylNV9Eup4s1y2wP3YYcMqgquXr2nvp4VLoTtHadExymE9hrDv9RCrm0zdm5xBGTeYBYTyGYNnWZoVaUWU_xJtx5IDvnu1g5CwljU4oqdn_e0tvzF7RkAfGazCtr3hTj4LL93lCizgk4QZcM7Hj-I7hQzpnqFww4493260jxLm21i-v5zOw1_soks8MAY9PQtLzGyLTW1mYzid4B2vw2857oBrA-Bjf9CJp3tJ-KH5vPQRLmg77k6elzi8HUFdfAF1fdmu_5mmpiI7CJg10pYwg1hnEQ0h4LNuiMSLkAiw549MBLfzOF_VJ7MWzzMRKxrC7jVOMdSUxT-CqT4G8mrOAnyeAXcxi5F7_p0knACMgMxv4UnO2e6Ns2OYCUZb7f83WpnhuA9Hc677jAOdA3cKuY7hae9F0rNPCGv0AkyL45eEKtCSFM-4UYBDmVqArmb1noIOOce-UVvZryw_48jRDaZYiWUUtsZxcYOKijgN7z0KXxoIkcnLuL-X4ojo_Jr2Fqz5kFEOa5KNI96LdJYtie2Ok7ZJEVQZ44wc5PUv8qPgRw7HriOWw7W4L_itfX8xUmSZmcasNfbGPJVRdOg1MmiTk6438yLOaXfuXaUoT8_jwOoeSc_il2tWuUIx9VC6ORjwGGKXwuUIV8CJdYSEkIzbL26qq6HtEZFhc13U0qmbauQIywPAyPfP5YyIgA2-mvfjIeZfcrnysOhMSYZa0jrVdSkNfcTs_ZCSpMJZyQ15tPYbCgx-EUueAaVjcXmNl0Ie0lj3yCpgDECwl9Z6a9Tw9qK1OZhtk2Y4peBwB_gqacWpDu0xTBLpTZor08ETMSbtgjr08fnb6UM1mTgNl0IIrHemMTOl9rSnY%3D&searchType=oneWay&searchBags=0.0",
+                  "price": {
+                    "amount": "15487"
+                  },
+                  "priceEur": {
+                    "amount": "1871.66"
+                  },
+                  "itineraryProvider": {
+                    "code": "KIWI-BASIC",
+                    "name": "Kiwi.com",
+                    "hasHighProbabilityOfPriceChange": false
+                  }
+                }
+              },
+              {
+                "node": {
+                  "token": "HZmrsE2nzLsQSXgcc2ZvwA8C7frynJ3M-WXv1k-1iDJMSmyuUcuUXDjJ-rW6oMp3Sal2v37KrUMZ9ruBOs-RgooilUqiMyyYuee9izpaRlpacSxhN6fyb-Srcz8dmDDGBs9MNbXoTKh3bwlMngDpe_0HNUN1CeNoLjTHFaruhtVDkJ1EZLcQw0J7JICZ7TJmTFTKhBWxnDLGiX-WjbjUGrV7QVow2N48BYFuvBCjZlovImRZ7o1kgowu5MqRmj8vsh95a3FXaiQrAHsS_eI7xvrfWhGm4eLJ-j3wkrE6Go1EJHsFDxdOv_NL_gJmOnV4nv5RRcJN7ZT9qu9kp3MAq3wkI_xeqRF1HmxWKx4e2fKEO8TXQQdHFsVD9VTB33XILCzgRC8M_OuqoogkXCyQYhmsJVEBuMvgojors5wwy3jYm5QtKwQEzyzIh8S12hxej9ooEiiQKxMWLOJqweBT46Exx77bHz7ehQO6k2zOiUKX9x2M4PzGK6aA02X5JZ5S-KjbYo_82xr1Q-JHK2gUHXf70mtew_pTTMGF_7E0aLfaVQGGUhtjFib7xd0zvhE2d5oM7phSMUtyH9sz9PgyqvEAz-sbpT2VH0vYHouRXd3oagclsk76EHPYHjiY4RohX_I8Cl8GhkjXDpQbku7_ukeK98V2TbypqB3QPvoCPCtqCynEdZQ09A_VerTS7_05GvPzd2Mt9slOr7cfW9aX0cFIq-unpmku9qnuihWU4UPxE4ZnSY9POWBpUmaSViONEbknjS8SIOF9gfoKtCZaC7BQKRSOwGmMIRiyzKmOtokhYz8NuRxLeCg87U605PCPu17m21irTiqqcc8zAB8trXETWGXhjKsmUl7AQdxK1ynF6SPNoO5mLdKWViCqNPXNmqNxEQ5zJWhtMvloy2f063j1WZY4tbKf0xU0i3pesvWuTMuo_ChFn1sTVm7uaiq1PG3C7bLuOCYn1G0VaPnOlbKvvDnS5Q6AGOHicBhQhB6jdeWM-Mn5Q4vS97-IzrAMLOwRTiN8PuDGnf-Nj_-z49G0S42Xr5UwwJyi3bmZkHGsRxfytsnY6c9KR2bLzJ8vFfcd2Wb85qFvlgNr093A_eag9LfSOrYWvh3tD8Lf0tTh3GEhVvszf1YiBTdVnB2agXDIIinQ4Wj3wA3E4zKSOBBGfN-IOSDsUWGhnz_HGVmxFmntd-Ll4_CeJnO2dbQNmDk9epztQKgyXeB0TSKe4dw==",
+                  "bookingUrl": "/cn/booking/?direct=true&locale=cn&currency=cny&passengers=1-0-0&token=HZmrsE2nzLsQSXgcc2ZvwA8C7frynJ3M-WXv1k-1iDJMSmyuUcuUXDjJ-rW6oMp3Sal2v37KrUMZ9ruBOs-RgooilUqiMyyYuee9izpaRlpacSxhN6fyb-Srcz8dmDDGBs9MNbXoTKh3bwlMngDpe_0HNUN1CeNoLjTHFaruhtVDkJ1EZLcQw0J7JICZ7TJmTFTKhBWxnDLGiX-WjbjUGrV7QVow2N48BYFuvBCjZlovImRZ7o1kgowu5MqRmj8vsh95a3FXaiQrAHsS_eI7xvrfWhGm4eLJ-j3wkrE6Go1EJHsFDxdOv_NL_gJmOnV4nv5RRcJN7ZT9qu9kp3MAq3wkI_xeqRF1HmxWKx4e2fKEO8TXQQdHFsVD9VTB33XILCzgRC8M_OuqoogkXCyQYhmsJVEBuMvgojors5wwy3jYm5QtKwQEzyzIh8S12hxej9ooEiiQKxMWLOJqweBT46Exx77bHz7ehQO6k2zOiUKX9x2M4PzGK6aA02X5JZ5S-KjbYo_82xr1Q-JHK2gUHXf70mtew_pTTMGF_7E0aLfaVQGGUhtjFib7xd0zvhE2d5oM7phSMUtyH9sz9PgyqvEAz-sbpT2VH0vYHouRXd3oagclsk76EHPYHjiY4RohX_I8Cl8GhkjXDpQbku7_ukeK98V2TbypqB3QPvoCPCtqCynEdZQ09A_VerTS7_05GvPzd2Mt9slOr7cfW9aX0cFIq-unpmku9qnuihWU4UPxE4ZnSY9POWBpUmaSViONEbknjS8SIOF9gfoKtCZaC7BQKRSOwGmMIRiyzKmOtokhYz8NuRxLeCg87U605PCPu17m21irTiqqcc8zAB8trXETWGXhjKsmUl7AQdxK1ynF6SPNoO5mLdKWViCqNPXNmqNxEQ5zJWhtMvloy2f063j1WZY4tbKf0xU0i3pesvWuTMuo_ChFn1sTVm7uaiq1PG3C7bLuOCYn1G0VaPnOlbKvvDnS5Q6AGOHicBhQhB6jdeWM-Mn5Q4vS97-IzrAMLOwRTiN8PuDGnf-Nj_-z49G0S42Xr5UwwJyi3bmZkHGsRxfytsnY6c9KR2bLzJ8vFfcd2Wb85qFvlgNr093A_eag9LfSOrYWvh3tD8Lf0tTh3GEhVvszf1YiBTdVnB2agXDIIinQ4Wj3wA3E4zKSOBBGfN-IOSDsUWGhnz_HGVmxFmntd-Ll4_CeJnO2dbQNmDk9epztQKgyXeB0TSKe4dw%3D%3D&searchType=oneWay&searchBags=0.0",
+                  "price": {
+                    "amount": "16149"
+                  },
+                  "priceEur": {
+                    "amount": "1951.66"
+                  },
+                  "itineraryProvider": {
+                    "code": "KIWI",
+                    "name": "Kiwi.com",
+                    "hasHighProbabilityOfPriceChange": false
+                  }
+                }
+              }
+            ]
+          },
+          "travelHack": {
+            "isTrueHiddenCity": false,
+            "isVirtualInterlining": true,
+            "isThrowawayTicket": false
+          },
+          "duration": 103200,
+          "pnrCount": 2,
+          "sector": {
+            "id": "Sector:ce221119f07f57b26d3288e9c7f278b630f5f50d~177e9fd13277bae32a1f924fb8ff983190f542b7|d1b69279d3eff06b3aa0589907d60b9355a94144",
+            "duration": 103200,
+            "sectorSegments": [
+              {
+                "guarantee": null,
+                "segment": {
+                  "id": "Segment:177e9fd13277bae32a1f924fb8ff983190f542b7",
+                  "source": {
+                    "localTime": "2025-06-30T18:20:00",
+                    "utcTimeIso": "2025-06-30T17:20:00Z",
+                    "station": {
+                      "name": "伦敦希思罗机场",
+                      "code": "LHR",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "伦敦"
+                      },
+                      "country": {
+                        "code": "GB",
+                        "name": "英国"
+                      }
+                    }
+                  },
+                  "destination": {
+                    "localTime": "2025-07-01T01:20:00",
+                    "utcTimeIso": "2025-06-30T22:20:00Z",
+                    "station": {
+                      "name": "开罗国际机场",
+                      "code": "CAI",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "开罗"
+                      },
+                      "country": {
+                        "code": "EG",
+                        "name": "埃及"
+                      }
+                    }
+                  },
+                  "hiddenDestination": null,
+                  "duration": 18000,
+                  "type": "FLIGHT",
+                  "code": "400",
+                  "carrier": {
+                    "name": "British Airways",
+                    "code": "BA"
+                  },
+                  "operatingCarrier": {
+                    "name": "British Airways",
+                    "code": "BA"
+                  },
+                  "cabinClass": "BUSINESS"
+                },
+                "layover": null
+              },
+              {
+                "guarantee": "KIWI_COM",
+                "segment": {
+                  "id": "Segment:d1b69279d3eff06b3aa0589907d60b9355a94144",
+                  "source": {
+                    "localTime": "2025-07-01T14:30:00",
+                    "utcTimeIso": "2025-07-01T11:30:00Z",
+                    "station": {
+                      "name": "开罗国际机场",
+                      "code": "CAI",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "开罗"
+                      },
+                      "country": {
+                        "code": "EG",
+                        "name": "埃及"
+                      }
+                    }
+                  },
+                  "destination": {
+                    "localTime": "2025-07-02T06:00:00",
+                    "utcTimeIso": "2025-07-01T22:00:00Z",
+                    "station": {
+                      "name": "上海浦东国际机场",
+                      "code": "PVG",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "上海市"
+                      },
+                      "country": {
+                        "code": "CN",
+                        "name": "中国"
+                      }
+                    }
+                  },
+                  "hiddenDestination": null,
+                  "duration": 37800,
+                  "type": "FLIGHT",
+                  "code": "224",
+                  "carrier": {
+                    "name": "China Eastern Airlines",
+                    "code": "MU"
+                  },
+                  "operatingCarrier": {
+                    "name": "China Eastern Airlines",
+                    "code": "MU"
+                  },
+                  "cabinClass": "BUSINESS"
+                },
+                "layover": {
+                  "duration": 47400,
+                  "isBaggageRecheck": true
+                }
+              }
+            ]
+          },
+          "lastAvailable": {
+            "seatsLeft": 9
+          }
+        },
+        {
+          "__typename": "ItineraryOneWay",
+          "id": "ItineraryOneWay:eyJwcm92aWRlcnMiOiJLSVdJLUJBU0lDOktJV0kiLCJyb3V0ZV9kYXRhIjoiQkE6ODcwOkxIUjoxNzUxMzE2MzAwOkJVRDoxNzUxMzI1MzAwOmJ1c2luZXNzOkZhbHNlOjo6fE1VOjg2NDA6QlVEOjE3NTEzNjU4MDA6UFZHOjE3NTE0MDU3MDA6YnVzaW5lc3M6VHJ1ZTpYSVk6VHJ1ZToiLCJwcmljZSI6IjE2MjMxIn0=",
+          "shareId": "eyJyIjoiQkE6ODcwOkxIUjoxNzUxMzE2MzAwOkJVRDoxNzUxMzI1MzAwOmJ1c2luZXNzOkZhbHNlOjo6fE1VOjg2NDA6QlVEOjE3NTEzNjU4MDA6UFZHOjE3NTE0MDU3MDA6YnVzaW5lc3M6VHJ1ZTpYSVk6VHJ1ZToiLCJpIjpbIjBmNjQwYjc3NGYyZDAwMDBkNDVlZWM0YV8wfDBiNzcyMTQ2NGYyZTAwMDA0OGM5MzE5MV8wIl0sInRoYyI6MSwidGF0IjowLCJ2aSI6MSwidCI6Ik9XIn0=",
+          "price": {
+            "amount": "16231",
+            "priceBeforeDiscount": "16231"
+          },
+          "priceEur": {
+            "amount": "1961.574364"
+          },
+          "provider": {
+            "name": "Kiwi.com",
+            "code": "KIWI-BASIC",
+            "hasHighProbabilityOfPriceChange": false
+          },
+          "bagsInfo": {
+            "includedCheckedBags": 0,
+            "includedHandBags": 0,
+            "hasNoBaggageSupported": true,
+            "hasNoCheckedBaggage": false,
+            "includedPersonalItem": 1
+          },
+          "bookingOptions": {
+            "edges": [
+              {
+                "node": {
+                  "token": "HDdLzvrViOapXV2sDKaCx1bAXIouPJ_cUMH1IRdGz_TUmGIEnePefMyjR_IxNrph8b6cmHNwglpPGhCqvI7YhWmMApPXsIpoFr_L5mdYccpP7g-gq770cM_y6loeKOj7-LTil61gOptzaqgRKzCP4sMBw1KjsEFct2_q_--ZiVfk8jl894lwKj8q0RAq5_E4s5SoMFq05Y6AwNFcB-hyn5plBWWRjppyFRdY2dGy9xaAXrMUXr7EpXjU8dizNXlJWm83EIDLYhUa9Im5EZ-0NMEQ0tX_mKah4TBCJDJTcpvtfypXf1NPsNDDZdNC9BwtarH8nxzQpaWQV9iB-huYmnX5ZuohnvtusZuXKrKZS7DgxP0FdcVtGZMeRJCON65PR6cKiSYDuj70SgIvjJ0yYn8FCqGH7jaC6h75GXQ7LLxqcY7F6F4n1UH7k7MHthLGSixxsf8XPPFAYaIzVWRmmXBC-EsuRH17zC1XzjAOxQO6TQp2eMQFwdfvQewN4rSSof1xcz990Ym3e5YImESPX78pNkgBZ4764JmbqfJJ3MEYFKcEDXH2ZlJzwpe5XhiTt2a39FxzhKQrDNTptYVewsZA-wMcdYHC4LpTJWXQ1tPQikpAULGRe9HVOURDPLTVtd2gka4zbe_YGF7LBmlYuLZ8KLIzjGQbTIOAPJw8H0Xb6QT9EJhPlybi0Ko5OfeluFkppYYWQEbjp-NMiST5cKvvoVfWAx1UeHfZpG7ybClz78HbJCCByxhU-MVB8NEyji5EDECmES5ksV8iGz32PR0drLvIBWzFaxFz9lxm4cgKv97zV1Ix6ausic1IwfRt_K4BqCzQQQc9H81djvPdT1UN3LatyW2BHfVLyd33F9O1jzW-RkE9lQxwOLYHCb1pOmuj9WdI1kfyVXJoWlly9XJyoMVhtHUy54NuIo8F1y_1zqrTZtSmkbaLD9q4KtPjq4Rdvp2MPIogY1roJsnD_sOBejuz7eIFit_jGtSssRtPUKqnJXBO97WsQl8qyzEcdLy91jbSTlb4gh4D8aWtU_5dTWUnC3Yd03o_2r8gbbhWUK49Pch9peeFhiVke_-J8OiGhoIy_NYVgVexasZxPHmEbefFWus_AluFLoMhe1ro=",
+                  "bookingUrl": "/cn/booking/?direct=true&locale=cn&currency=cny&passengers=1-0-0&token=HDdLzvrViOapXV2sDKaCx1bAXIouPJ_cUMH1IRdGz_TUmGIEnePefMyjR_IxNrph8b6cmHNwglpPGhCqvI7YhWmMApPXsIpoFr_L5mdYccpP7g-gq770cM_y6loeKOj7-LTil61gOptzaqgRKzCP4sMBw1KjsEFct2_q_--ZiVfk8jl894lwKj8q0RAq5_E4s5SoMFq05Y6AwNFcB-hyn5plBWWRjppyFRdY2dGy9xaAXrMUXr7EpXjU8dizNXlJWm83EIDLYhUa9Im5EZ-0NMEQ0tX_mKah4TBCJDJTcpvtfypXf1NPsNDDZdNC9BwtarH8nxzQpaWQV9iB-huYmnX5ZuohnvtusZuXKrKZS7DgxP0FdcVtGZMeRJCON65PR6cKiSYDuj70SgIvjJ0yYn8FCqGH7jaC6h75GXQ7LLxqcY7F6F4n1UH7k7MHthLGSixxsf8XPPFAYaIzVWRmmXBC-EsuRH17zC1XzjAOxQO6TQp2eMQFwdfvQewN4rSSof1xcz990Ym3e5YImESPX78pNkgBZ4764JmbqfJJ3MEYFKcEDXH2ZlJzwpe5XhiTt2a39FxzhKQrDNTptYVewsZA-wMcdYHC4LpTJWXQ1tPQikpAULGRe9HVOURDPLTVtd2gka4zbe_YGF7LBmlYuLZ8KLIzjGQbTIOAPJw8H0Xb6QT9EJhPlybi0Ko5OfeluFkppYYWQEbjp-NMiST5cKvvoVfWAx1UeHfZpG7ybClz78HbJCCByxhU-MVB8NEyji5EDECmES5ksV8iGz32PR0drLvIBWzFaxFz9lxm4cgKv97zV1Ix6ausic1IwfRt_K4BqCzQQQc9H81djvPdT1UN3LatyW2BHfVLyd33F9O1jzW-RkE9lQxwOLYHCb1pOmuj9WdI1kfyVXJoWlly9XJyoMVhtHUy54NuIo8F1y_1zqrTZtSmkbaLD9q4KtPjq4Rdvp2MPIogY1roJsnD_sOBejuz7eIFit_jGtSssRtPUKqnJXBO97WsQl8qyzEcdLy91jbSTlb4gh4D8aWtU_5dTWUnC3Yd03o_2r8gbbhWUK49Pch9peeFhiVke_-J8OiGhoIy_NYVgVexasZxPHmEbefFWus_AluFLoMhe1ro%3D&searchType=oneWay&searchBags=0.0",
+                  "price": {
+                    "amount": "16231"
+                  },
+                  "priceEur": {
+                    "amount": "1961.57"
+                  },
+                  "itineraryProvider": {
+                    "code": "KIWI-BASIC",
+                    "name": "Kiwi.com",
+                    "hasHighProbabilityOfPriceChange": false
+                  }
+                }
+              },
+              {
+                "node": {
+                  "token": "HkDnsk1g_YpsjUKOkTz3TCGppI3L6TJsX5yWroQi8E63d-WrmoKLC-5ef359QI1Sejpi-wzbeFOJwCJQtDfeeNfJI6QwORQh9rDvcjG4l_yEGPpiJ-fbf-1evyij_kbFzd1Y9hZM77gydRyM2ZWq1fBGVFHGrC6nfL70HpoErKkwVz6mV241S6R6bCs37D78Tjls-ASzV_6Hm1DvdmFoYYynsuqbt8T8bzS7MBMmb9C43UEi456ROuVfiQplOenfvfCWzNs8TZ8rlzb3xtCzkJJsqGDudCbWJ69Ea1aNU8SlYHX_b20ens6lvhHPXUsHiFer_h3TYUc9PNEMF8b3Wx_jLW65ObciVC2E3OsaIajrxBTeQqpzaEx0LRzzlHH0ZNKpEEu_do8S9_8A0a0yimAHjV-CPwEaZfvNBq39xAzcPUyyZQDZLi8AwRYEiVdUK_W9wDEwpb_Q7zc4bL78ok9gXd7GT44Q5UByqG4yWX26usHGUzxXmiS-FgckTqwI6JOF5VeKaB0n6ZHh6Z_AW6KDuxnPuBwhKNMpaxej2Bz2VZrrkiwGjbm3VLjs_8oMpVQkXU9J69YiiQ69OxAt2URnBmnj4CNbcxSHb1qhIyEHVnYhqm4kG96iNPsiRwkkfbT5h_3D3pQWJyXxXuK5bKaEsAF5J7vq-D31bf0CfMYP-lg1j8bjiNUEn59vq_Zx2AQHWp6MlUYafauXJLO7IVRqoFPY5HXpE7wy1IVej_fYBc9YoK9CsfgNS3gvfgLksi61X51pzP7MEBe-X5cFq7UWlbpPfYlQLRg6STX7wAX4He77LJMPppYu3fD-t8cO1RUzl9oijDY5Th23k7JEpPApexvyQK3IbtgygUIWj2SNOPYB4FDMlRECjg7n8C7VWQaHWHdFzscX0Sux4OKmRYLArWc1HdBZmYQ8LyZ7DR5Ia4w0mtk0AzrNcohq5rOsT9thz39D38umnzi5KE-nk84j0znrWjyZHIPYQQ9h5K4PPqh5Duw_jBoditgkGCCXL8GMbix-l-XRzoymxfhGbMGGLqtt2JTIJGL4JdbbieujbEFOX7ipal9A0drVsgzZleypH7E6sK7j_5CkglX1rzr4fUbIt72HYdukxUEKQIQFgiOCgz7gtkZHN9kxvkb5yjc6YMIJF3qiNh2kx7EJOMw==",
+                  "bookingUrl": "/cn/booking/?direct=true&locale=cn&currency=cny&passengers=1-0-0&token=HkDnsk1g_YpsjUKOkTz3TCGppI3L6TJsX5yWroQi8E63d-WrmoKLC-5ef359QI1Sejpi-wzbeFOJwCJQtDfeeNfJI6QwORQh9rDvcjG4l_yEGPpiJ-fbf-1evyij_kbFzd1Y9hZM77gydRyM2ZWq1fBGVFHGrC6nfL70HpoErKkwVz6mV241S6R6bCs37D78Tjls-ASzV_6Hm1DvdmFoYYynsuqbt8T8bzS7MBMmb9C43UEi456ROuVfiQplOenfvfCWzNs8TZ8rlzb3xtCzkJJsqGDudCbWJ69Ea1aNU8SlYHX_b20ens6lvhHPXUsHiFer_h3TYUc9PNEMF8b3Wx_jLW65ObciVC2E3OsaIajrxBTeQqpzaEx0LRzzlHH0ZNKpEEu_do8S9_8A0a0yimAHjV-CPwEaZfvNBq39xAzcPUyyZQDZLi8AwRYEiVdUK_W9wDEwpb_Q7zc4bL78ok9gXd7GT44Q5UByqG4yWX26usHGUzxXmiS-FgckTqwI6JOF5VeKaB0n6ZHh6Z_AW6KDuxnPuBwhKNMpaxej2Bz2VZrrkiwGjbm3VLjs_8oMpVQkXU9J69YiiQ69OxAt2URnBmnj4CNbcxSHb1qhIyEHVnYhqm4kG96iNPsiRwkkfbT5h_3D3pQWJyXxXuK5bKaEsAF5J7vq-D31bf0CfMYP-lg1j8bjiNUEn59vq_Zx2AQHWp6MlUYafauXJLO7IVRqoFPY5HXpE7wy1IVej_fYBc9YoK9CsfgNS3gvfgLksi61X51pzP7MEBe-X5cFq7UWlbpPfYlQLRg6STX7wAX4He77LJMPppYu3fD-t8cO1RUzl9oijDY5Th23k7JEpPApexvyQK3IbtgygUIWj2SNOPYB4FDMlRECjg7n8C7VWQaHWHdFzscX0Sux4OKmRYLArWc1HdBZmYQ8LyZ7DR5Ia4w0mtk0AzrNcohq5rOsT9thz39D38umnzi5KE-nk84j0znrWjyZHIPYQQ9h5K4PPqh5Duw_jBoditgkGCCXL8GMbix-l-XRzoymxfhGbMGGLqtt2JTIJGL4JdbbieujbEFOX7ipal9A0drVsgzZleypH7E6sK7j_5CkglX1rzr4fUbIt72HYdukxUEKQIQFgiOCgz7gtkZHN9kxvkb5yjc6YMIJF3qiNh2kx7EJOMw%3D%3D&searchType=oneWay&searchBags=0.0",
+                  "price": {
+                    "amount": "16919"
+                  },
+                  "priceEur": {
+                    "amount": "2044.72"
+                  },
+                  "itineraryProvider": {
+                    "code": "KIWI",
+                    "name": "Kiwi.com",
+                    "hasHighProbabilityOfPriceChange": false
+                  }
+                }
+              }
+            ]
+          },
+          "travelHack": {
+            "isTrueHiddenCity": true,
+            "isVirtualInterlining": true,
+            "isThrowawayTicket": false
+          },
+          "duration": 89400,
+          "pnrCount": 2,
+          "sector": {
+            "id": "Sector:b15afd5d8c25d2cf7c7e2697491e257e97fcedf3~0a68427165239417cf4d8d7b62ec93937a83c816|a257ebc4c983e2cfa88b190f9613ddbe97f41021",
+            "duration": 89400,
+            "sectorSegments": [
+              {
+                "guarantee": null,
+                "segment": {
+                  "id": "Segment:0a68427165239417cf4d8d7b62ec93937a83c816",
+                  "source": {
+                    "localTime": "2025-06-30T21:45:00",
+                    "utcTimeIso": "2025-06-30T20:45:00Z",
+                    "station": {
+                      "name": "伦敦希思罗机场",
+                      "code": "LHR",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "伦敦"
+                      },
+                      "country": {
+                        "code": "GB",
+                        "name": "英国"
+                      }
+                    }
+                  },
+                  "destination": {
+                    "localTime": "2025-07-01T01:15:00",
+                    "utcTimeIso": "2025-06-30T23:15:00Z",
+                    "station": {
+                      "name": "布达佩斯李斯特·费伦茨国际机场",
+                      "code": "BUD",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "布达佩斯"
+                      },
+                      "country": {
+                        "code": "HU",
+                        "name": "匈牙利"
+                      }
+                    }
+                  },
+                  "hiddenDestination": null,
+                  "duration": 9000,
+                  "type": "FLIGHT",
+                  "code": "870",
+                  "carrier": {
+                    "name": "British Airways",
+                    "code": "BA"
+                  },
+                  "operatingCarrier": {
+                    "name": "British Airways",
+                    "code": "BA"
+                  },
+                  "cabinClass": "BUSINESS"
+                },
+                "layover": null
+              },
+              {
+                "guarantee": "KIWI_COM",
+                "segment": {
+                  "id": "Segment:a257ebc4c983e2cfa88b190f9613ddbe97f41021",
+                  "source": {
+                    "localTime": "2025-07-01T12:30:00",
+                    "utcTimeIso": "2025-07-01T10:30:00Z",
+                    "station": {
+                      "name": "布达佩斯李斯特·费伦茨国际机场",
+                      "code": "BUD",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "布达佩斯"
+                      },
+                      "country": {
+                        "code": "HU",
+                        "name": "匈牙利"
+                      }
+                    }
+                  },
+                  "destination": {
+                    "localTime": "2025-07-02T05:35:00",
+                    "utcTimeIso": "2025-07-01T21:35:00Z",
+                    "station": {
+                      "name": "上海浦东国际机场",
+                      "code": "PVG",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "上海市"
+                      },
+                      "country": {
+                        "code": "CN",
+                        "name": "中国"
+                      }
+                    }
+                  },
+                  "hiddenDestination": {
+                    "code": "XIY",
+                    "name": "西安咸阳国际机场",
+                    "city": {
+                      "name": "西安市"
+                    },
+                    "country": {
+                      "code": "CN",
+                      "name": "中国"
+                    }
+                  },
+                  "duration": 39900,
+                  "type": "FLIGHT",
+                  "code": "8640",
+                  "carrier": {
+                    "name": "China Eastern Airlines",
+                    "code": "MU"
+                  },
+                  "operatingCarrier": {
+                    "name": "Shanghai Airlines",
+                    "code": "FM"
+                  },
+                  "cabinClass": "BUSINESS"
+                },
+                "layover": {
+                  "duration": 40500,
+                  "isBaggageRecheck": true
+                }
+              }
+            ]
+          },
+          "lastAvailable": {
+            "seatsLeft": 7
+          }
+        },
+        {
+          "__typename": "ItineraryOneWay",
+          "id": "ItineraryOneWay:eyJwcm92aWRlcnMiOiJLSVdJLUJBU0lDOktJV0kiLCJyb3V0ZV9kYXRhIjoiQkE6Mzk2OkxIUjoxNzUxMzAzNDAwOkJSVToxNzUxMzA3OTAwOmJ1c2luZXNzOkZhbHNlOjo6fEhVOjc5MjI6QlJVOjE3NTEzNjQwMDA6UFZHOjE3NTE0MDM2MDA6YnVzaW5lc3M6VHJ1ZTpDU1g6VHJ1ZToiLCJwcmljZSI6IjE2MTE3In0=",
+          "shareId": "eyJyIjoiQkE6Mzk2OkxIUjoxNzUxMzAzNDAwOkJSVToxNzUxMzA3OTAwOmJ1c2luZXNzOkZhbHNlOjo6fEhVOjc5MjI6QlJVOjE3NTEzNjQwMDA6UFZHOjE3NTE0MDM2MDA6YnVzaW5lc3M6VHJ1ZTpDU1g6VHJ1ZToiLCJpIjpbIjBmNjQxZjJiNGYyZDAwMDBmNTBiZjkwN18wfDFmMmIxYmJhNGYyZTAwMDAzNThhMDUzZl8wIl0sInRoYyI6MSwidGF0IjowLCJ2aSI6MSwidCI6Ik9XIn0=",
+          "price": {
+            "amount": "16117",
+            "priceBeforeDiscount": "16117"
+          },
+          "priceEur": {
+            "amount": "1947.797057"
+          },
+          "provider": {
+            "name": "Kiwi.com",
+            "code": "KIWI-BASIC",
+            "hasHighProbabilityOfPriceChange": false
+          },
+          "bagsInfo": {
+            "includedCheckedBags": 0,
+            "includedHandBags": 0,
+            "hasNoBaggageSupported": true,
+            "hasNoCheckedBaggage": false,
+            "includedPersonalItem": 1
+          },
+          "bookingOptions": {
+            "edges": [
+              {
+                "node": {
+                  "token": "Ht9yLcnANVROkBfug3v2uZnBje4ocrBuoEa7xD4smsQaqfd4O8y5HmjciyRStcYy3-R8uRMrUj51UY7uE-BIKSXGcd_OAltOOJwfOiWpnJzjB4KPQZLCioxDgZtt4mawHU45aOF9PM6ZDN0DO9jw7_OIznIrdMW4jp4aPS23N_J8w9DQZResI8hmdwZpdUpq-5-c-LMKJDr4oczsZAiNlNNO7LhGPjtfHLfvDuqwF6bRcM22Zo9Mw6TZohjmVuMy3FJavDQoWOIKHpALFRLaJCqPXrfNdMMvMGaO39qUIub0r8lo4r1F9g17VNcA0Dw_JMxhqb5n1DruvoYEvSV2NOvsg9PDn4KmmMjrLU-zJkxQddpsMaJ0YoLa5rjQRrQ9oY92ZJ3-Mr-B28Om0nndwGoS4E8v03BHxgrNa1zJXQ2zL2-6PxfEW82GS8-X-voZ26dboIzRcP1OCDiNX9DDGzSWkOihNB7VB4Aq_J7X8YddDm1oTocq-MghCDdrZV9EIE6a3CACHBoUviJ7f1yh6XPDjzEAOgjVg7Xc89Oe65zbG07cC20KtEXLu2OpqAI53VfTbUg35ua3BXpDznG8gwZ3OKagWu44CUG4RaCsH1fjRGSYO9ENVH8WfiIsoYTAVsU9QNejUGkM2fJlV-HghSx5lJ9qhO2bzuH2YDC7tvGfOOeDQuD5pirui1cagbdvFPhQX_uqRA0qWppk33QgFTcrLBN0eatilRvjc9HgrMScBu6CRKXSvjHYDMjUdPdGD4qAhZrmqQhqj0kVn9Zq0QVzPmbhO7nTYMaICl24sGwFaJBM0eUBz20e4b_7lhhZs5YwnyR3AMPOTIP21xT2p_ICzb0uHITf2Z6OzmgFMiCyVVrLdukFXV8WdJuhQCpOxJX-IFCP-YUIlg7iCH7OyWw-uuWlWuh_yUD0uFB3q-bXbXIIOvyBbSYf_vzRLXKFFvjct7bFSQyHnxpK5Ea0sb_aiz9d3RXw-syO9kcFMEocOP5Q1SgUUcWFPUghBIzd1uOo1pfyWdxqmyz75WQvxIVF1f2yQaHL_YjVbJePb_328fcTdAX-R-Gnaz9vBvCba1At0viB6-ofqmHYzpMbfl7FiEyYaChvfzLkbYD1wm4k=",
+                  "bookingUrl": "/cn/booking/?direct=true&locale=cn&currency=cny&passengers=1-0-0&token=Ht9yLcnANVROkBfug3v2uZnBje4ocrBuoEa7xD4smsQaqfd4O8y5HmjciyRStcYy3-R8uRMrUj51UY7uE-BIKSXGcd_OAltOOJwfOiWpnJzjB4KPQZLCioxDgZtt4mawHU45aOF9PM6ZDN0DO9jw7_OIznIrdMW4jp4aPS23N_J8w9DQZResI8hmdwZpdUpq-5-c-LMKJDr4oczsZAiNlNNO7LhGPjtfHLfvDuqwF6bRcM22Zo9Mw6TZohjmVuMy3FJavDQoWOIKHpALFRLaJCqPXrfNdMMvMGaO39qUIub0r8lo4r1F9g17VNcA0Dw_JMxhqb5n1DruvoYEvSV2NOvsg9PDn4KmmMjrLU-zJkxQddpsMaJ0YoLa5rjQRrQ9oY92ZJ3-Mr-B28Om0nndwGoS4E8v03BHxgrNa1zJXQ2zL2-6PxfEW82GS8-X-voZ26dboIzRcP1OCDiNX9DDGzSWkOihNB7VB4Aq_J7X8YddDm1oTocq-MghCDdrZV9EIE6a3CACHBoUviJ7f1yh6XPDjzEAOgjVg7Xc89Oe65zbG07cC20KtEXLu2OpqAI53VfTbUg35ua3BXpDznG8gwZ3OKagWu44CUG4RaCsH1fjRGSYO9ENVH8WfiIsoYTAVsU9QNejUGkM2fJlV-HghSx5lJ9qhO2bzuH2YDC7tvGfOOeDQuD5pirui1cagbdvFPhQX_uqRA0qWppk33QgFTcrLBN0eatilRvjc9HgrMScBu6CRKXSvjHYDMjUdPdGD4qAhZrmqQhqj0kVn9Zq0QVzPmbhO7nTYMaICl24sGwFaJBM0eUBz20e4b_7lhhZs5YwnyR3AMPOTIP21xT2p_ICzb0uHITf2Z6OzmgFMiCyVVrLdukFXV8WdJuhQCpOxJX-IFCP-YUIlg7iCH7OyWw-uuWlWuh_yUD0uFB3q-bXbXIIOvyBbSYf_vzRLXKFFvjct7bFSQyHnxpK5Ea0sb_aiz9d3RXw-syO9kcFMEocOP5Q1SgUUcWFPUghBIzd1uOo1pfyWdxqmyz75WQvxIVF1f2yQaHL_YjVbJePb_328fcTdAX-R-Gnaz9vBvCba1At0viB6-ofqmHYzpMbfl7FiEyYaChvfzLkbYD1wm4k%3D&searchType=oneWay&searchBags=0.0",
+                  "price": {
+                    "amount": "16117"
+                  },
+                  "priceEur": {
+                    "amount": "1947.8"
+                  },
+                  "itineraryProvider": {
+                    "code": "KIWI-BASIC",
+                    "name": "Kiwi.com",
+                    "hasHighProbabilityOfPriceChange": false
+                  }
+                }
+              },
+              {
+                "node": {
+                  "token": "HBUKkpJ_bFUHmB_dJ14EuY7Ol5-vZGxkTVy_CuOxswzMpOLgFuE1614Trnbuz_jnywPBUOCcleTLlqqm8wiPdGiKWjS1YfrboEo2xk7-FqVvtSU509fQxSAg0JIlcFmncA-03hvJ8YojzNaEQSg9CEz7GwlJ5I7InXskgilfPTzDYiaehOG1qXSmf8pJKWq-4XqaRkyfeSYwxuHU2ofVTj2xX-wBn-Oa4RVQZgfc30J8OAvR_DaQawmRDquHaU3M355gmYXDN8ZK3ketFPdWj2yuVhnkfNcPn37w7rabhjdL6tA7SMOjfgAz9TDfStbRi93bNNPP-Bnq7kYeVO8YDrrziXnubUVvx8GALhvP94rgC0QKIsMgXKMcU3IQlH3kVCmSx5CZP1HxNFmAE_2DtcQbvdg-yjLOGRMNVq5Xc4EwF0aa0lMTWbrSpC3CopxywKAvJ5S6VnmZo1BIgiLjuXSZOcv5gzr0prtOSXvTgF77UZYZCpWluVftv5Wq26NFw4zw7-Cg_gYBAawLjnpefVVj8tdGIwKHCujfBNlAxiX-9UBPQulE4A89t6okkb8Vm3Am79BsR9jCrn9h1YYx9Ao7nQdVnZG1t6WSn0VpjYsZVVbOv6xAQ2HuVtOsO1swbwlsYKxGYN3gq_SbbmvYCQvFjwGemB-ih52EncFELShOw87VZml0zmf5qSPk4V9qjgJQnV8Dzg5uYGtPryGCIL_aNtVBOZw9RFkwmLW5Nu8yU81LDLm2uR3lMR9er-O6FWHCAOx26FTqaAvQQ6Yd5x1XBCXEZPIsBdsJ14d60p2RzzZ2TbixHSGiw2G968l0FmFGO2o2aFAIAWl8PBmFj5TCK1YQLA60xsX0sp7JW7u9vjGacsOiWdzxwVGWclASZ7HVckrmPsEF2efLhVyJvQgrlXWRNkSZr9lvkiAstKAdolIHaPT0J-djJfG1lSaOZltfzgZmD4RZO5LDBstNGx3C4soOjcFLafr5n6WdJwwumipFLtIQ8PooSCpe-ySXQOIlHdy8a59TQ7xZnSQbnhlyRIrJx7rZVni6BWLRBizw9b1l_t8JK7dB3Lqk1YMv92zmjellV74qBxi2i4No_eddcGqNm9Y9X0JzMIxiGrh2HOgAKbeW5jZmcF7bHv3gtrbSsINtqpM1TnImD1bPiU5Ff66zeFSb3zkgVMCbQakH--okxXTE9RecbI3v3A3_cFnTLWmCFrtH_jjmVG2neh7mOD3pFUIMDzZef9TmM9Sc=",
+                  "bookingUrl": "/cn/booking/?direct=true&locale=cn&currency=cny&passengers=1-0-0&token=HBUKkpJ_bFUHmB_dJ14EuY7Ol5-vZGxkTVy_CuOxswzMpOLgFuE1614Trnbuz_jnywPBUOCcleTLlqqm8wiPdGiKWjS1YfrboEo2xk7-FqVvtSU509fQxSAg0JIlcFmncA-03hvJ8YojzNaEQSg9CEz7GwlJ5I7InXskgilfPTzDYiaehOG1qXSmf8pJKWq-4XqaRkyfeSYwxuHU2ofVTj2xX-wBn-Oa4RVQZgfc30J8OAvR_DaQawmRDquHaU3M355gmYXDN8ZK3ketFPdWj2yuVhnkfNcPn37w7rabhjdL6tA7SMOjfgAz9TDfStbRi93bNNPP-Bnq7kYeVO8YDrrziXnubUVvx8GALhvP94rgC0QKIsMgXKMcU3IQlH3kVCmSx5CZP1HxNFmAE_2DtcQbvdg-yjLOGRMNVq5Xc4EwF0aa0lMTWbrSpC3CopxywKAvJ5S6VnmZo1BIgiLjuXSZOcv5gzr0prtOSXvTgF77UZYZCpWluVftv5Wq26NFw4zw7-Cg_gYBAawLjnpefVVj8tdGIwKHCujfBNlAxiX-9UBPQulE4A89t6okkb8Vm3Am79BsR9jCrn9h1YYx9Ao7nQdVnZG1t6WSn0VpjYsZVVbOv6xAQ2HuVtOsO1swbwlsYKxGYN3gq_SbbmvYCQvFjwGemB-ih52EncFELShOw87VZml0zmf5qSPk4V9qjgJQnV8Dzg5uYGtPryGCIL_aNtVBOZw9RFkwmLW5Nu8yU81LDLm2uR3lMR9er-O6FWHCAOx26FTqaAvQQ6Yd5x1XBCXEZPIsBdsJ14d60p2RzzZ2TbixHSGiw2G968l0FmFGO2o2aFAIAWl8PBmFj5TCK1YQLA60xsX0sp7JW7u9vjGacsOiWdzxwVGWclASZ7HVckrmPsEF2efLhVyJvQgrlXWRNkSZr9lvkiAstKAdolIHaPT0J-djJfG1lSaOZltfzgZmD4RZO5LDBstNGx3C4soOjcFLafr5n6WdJwwumipFLtIQ8PooSCpe-ySXQOIlHdy8a59TQ7xZnSQbnhlyRIrJx7rZVni6BWLRBizw9b1l_t8JK7dB3Lqk1YMv92zmjellV74qBxi2i4No_eddcGqNm9Y9X0JzMIxiGrh2HOgAKbeW5jZmcF7bHv3gtrbSsINtqpM1TnImD1bPiU5Ff66zeFSb3zkgVMCbQakH--okxXTE9RecbI3v3A3_cFnTLWmCFrtH_jjmVG2neh7mOD3pFUIMDzZef9TmM9Sc%3D&searchType=oneWay&searchBags=0.0",
+                  "price": {
+                    "amount": "16809"
+                  },
+                  "priceEur": {
+                    "amount": "2031.43"
+                  },
+                  "itineraryProvider": {
+                    "code": "KIWI",
+                    "name": "Kiwi.com",
+                    "hasHighProbabilityOfPriceChange": false
+                  }
+                }
+              }
+            ]
+          },
+          "travelHack": {
+            "isTrueHiddenCity": true,
+            "isVirtualInterlining": true,
+            "isThrowawayTicket": false
+          },
+          "duration": 100200,
+          "pnrCount": 2,
+          "sector": {
+            "id": "Sector:8c0586771ebaeafb094f64f8b7330f46e5c7f5bc~cb78a49ad44a6cf1c35c89cebf28a90bf6761d1f|d41b686560909abf6fae89bdee46b85ce1d9965c",
+            "duration": 100200,
+            "sectorSegments": [
+              {
+                "guarantee": null,
+                "segment": {
+                  "id": "Segment:cb78a49ad44a6cf1c35c89cebf28a90bf6761d1f",
+                  "source": {
+                    "localTime": "2025-06-30T18:10:00",
+                    "utcTimeIso": "2025-06-30T17:10:00Z",
+                    "station": {
+                      "name": "伦敦希思罗机场",
+                      "code": "LHR",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "伦敦"
+                      },
+                      "country": {
+                        "code": "GB",
+                        "name": "英国"
+                      }
+                    }
+                  },
+                  "destination": {
+                    "localTime": "2025-06-30T20:25:00",
+                    "utcTimeIso": "2025-06-30T18:25:00Z",
+                    "station": {
+                      "name": "布鲁塞尔机场",
+                      "code": "BRU",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "布鲁塞尔"
+                      },
+                      "country": {
+                        "code": "BE",
+                        "name": "比利时"
+                      }
+                    }
+                  },
+                  "hiddenDestination": null,
+                  "duration": 4500,
+                  "type": "FLIGHT",
+                  "code": "396",
+                  "carrier": {
+                    "name": "British Airways",
+                    "code": "BA"
+                  },
+                  "operatingCarrier": {
+                    "name": "British Airways",
+                    "code": "BA"
+                  },
+                  "cabinClass": "BUSINESS"
+                },
+                "layover": null
+              },
+              {
+                "guarantee": "KIWI_COM",
+                "segment": {
+                  "id": "Segment:d41b686560909abf6fae89bdee46b85ce1d9965c",
+                  "source": {
+                    "localTime": "2025-07-01T12:00:00",
+                    "utcTimeIso": "2025-07-01T10:00:00Z",
+                    "station": {
+                      "name": "布鲁塞尔机场",
+                      "code": "BRU",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "布鲁塞尔"
+                      },
+                      "country": {
+                        "code": "BE",
+                        "name": "比利时"
+                      }
+                    }
+                  },
+                  "destination": {
+                    "localTime": "2025-07-02T05:00:00",
+                    "utcTimeIso": "2025-07-01T21:00:00Z",
+                    "station": {
+                      "name": "上海浦东国际机场",
+                      "code": "PVG",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "上海市"
+                      },
+                      "country": {
+                        "code": "CN",
+                        "name": "中国"
+                      }
+                    }
+                  },
+                  "hiddenDestination": {
+                    "code": "CSX",
+                    "name": "长沙黄花国际机场",
+                    "city": {
+                      "name": "长沙市"
+                    },
+                    "country": {
+                      "code": "CN",
+                      "name": "中国"
+                    }
+                  },
+                  "duration": 39600,
+                  "type": "FLIGHT",
+                  "code": "7922",
+                  "carrier": {
+                    "name": "Hainan Airlines",
+                    "code": "HU"
+                  },
+                  "operatingCarrier": {
+                    "name": "Hainan Airlines",
+                    "code": "HU"
+                  },
+                  "cabinClass": "BUSINESS"
+                },
+                "layover": {
+                  "duration": 56100,
+                  "isBaggageRecheck": true
+                }
+              }
+            ]
+          },
+          "lastAvailable": {
+            "seatsLeft": 3
+          }
+        },
+        {
+          "__typename": "ItineraryOneWay",
+          "id": "ItineraryOneWay:eyJwcm92aWRlcnMiOiJLSVdJLUJBU0lDOktJV0kiLCJyb3V0ZV9kYXRhIjoiQkE6ODY4OkxIUjoxNzUxMjczNDAwOkJVRDoxNzUxMjgyNDAwOmJ1c2luZXNzOkZhbHNlOjo6fE1VOjg2NDA6QlVEOjE3NTEzNjU4MDA6UFZHOjE3NTE0MDU3MDA6YnVzaW5lc3M6VHJ1ZTpYSVk6VHJ1ZToiLCJwcmljZSI6IjE1NjczIn0=",
+          "shareId": "eyJyIjoiQkE6ODY4OkxIUjoxNzUxMjczNDAwOkJVRDoxNzUxMjgyNDAwOmJ1c2luZXNzOkZhbHNlOjo6fE1VOjg2NDA6QlVEOjE3NTEzNjU4MDA6UFZHOjE3NTE0MDU3MDA6YnVzaW5lc3M6VHJ1ZTpYSVk6VHJ1ZToiLCJpIjpbIjBmNjQwYjc3NGYyZDAwMDBjMzllNTUzOV8wfDBiNzcyMTQ2NGYyZTAwMDA0OGM5MzE5MV8wIl0sInRoYyI6MSwidGF0IjowLCJ2aSI6MSwidCI6Ik9XIn0=",
+          "price": {
+            "amount": "15673",
+            "priceBeforeDiscount": "15673"
+          },
+          "priceEur": {
+            "amount": "1894.13807"
+          },
+          "provider": {
+            "name": "Kiwi.com",
+            "code": "KIWI-BASIC",
+            "hasHighProbabilityOfPriceChange": false
+          },
+          "bagsInfo": {
+            "includedCheckedBags": 0,
+            "includedHandBags": 0,
+            "hasNoBaggageSupported": true,
+            "hasNoCheckedBaggage": false,
+            "includedPersonalItem": 1
+          },
+          "bookingOptions": {
+            "edges": [
+              {
+                "node": {
+                  "token": "HRUTff_1qvDZvTtF7_xsxPrzqkDRfTZV4ggmKfF6IQxmrdeJMOCCpQUYVE9KMNOKV9qTfnclj_UxWqzAdTCDgVEGCX_KYIQL_tySyBfHFlE_ToF4ZnBT6L5XmDPh6m3hj77dsiLrGvlOo44DJoOrlY9lmy1iJfwogdQ7IEJv3txt0ugHMRb8ZHbO-E9A8p3WrI8y0JRswTZNlrytLUdvbkrQuv_VHBf7pGMR-u84whWK19iqjrNDhULoCsp0tf9GYAUnfxcvUuns4-ABV_YJXxBZO4dVfwxvgxlds7zB5Ewy2NVBX82Osrd6P2e5PnDRP92tQSVw4g_WKw6NKLSAgXjRsS1r8JR-Wf7mzvxgRGxy_Wt7wyOsb1J60CvBaTzsIWgCLMf3157_RBq_VN8DzBjJCV4FGEL8sgvflGu5iRNvciX2hOWoZOAzVp6fo158UEPg23ofV_EUOJmpoufgdfd6jUwraV5C_vBkWtvfdd7YjTsjUkM72f-LA-kpCq3rF0hAGB-5-HuppNgIlx6EylfohjncnmVHgHLPsFuULDUhd35tRWkApbNKkXpCXbxugibgFJTdG-IkR7XCVvtpbF3XvFlCsW7hMYtN-u_A_aMQAKroXgK4M1BylGl-Wesh6oBKVHyPDxPVpOegnjjCDoABLsCRf0W5ipeVT9Q40nXPtUhaHMpJHcz_pNzd4-SHHsjoMUKtLD0NVVxoEaJ2P5zX54ORqSeYujqktqQImFvJjbzJSN6ycUKq0ldTnL3Fd5uZeyEYZXz3dvlh6P7fuHpFdnZnSifvZPzYBf3_iyTmqrkC9XYibioVh4y1FiE1fvTy6jEitrw5tL2qzat3NuMi4trW_oHnih5ecpWhHecTuLBfeJxVFZ9X7ZSUBN2nCnpGz-LJdsiHkWrOgnICsaFqxQcl4JDi5j99aUz-OyEq2R8tMd3csOhaHNlSrSPtn8Fv7x9iNmn8iww15VIqtqcIKVoLgi6HAwJdPEGnePJ3KgAvFzuIGKeo2wb934jRXFMlMNQ4q9YEkg_fBlu0nVmTWYETlIjcE-2byFA2yIZC53CVZ46BWrVWjEYzduSk5ZTSiJTEcGJ7vOPxqcl2Zng==",
+                  "bookingUrl": "/cn/booking/?direct=true&locale=cn&currency=cny&passengers=1-0-0&token=HRUTff_1qvDZvTtF7_xsxPrzqkDRfTZV4ggmKfF6IQxmrdeJMOCCpQUYVE9KMNOKV9qTfnclj_UxWqzAdTCDgVEGCX_KYIQL_tySyBfHFlE_ToF4ZnBT6L5XmDPh6m3hj77dsiLrGvlOo44DJoOrlY9lmy1iJfwogdQ7IEJv3txt0ugHMRb8ZHbO-E9A8p3WrI8y0JRswTZNlrytLUdvbkrQuv_VHBf7pGMR-u84whWK19iqjrNDhULoCsp0tf9GYAUnfxcvUuns4-ABV_YJXxBZO4dVfwxvgxlds7zB5Ewy2NVBX82Osrd6P2e5PnDRP92tQSVw4g_WKw6NKLSAgXjRsS1r8JR-Wf7mzvxgRGxy_Wt7wyOsb1J60CvBaTzsIWgCLMf3157_RBq_VN8DzBjJCV4FGEL8sgvflGu5iRNvciX2hOWoZOAzVp6fo158UEPg23ofV_EUOJmpoufgdfd6jUwraV5C_vBkWtvfdd7YjTsjUkM72f-LA-kpCq3rF0hAGB-5-HuppNgIlx6EylfohjncnmVHgHLPsFuULDUhd35tRWkApbNKkXpCXbxugibgFJTdG-IkR7XCVvtpbF3XvFlCsW7hMYtN-u_A_aMQAKroXgK4M1BylGl-Wesh6oBKVHyPDxPVpOegnjjCDoABLsCRf0W5ipeVT9Q40nXPtUhaHMpJHcz_pNzd4-SHHsjoMUKtLD0NVVxoEaJ2P5zX54ORqSeYujqktqQImFvJjbzJSN6ycUKq0ldTnL3Fd5uZeyEYZXz3dvlh6P7fuHpFdnZnSifvZPzYBf3_iyTmqrkC9XYibioVh4y1FiE1fvTy6jEitrw5tL2qzat3NuMi4trW_oHnih5ecpWhHecTuLBfeJxVFZ9X7ZSUBN2nCnpGz-LJdsiHkWrOgnICsaFqxQcl4JDi5j99aUz-OyEq2R8tMd3csOhaHNlSrSPtn8Fv7x9iNmn8iww15VIqtqcIKVoLgi6HAwJdPEGnePJ3KgAvFzuIGKeo2wb934jRXFMlMNQ4q9YEkg_fBlu0nVmTWYETlIjcE-2byFA2yIZC53CVZ46BWrVWjEYzduSk5ZTSiJTEcGJ7vOPxqcl2Zng%3D%3D&searchType=oneWay&searchBags=0.0",
+                  "price": {
+                    "amount": "15673"
+                  },
+                  "priceEur": {
+                    "amount": "1894.14"
+                  },
+                  "itineraryProvider": {
+                    "code": "KIWI-BASIC",
+                    "name": "Kiwi.com",
+                    "hasHighProbabilityOfPriceChange": false
+                  }
+                }
+              },
+              {
+                "node": {
+                  "token": "H-soctXi9G0pNkIMDBgaS9gmv0NxHc5GC3rNjKTECqzTR-vsguBLPLsXO7BrxtHvotFLg-m1_S7GgZc4M_qXf_zCJXvbxIMmckregvKMVTZGekwyYu_j0m3HQfckpjd_jQQCMrUxg3IdIAnZK8f64rYOxhYmvLCWmxqGwYx9-iJEFRJmz7f9WraqUIzDbfLEszbBxuHCXvHBkFCKmWSGWfAkVVs8EJkRthOkWOS_ZXcVbHp2e3mDASWUtLb6F0L_mSvc6bIPUNhnb2z9vze5J5djh84ZVxHEJDfUxCwkaVQNJa7wi3JE54r7lvF9NQ7oVd89v3Wz87uqG97dVMfdRjSOTMpSa8ry9flF0degb1I7JbP-2aVcW_HLs9vpwOe3holiyzFmqR7wKTUza0AzwV4h9G60cUdmH-pnP8GcDbCrj7UE9HpEcboqmdfqP5gLgV0mkh8rE9VEKa6V_lD5p6UeESQiicPksU4W-sV_V6lOdZ6sw8-Isse_ZgAoc2d4kx7PyVN0VTUD6ePgYH6o0FhmbN1jrpGcdD1i0mtqpeRKGbrA21-pe2z6BZ1MnwMMR2-odJ9kvmJ-Gtn_TArQDdimfanC1DjKFfRK_0rRlLRlh7Lv-M46TGwiPVTkSCa9KAa_LLcQtdpRey58fMCIArDFNPfQ1Flr3MVzdacrlWwhsc3pYQqoJShKk1_mhghRgluC18aNEslmIHgj6In-qSojHEyidRjkI4vbciqTdCIUaKkxaMnGFEHVcpw3cMalCi4PrKAi0CDZZfOlvyxPdfTxKGjqAdi9Aw7a7n9tKsXh9vALj2HKA5nTrEFSu1Wjuaa5RqZoq1iTdSuvStlw41JTnCXWIyQqeuyQYblS4O4hbn4lLGYtz3RIHhtxnyLvkOLZWGltZQTaBhZC2AHQw00Ppk7wu3nAvBFZCT--kjFBEedi5jJpf5APiXuRgWnYoT6hik_X3TXn2Go7ou98m_GqbZcXI8aCTRC_jDnAlNfwdDNkn5zMmdCthchVttl2u5og-RjSQW4nKpufwFnsPbdS9e7TJwwDTBm4J_xFT9g8OWAIwAifrGFsyEa5-M-kPdDPYnO1MwyAHzjJrll5suw3mIlC0zdcJjoiI1e763eZmUNpKBHj6hKVJzFvl1VTIvnA8Yypy4s44IFVOx9-EZ_ny00qdwZJU8pkkrkyPwTM=",
+                  "bookingUrl": "/cn/booking/?direct=true&locale=cn&currency=cny&passengers=1-0-0&token=H-soctXi9G0pNkIMDBgaS9gmv0NxHc5GC3rNjKTECqzTR-vsguBLPLsXO7BrxtHvotFLg-m1_S7GgZc4M_qXf_zCJXvbxIMmckregvKMVTZGekwyYu_j0m3HQfckpjd_jQQCMrUxg3IdIAnZK8f64rYOxhYmvLCWmxqGwYx9-iJEFRJmz7f9WraqUIzDbfLEszbBxuHCXvHBkFCKmWSGWfAkVVs8EJkRthOkWOS_ZXcVbHp2e3mDASWUtLb6F0L_mSvc6bIPUNhnb2z9vze5J5djh84ZVxHEJDfUxCwkaVQNJa7wi3JE54r7lvF9NQ7oVd89v3Wz87uqG97dVMfdRjSOTMpSa8ry9flF0degb1I7JbP-2aVcW_HLs9vpwOe3holiyzFmqR7wKTUza0AzwV4h9G60cUdmH-pnP8GcDbCrj7UE9HpEcboqmdfqP5gLgV0mkh8rE9VEKa6V_lD5p6UeESQiicPksU4W-sV_V6lOdZ6sw8-Isse_ZgAoc2d4kx7PyVN0VTUD6ePgYH6o0FhmbN1jrpGcdD1i0mtqpeRKGbrA21-pe2z6BZ1MnwMMR2-odJ9kvmJ-Gtn_TArQDdimfanC1DjKFfRK_0rRlLRlh7Lv-M46TGwiPVTkSCa9KAa_LLcQtdpRey58fMCIArDFNPfQ1Flr3MVzdacrlWwhsc3pYQqoJShKk1_mhghRgluC18aNEslmIHgj6In-qSojHEyidRjkI4vbciqTdCIUaKkxaMnGFEHVcpw3cMalCi4PrKAi0CDZZfOlvyxPdfTxKGjqAdi9Aw7a7n9tKsXh9vALj2HKA5nTrEFSu1Wjuaa5RqZoq1iTdSuvStlw41JTnCXWIyQqeuyQYblS4O4hbn4lLGYtz3RIHhtxnyLvkOLZWGltZQTaBhZC2AHQw00Ppk7wu3nAvBFZCT--kjFBEedi5jJpf5APiXuRgWnYoT6hik_X3TXn2Go7ou98m_GqbZcXI8aCTRC_jDnAlNfwdDNkn5zMmdCthchVttl2u5og-RjSQW4nKpufwFnsPbdS9e7TJwwDTBm4J_xFT9g8OWAIwAifrGFsyEa5-M-kPdDPYnO1MwyAHzjJrll5suw3mIlC0zdcJjoiI1e763eZmUNpKBHj6hKVJzFvl1VTIvnA8Yypy4s44IFVOx9-EZ_ny00qdwZJU8pkkrkyPwTM%3D&searchType=oneWay&searchBags=0.0",
+                  "price": {
+                    "amount": "16335"
+                  },
+                  "priceEur": {
+                    "amount": "1974.14"
+                  },
+                  "itineraryProvider": {
+                    "code": "KIWI",
+                    "name": "Kiwi.com",
+                    "hasHighProbabilityOfPriceChange": false
+                  }
+                }
+              }
+            ]
+          },
+          "travelHack": {
+            "isTrueHiddenCity": true,
+            "isVirtualInterlining": true,
+            "isThrowawayTicket": false
+          },
+          "duration": 132300,
+          "pnrCount": 2,
+          "sector": {
+            "id": "Sector:906020ad860bb5e253a7b89e0db17d97fdc48daa~4e41ccd76bb9554160a35c55d10f4b794270d419|a257ebc4c983e2cfa88b190f9613ddbe97f41021",
+            "duration": 132300,
+            "sectorSegments": [
+              {
+                "guarantee": null,
+                "segment": {
+                  "id": "Segment:4e41ccd76bb9554160a35c55d10f4b794270d419",
+                  "source": {
+                    "localTime": "2025-06-30T09:50:00",
+                    "utcTimeIso": "2025-06-30T08:50:00Z",
+                    "station": {
+                      "name": "伦敦希思罗机场",
+                      "code": "LHR",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "伦敦"
+                      },
+                      "country": {
+                        "code": "GB",
+                        "name": "英国"
+                      }
+                    }
+                  },
+                  "destination": {
+                    "localTime": "2025-06-30T13:20:00",
+                    "utcTimeIso": "2025-06-30T11:20:00Z",
+                    "station": {
+                      "name": "布达佩斯李斯特·费伦茨国际机场",
+                      "code": "BUD",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "布达佩斯"
+                      },
+                      "country": {
+                        "code": "HU",
+                        "name": "匈牙利"
+                      }
+                    }
+                  },
+                  "hiddenDestination": null,
+                  "duration": 9000,
+                  "type": "FLIGHT",
+                  "code": "868",
+                  "carrier": {
+                    "name": "British Airways",
+                    "code": "BA"
+                  },
+                  "operatingCarrier": {
+                    "name": "British Airways",
+                    "code": "BA"
+                  },
+                  "cabinClass": "BUSINESS"
+                },
+                "layover": null
+              },
+              {
+                "guarantee": "KIWI_COM",
+                "segment": {
+                  "id": "Segment:a257ebc4c983e2cfa88b190f9613ddbe97f41021",
+                  "source": {
+                    "localTime": "2025-07-01T12:30:00",
+                    "utcTimeIso": "2025-07-01T10:30:00Z",
+                    "station": {
+                      "name": "布达佩斯李斯特·费伦茨国际机场",
+                      "code": "BUD",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "布达佩斯"
+                      },
+                      "country": {
+                        "code": "HU",
+                        "name": "匈牙利"
+                      }
+                    }
+                  },
+                  "destination": {
+                    "localTime": "2025-07-02T05:35:00",
+                    "utcTimeIso": "2025-07-01T21:35:00Z",
+                    "station": {
+                      "name": "上海浦东国际机场",
+                      "code": "PVG",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "上海市"
+                      },
+                      "country": {
+                        "code": "CN",
+                        "name": "中国"
+                      }
+                    }
+                  },
+                  "hiddenDestination": {
+                    "code": "XIY",
+                    "name": "西安咸阳国际机场",
+                    "city": {
+                      "name": "西安市"
+                    },
+                    "country": {
+                      "code": "CN",
+                      "name": "中国"
+                    }
+                  },
+                  "duration": 39900,
+                  "type": "FLIGHT",
+                  "code": "8640",
+                  "carrier": {
+                    "name": "China Eastern Airlines",
+                    "code": "MU"
+                  },
+                  "operatingCarrier": {
+                    "name": "Shanghai Airlines",
+                    "code": "FM"
+                  },
+                  "cabinClass": "BUSINESS"
+                },
+                "layover": {
+                  "duration": 83400,
+                  "isBaggageRecheck": true
+                }
+              }
+            ]
+          },
+          "lastAvailable": {
+            "seatsLeft": 7
+          }
+        },
+        {
+          "__typename": "ItineraryOneWay",
+          "id": "ItineraryOneWay:eyJwcm92aWRlcnMiOiJLSVdJLUJBU0lDOktJV0kiLCJyb3V0ZV9kYXRhIjoiQTM6NjA1OkxIUjoxNzUxMzA2NDAwOkFUSDoxNzUxMzE5MzAwOmJ1c2luZXNzOkZhbHNlOjo6fEEzOjE5MDE6QVRIOjE3NTEzNjc5MDA6UFZHOjE3NTE0MDM5MDA6YnVzaW5lc3M6RmFsc2U6OjoiLCJwcmljZSI6IjE4MzI4In0=",
+          "shareId": "eyJyIjoiQTM6NjA1OkxIUjoxNzUxMzA2NDAwOkFUSDoxNzUxMzE5MzAwOmJ1c2luZXNzOkZhbHNlOjo6fEEzOjE5MDE6QVRIOjE3NTEzNjc5MDA6UFZHOjE3NTE0MDM5MDA6YnVzaW5lc3M6RmFsc2U6OjoiLCJpIjpbIjBmNjQxNzIyNGYyZDAwMDA0Zjc2NTQxM18wfDBmNjQxNzIyNGYyZDAwMDA0Zjc2NTQxM18xIl0sInRoYyI6MCwidGF0IjowLCJ2aSI6MCwidCI6Ik9XIn0=",
+          "price": {
+            "amount": "18328",
+            "priceBeforeDiscount": "18328"
+          },
+          "priceEur": {
+            "amount": "2215.00431"
+          },
+          "provider": {
+            "name": "Kiwi.com",
+            "code": "KIWI-BASIC",
+            "hasHighProbabilityOfPriceChange": false
+          },
+          "bagsInfo": {
+            "includedCheckedBags": 1,
+            "includedHandBags": 1,
+            "hasNoBaggageSupported": false,
+            "hasNoCheckedBaggage": false,
+            "includedPersonalItem": 0
+          },
+          "bookingOptions": {
+            "edges": [
+              {
+                "node": {
+                  "token": "HiiquDh4ZAGBcKOQ_P2mPI7pbHW9jTEycwN9wrgifT6ien4f8A07CkKmP8jqoPwfL9nnfec4NGbDBZAoJ0xDw05LqSgNxakGTx3GUtMmO7EJ4yYaUxBRCTZ89lsK4wcv6qq_n-N2lUxpMIBDtVlaR6_8UI0AbrXSTNr0neLit7ZYOskTTOy8uT7T-kYqOBNeHzGDAR6jo7U-C92wwGPihY_fvfh8TpVQY8i8EAO5KFH4iJiXmAQpxoXeMxFJ23wFLr2HihnQxIeUeVSlHzoAJLdwCs27gMNH62Fn1WcAKuA__y50kciAwcVVj1hYNzfSqvFupg5J8wng_fGRjyGAUIpmsAMjGVbPbA0iAnK5RvlDfs2Zvmk6QALdRpMCC90jly_dv2gzkYUxv2MCc1byV83JKIrLollk6Ra_xH4EqETEM0V0A-vQAxt9OqBe5Nwx0i5MvBVLNW-IP2d8d3aGBGEAV7STAvEILXq5Q_fOfo8ZzxFMsnx9GN349GfCFJT2wucpIs1U2Wcpyhpv3LOPwAQY7sq5j1fnkJ-eCZo0GW4kNN3zrSGuAfp5aBPMx9kyY9lr2HFWRjQNeQAx5sknbD3QJBise_dhCu32MyeYwoR7-_XKrdgAdVC-SzAvMPMpy85YT1GWt9OjnQ0NZe44ftnac1gCoPIIzAgFa6XehRPJ36bSKmZtgD7gwe416IwRleqSSpkJTdCXp5bIjglKAd03E1l2kqr28q38f4aydlMWPU1lDQzkK8xxe2OqY7Cj1jUq0xpd1Vm9EhUubccH5j_De6o5yzLa_kNPtX5wGdJqsjvxGszB7L79MvYLNr3XlXv37gKz7WuOnPkZh2oc2wgjwMpYvLNPmC1LH2l434Hoq8WHvk0rMPbXCL-PGhvKV9c64-t1qblgycVFwQWMBObTmqCXNCLFIYk0KzWBUZsjwV3as4oBrC1roE90CI5LOqoSLhMq7aDHmEkanQBXkJm9UMm6Y2BpGGjE-lquScRU=",
+                  "bookingUrl": "/cn/booking/?direct=true&locale=cn&currency=cny&passengers=1-0-0&token=HiiquDh4ZAGBcKOQ_P2mPI7pbHW9jTEycwN9wrgifT6ien4f8A07CkKmP8jqoPwfL9nnfec4NGbDBZAoJ0xDw05LqSgNxakGTx3GUtMmO7EJ4yYaUxBRCTZ89lsK4wcv6qq_n-N2lUxpMIBDtVlaR6_8UI0AbrXSTNr0neLit7ZYOskTTOy8uT7T-kYqOBNeHzGDAR6jo7U-C92wwGPihY_fvfh8TpVQY8i8EAO5KFH4iJiXmAQpxoXeMxFJ23wFLr2HihnQxIeUeVSlHzoAJLdwCs27gMNH62Fn1WcAKuA__y50kciAwcVVj1hYNzfSqvFupg5J8wng_fGRjyGAUIpmsAMjGVbPbA0iAnK5RvlDfs2Zvmk6QALdRpMCC90jly_dv2gzkYUxv2MCc1byV83JKIrLollk6Ra_xH4EqETEM0V0A-vQAxt9OqBe5Nwx0i5MvBVLNW-IP2d8d3aGBGEAV7STAvEILXq5Q_fOfo8ZzxFMsnx9GN349GfCFJT2wucpIs1U2Wcpyhpv3LOPwAQY7sq5j1fnkJ-eCZo0GW4kNN3zrSGuAfp5aBPMx9kyY9lr2HFWRjQNeQAx5sknbD3QJBise_dhCu32MyeYwoR7-_XKrdgAdVC-SzAvMPMpy85YT1GWt9OjnQ0NZe44ftnac1gCoPIIzAgFa6XehRPJ36bSKmZtgD7gwe416IwRleqSSpkJTdCXp5bIjglKAd03E1l2kqr28q38f4aydlMWPU1lDQzkK8xxe2OqY7Cj1jUq0xpd1Vm9EhUubccH5j_De6o5yzLa_kNPtX5wGdJqsjvxGszB7L79MvYLNr3XlXv37gKz7WuOnPkZh2oc2wgjwMpYvLNPmC1LH2l434Hoq8WHvk0rMPbXCL-PGhvKV9c64-t1qblgycVFwQWMBObTmqCXNCLFIYk0KzWBUZsjwV3as4oBrC1roE90CI5LOqoSLhMq7aDHmEkanQBXkJm9UMm6Y2BpGGjE-lquScRU%3D&searchType=oneWay&searchBags=0.0",
+                  "price": {
+                    "amount": "18328"
+                  },
+                  "priceEur": {
+                    "amount": "2215.0"
+                  },
+                  "itineraryProvider": {
+                    "code": "KIWI-BASIC",
+                    "name": "Kiwi.com",
+                    "hasHighProbabilityOfPriceChange": false
+                  }
+                }
+              },
+              {
+                "node": {
+                  "token": "HXpTijv-Lq4j_e8lanxzrM23lGg78Yb38HrbrcyDlxn-qqNjwEkU9XmDZQRIrBqGXsu9XovO6OLiY9UMZRmaMxjH982E9OHI0D3QXzxN4x7qyqcs6cKS8nWI5TA0URSy0LlP5_JSb35i15yagChaXgkcuVW4oPOnqnkoN8dmyrQlVU5T9ACVtncGS9qEAZhAHN5aFcXyz4V3VFsCzsVDEsW9mwzyjcrSBW57xtZ35sxIQKg2yRuafUISBd08xB2iONXuJvzop697_BLBEX7wsWRex3Hbz_59tYbrp-dZUW3Q2enXRBFyZj1uBW6z-lGcy5ppUB7CeEeO08TaCc4ObJZtHvA3Lqz8n0IJw-T_yrjae-DmNXIjKJcCaZerkdebzcZg4trGvNhhnbz3iL0p7tsUHZeNfrMgE4Rd-GIMovf2qNwRw5EvA5U2Nilw2_qbhLIbA_CsfTg1CC7cTcBZ9WeGwYvPTH0Ttecm5sCgjNT78Kbw4zVTvQnmHWeaTMsWwa2iwbVcCm2v8owwKZVSHMPn9FYawsbFn5iVswe2nwajtZFx4foXMapJoMcptiQy70WX22loUhOZcaQsbZZYrW4iXlxc0uwJ-6KujfzcvU1aOsTSGsY6fF5bNiD1B9mf7URWSAUh97oeV4-zFgiphTkMxFtQDroveyukphqXyCydQReuEIA5-RWeevkchIExHOz6cofRJix-I5Fc7UfVU_Bes_riqx_FjBvhoKcyvoQQbSxx5NVya7Ed7VW57oBSSXGvEFzsl_3rszikiYWe-wl7AYAK_idEpODmJ701x0wYXxZ1op0cd1r_xZsGH9OmkwBUor-xLJ0bFq5HSIbj5qjAg8Jsh6GOiQ_GYPxCAEM3Nvtqiw-o2e5fQ6HaWktq_gRR9UHt8A72EzRgjvunxR6SEbL49_URrwB1KjapQNwrOxeZystAe4PjKtUh3YQ1k3AZWyFE7IEztBVC14vPrkbNBQJiKVSNKYm75qsrz2Ccuz4G-Les4pRNyPUnjJBw2c5kYIcR4dT8yvP3dlAZnvgegVb1zBqLXrA9itaoz9RI=",
+                  "bookingUrl": "/cn/booking/?direct=true&locale=cn&currency=cny&passengers=1-0-0&token=HXpTijv-Lq4j_e8lanxzrM23lGg78Yb38HrbrcyDlxn-qqNjwEkU9XmDZQRIrBqGXsu9XovO6OLiY9UMZRmaMxjH982E9OHI0D3QXzxN4x7qyqcs6cKS8nWI5TA0URSy0LlP5_JSb35i15yagChaXgkcuVW4oPOnqnkoN8dmyrQlVU5T9ACVtncGS9qEAZhAHN5aFcXyz4V3VFsCzsVDEsW9mwzyjcrSBW57xtZ35sxIQKg2yRuafUISBd08xB2iONXuJvzop697_BLBEX7wsWRex3Hbz_59tYbrp-dZUW3Q2enXRBFyZj1uBW6z-lGcy5ppUB7CeEeO08TaCc4ObJZtHvA3Lqz8n0IJw-T_yrjae-DmNXIjKJcCaZerkdebzcZg4trGvNhhnbz3iL0p7tsUHZeNfrMgE4Rd-GIMovf2qNwRw5EvA5U2Nilw2_qbhLIbA_CsfTg1CC7cTcBZ9WeGwYvPTH0Ttecm5sCgjNT78Kbw4zVTvQnmHWeaTMsWwa2iwbVcCm2v8owwKZVSHMPn9FYawsbFn5iVswe2nwajtZFx4foXMapJoMcptiQy70WX22loUhOZcaQsbZZYrW4iXlxc0uwJ-6KujfzcvU1aOsTSGsY6fF5bNiD1B9mf7URWSAUh97oeV4-zFgiphTkMxFtQDroveyukphqXyCydQReuEIA5-RWeevkchIExHOz6cofRJix-I5Fc7UfVU_Bes_riqx_FjBvhoKcyvoQQbSxx5NVya7Ed7VW57oBSSXGvEFzsl_3rszikiYWe-wl7AYAK_idEpODmJ701x0wYXxZ1op0cd1r_xZsGH9OmkwBUor-xLJ0bFq5HSIbj5qjAg8Jsh6GOiQ_GYPxCAEM3Nvtqiw-o2e5fQ6HaWktq_gRR9UHt8A72EzRgjvunxR6SEbL49_URrwB1KjapQNwrOxeZystAe4PjKtUh3YQ1k3AZWyFE7IEztBVC14vPrkbNBQJiKVSNKYm75qsrz2Ccuz4G-Les4pRNyPUnjJBw2c5kYIcR4dT8yvP3dlAZnvgegVb1zBqLXrA9itaoz9RI%3D&searchType=oneWay&searchBags=0.0",
+                  "price": {
+                    "amount": "20234"
+                  },
+                  "priceEur": {
+                    "amount": "2445.35"
+                  },
+                  "itineraryProvider": {
+                    "code": "KIWI",
+                    "name": "Kiwi.com",
+                    "hasHighProbabilityOfPriceChange": false
+                  }
+                }
+              }
+            ]
+          },
+          "travelHack": {
+            "isTrueHiddenCity": false,
+            "isVirtualInterlining": false,
+            "isThrowawayTicket": false
+          },
+          "duration": 97500,
+          "pnrCount": 1,
+          "sector": {
+            "id": "Sector:ad05a974ca16e3621014a7786cdb812dde18ca5a~53f6f7cb34170eab9642bb4c9b40c2668cf4cd4e|0973578203d4a01d95591a391d31f0fa3ef5c2f2",
+            "duration": 97500,
+            "sectorSegments": [
+              {
+                "guarantee": null,
+                "segment": {
+                  "id": "Segment:53f6f7cb34170eab9642bb4c9b40c2668cf4cd4e",
+                  "source": {
+                    "localTime": "2025-06-30T19:00:00",
+                    "utcTimeIso": "2025-06-30T18:00:00Z",
+                    "station": {
+                      "name": "伦敦希思罗机场",
+                      "code": "LHR",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "伦敦"
+                      },
+                      "country": {
+                        "code": "GB",
+                        "name": "英国"
+                      }
+                    }
+                  },
+                  "destination": {
+                    "localTime": "2025-07-01T00:35:00",
+                    "utcTimeIso": "2025-06-30T21:35:00Z",
+                    "station": {
+                      "name": "雅典埃莱夫塞里奥斯·韦尼泽洛斯国际机场",
+                      "code": "ATH",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "雅典"
+                      },
+                      "country": {
+                        "code": "GR",
+                        "name": "希腊"
+                      }
+                    }
+                  },
+                  "hiddenDestination": null,
+                  "duration": 12900,
+                  "type": "FLIGHT",
+                  "code": "605",
+                  "carrier": {
+                    "name": "Aegean",
+                    "code": "A3"
+                  },
+                  "operatingCarrier": {
+                    "name": "Aegean",
+                    "code": "A3"
+                  },
+                  "cabinClass": "BUSINESS"
+                },
+                "layover": null
+              },
+              {
+                "guarantee": null,
+                "segment": {
+                  "id": "Segment:0973578203d4a01d95591a391d31f0fa3ef5c2f2",
+                  "source": {
+                    "localTime": "2025-07-01T14:05:00",
+                    "utcTimeIso": "2025-07-01T11:05:00Z",
+                    "station": {
+                      "name": "雅典埃莱夫塞里奥斯·韦尼泽洛斯国际机场",
+                      "code": "ATH",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "雅典"
+                      },
+                      "country": {
+                        "code": "GR",
+                        "name": "希腊"
+                      }
+                    }
+                  },
+                  "destination": {
+                    "localTime": "2025-07-02T05:05:00",
+                    "utcTimeIso": "2025-07-01T21:05:00Z",
+                    "station": {
+                      "name": "上海浦东国际机场",
+                      "code": "PVG",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "上海市"
+                      },
+                      "country": {
+                        "code": "CN",
+                        "name": "中国"
+                      }
+                    }
+                  },
+                  "hiddenDestination": null,
+                  "duration": 36000,
+                  "type": "FLIGHT",
+                  "code": "1901",
+                  "carrier": {
+                    "name": "Aegean",
+                    "code": "A3"
+                  },
+                  "operatingCarrier": {
+                    "name": "Juneyao Airlines",
+                    "code": "HO"
+                  },
+                  "cabinClass": "BUSINESS"
+                },
+                "layover": {
+                  "duration": 48600,
+                  "isBaggageRecheck": false
+                }
+              }
+            ]
+          },
+          "lastAvailable": {
+            "seatsLeft": 3
+          }
+        },
+        {
+          "__typename": "ItineraryOneWay",
+          "id": "ItineraryOneWay:eyJwcm92aWRlcnMiOiJLSVdJLUJBU0lDOktJV0kiLCJyb3V0ZV9kYXRhIjoiQTM6NjA5OkxIUjoxNzUxMzE4MTAwOkFUSDoxNzUxMzMxMDAwOmJ1c2luZXNzOkZhbHNlOjo6fEhPOjE2NTg6QVRIOjE3NTEzNjc5MDA6UFZHOjE3NTE0MDM5MDA6YnVzaW5lc3M6VHJ1ZTo6VHJ1ZToiLCJwcmljZSI6IjE4OTM4In0=",
+          "shareId": "eyJyIjoiQTM6NjA5OkxIUjoxNzUxMzE4MTAwOkFUSDoxNzUxMzMxMDAwOmJ1c2luZXNzOkZhbHNlOjo6fEhPOjE2NTg6QVRIOjE3NTEzNjc5MDA6UFZHOjE3NTE0MDM5MDA6YnVzaW5lc3M6VHJ1ZTo6VHJ1ZToiLCJpIjpbIjBmNjQwM2FiNGYyZDAwMDBmZmUxOWVjMl8wfDAzYWIxNzIyNGYyZTAwMDA5YzNmMmRmY18wIl0sInRoYyI6MCwidGF0IjowLCJ2aSI6MSwidCI6Ik9XIn0=",
+          "price": {
+            "amount": "18938",
+            "priceBeforeDiscount": "18938"
+          },
+          "priceEur": {
+            "amount": "2288.72499"
+          },
+          "provider": {
+            "name": "Kiwi.com",
+            "code": "KIWI-BASIC",
+            "hasHighProbabilityOfPriceChange": false
+          },
+          "bagsInfo": {
+            "includedCheckedBags": 1,
+            "includedHandBags": 1,
+            "hasNoBaggageSupported": false,
+            "hasNoCheckedBaggage": false,
+            "includedPersonalItem": 0
+          },
+          "bookingOptions": {
+            "edges": [
+              {
+                "node": {
+                  "token": "H2ORjY1p0j-Aao9nKaDEeA8qggBs1GEn85yMTA2z1yRgj57-Dzi7KqFWaR67UoEA9VBf2s19mkng9ZAxnU_-HwmnnSSayTY29pJaFWE5RjWQev0QbD7YTGFXMkzMVV5tlDzYoUpitUEyaHy4IqLfpZGwgnmBXAEQXZ8RZzU2t7mSziwQ3W0Rmqml1zathmRhLPiuyrHDOVqK5sPsYpmw96xt4PdRDamdb7h-0nsX1bKzj0XYBTTeBftdQ_UXoqLDSo9QhIYi8dlS-rTpgluvNvJZaXdchPUXjmvkg8L0o4unkeV2V9XcT4V8JWWk1dNwB30XZfjzJnmiEytojFlFuCInCWsJYAf5TdWb4Pknl8CE36DD8xZcqfGEDfurMACOviec5sT46XnzmgvOihw24gHTj36d9hGpVYr1-JSNXHcrMl4tRIDl8DhSmwSFoIYsdINY0wYNgvXp19ttkwqPOlnnqpcowYtNtxw9vs5RT38NOm2z8Apha4b56qYWBTDr95cTu68E3GN21jQ-vzqSRE9YC7Ge4LliZ4eEhuGFFtMrN471ot-5tILZPN6BP8DGH2NOuDGo1PY6vPsgZJjotqntr0aly--I7BljXF4wK9slSojjxFg-YZrz-xCiFDe6p-FyKhvY7eTdA0UJtwIcCia1ICqZsOK7jLjc2c9P1EIh2UD4hRv7bsZOapbwbcRU6oCyBbe4R1SBiDHXiN6Z9V7GarjWvosIxuD9CI8lK1w1wKqU98sEVfYuTC1ZwsSQNljhwU7nZOUhNRz1ks_e3JYvrYkkiRW2Ufm_b1pYiuBrmydaxOeD5KEMN_UX-c0EcRmdH5RJYaS69j7CMhqo9cCKG8JHId3luzWH8CHhZ6GTaJCQgQuWUy3fFGIiS9CmSTh5JBWjf8VCps5DAhSgKUYgQmoqsWs2yd0DDXVphFdJws-EjBbAPMV_wowk5iAV0veJDd2_5eTuXHuiy-6LeSHoHOHazKFqdUUEFYadVqUAO5z1EHhv8id11-EIWoPrJ",
+                  "bookingUrl": "/cn/booking/?direct=true&locale=cn&currency=cny&passengers=1-0-0&token=H2ORjY1p0j-Aao9nKaDEeA8qggBs1GEn85yMTA2z1yRgj57-Dzi7KqFWaR67UoEA9VBf2s19mkng9ZAxnU_-HwmnnSSayTY29pJaFWE5RjWQev0QbD7YTGFXMkzMVV5tlDzYoUpitUEyaHy4IqLfpZGwgnmBXAEQXZ8RZzU2t7mSziwQ3W0Rmqml1zathmRhLPiuyrHDOVqK5sPsYpmw96xt4PdRDamdb7h-0nsX1bKzj0XYBTTeBftdQ_UXoqLDSo9QhIYi8dlS-rTpgluvNvJZaXdchPUXjmvkg8L0o4unkeV2V9XcT4V8JWWk1dNwB30XZfjzJnmiEytojFlFuCInCWsJYAf5TdWb4Pknl8CE36DD8xZcqfGEDfurMACOviec5sT46XnzmgvOihw24gHTj36d9hGpVYr1-JSNXHcrMl4tRIDl8DhSmwSFoIYsdINY0wYNgvXp19ttkwqPOlnnqpcowYtNtxw9vs5RT38NOm2z8Apha4b56qYWBTDr95cTu68E3GN21jQ-vzqSRE9YC7Ge4LliZ4eEhuGFFtMrN471ot-5tILZPN6BP8DGH2NOuDGo1PY6vPsgZJjotqntr0aly--I7BljXF4wK9slSojjxFg-YZrz-xCiFDe6p-FyKhvY7eTdA0UJtwIcCia1ICqZsOK7jLjc2c9P1EIh2UD4hRv7bsZOapbwbcRU6oCyBbe4R1SBiDHXiN6Z9V7GarjWvosIxuD9CI8lK1w1wKqU98sEVfYuTC1ZwsSQNljhwU7nZOUhNRz1ks_e3JYvrYkkiRW2Ufm_b1pYiuBrmydaxOeD5KEMN_UX-c0EcRmdH5RJYaS69j7CMhqo9cCKG8JHId3luzWH8CHhZ6GTaJCQgQuWUy3fFGIiS9CmSTh5JBWjf8VCps5DAhSgKUYgQmoqsWs2yd0DDXVphFdJws-EjBbAPMV_wowk5iAV0veJDd2_5eTuXHuiy-6LeSHoHOHazKFqdUUEFYadVqUAO5z1EHhv8id11-EIWoPrJ&searchType=oneWay&searchBags=0.0",
+                  "price": {
+                    "amount": "18938"
+                  },
+                  "priceEur": {
+                    "amount": "2288.72"
+                  },
+                  "itineraryProvider": {
+                    "code": "KIWI-BASIC",
+                    "name": "Kiwi.com",
+                    "hasHighProbabilityOfPriceChange": false
+                  }
+                }
+              },
+              {
+                "node": {
+                  "token": "H7XcW8BS8vHgqVpM_GEM5zF0EIT0RClWdpNz3dn6HzONxRVcg1TTy-zFtVXajF7fZcCZ_saaLO8vEqBBC33QgjErG40uUZtIoM1OBGJGR4dZTqBOzrKtZBEwy0PPRKTutAJj66dVvZ1VeBvlVlkKVR1xlRgV8gLb4BbCccFm8aAORVtOAkitddDllZ8L8H_KmtP6FUIJryiZIuQKXbNhIlMKKcGVdY7rkmSsynA3eguv6cvXuMsq20HBI3VwjS1f_U705LKoxk1Bg_dh0vjsvRjnbZfn3MM_voVrIk8WtBBPgInBpoWHErK8ZiI3M-upS-Ay8tvf0YU1IqUnYk1QZYdA4DFJyOOTTEhZqfTAmRuSlgoYJSqqwHRrterJQEHAE5SGSYlcXlFrJZuQcrXT3lHQiTycZkh-QAnRxGA78nzjDdUqBpIBbPS9_ANn8KYXC_zRqyE8fzueG8Xx9dixoludZgVVNFO4BSmHl17lDfmQd2gSoxiusD4TsTUaqFLBC0F1NVnKIpSw2jDm-nGYe6VDrWPe_MqlSlnrzglhzepKQ5IXixQJOD72LZH6XqxC5x4yaCRoQk-ft9HQC9XHsxcVzgiSARKPkbBXDAo4KtTk6_qFTPmw-Wkrumf8JCZBAySucUkrJnD5kfU7ogCD2Nx2yJFnw8c8k43mnDZS81IbT6XI5krmbjEI5MNQUYJel50WZmvrQaCIxkFdV0xXPmA8sLZ6VBuUzETMqFd0XGo43sEC9P0xosMlqnC6dvZz3pE7cM3eJIBOePwyOLikfTmozk_KIhUgwf9A5E56-sWphu09jxYcPHtz4d5TZ47nrDjrZBEjfzVdTVORctP9-V-cAcQS_zipxF6X5_bTZW1wcK0ruG7HV8st5ZdmNjuqY8H5Q_uAn9Z8UwJDqzkuSXnq3A4fALtgbB_YtrUEKL_npvMdI8Kl9jBUl_UWUGDHIi9SFZYkhnfNGUzMj_ET9O-yx-56YlvgVcBKoxQA3w7BYqwV1IT-qouF0lyfuvFeqrycGyT0dGd4mqQ-9zEnzJhwiSdqkXXvF6IU2GWg0kYX62Kp4D_NEsuYCe-m24N9L",
+                  "bookingUrl": "/cn/booking/?direct=true&locale=cn&currency=cny&passengers=1-0-0&token=H7XcW8BS8vHgqVpM_GEM5zF0EIT0RClWdpNz3dn6HzONxRVcg1TTy-zFtVXajF7fZcCZ_saaLO8vEqBBC33QgjErG40uUZtIoM1OBGJGR4dZTqBOzrKtZBEwy0PPRKTutAJj66dVvZ1VeBvlVlkKVR1xlRgV8gLb4BbCccFm8aAORVtOAkitddDllZ8L8H_KmtP6FUIJryiZIuQKXbNhIlMKKcGVdY7rkmSsynA3eguv6cvXuMsq20HBI3VwjS1f_U705LKoxk1Bg_dh0vjsvRjnbZfn3MM_voVrIk8WtBBPgInBpoWHErK8ZiI3M-upS-Ay8tvf0YU1IqUnYk1QZYdA4DFJyOOTTEhZqfTAmRuSlgoYJSqqwHRrterJQEHAE5SGSYlcXlFrJZuQcrXT3lHQiTycZkh-QAnRxGA78nzjDdUqBpIBbPS9_ANn8KYXC_zRqyE8fzueG8Xx9dixoludZgVVNFO4BSmHl17lDfmQd2gSoxiusD4TsTUaqFLBC0F1NVnKIpSw2jDm-nGYe6VDrWPe_MqlSlnrzglhzepKQ5IXixQJOD72LZH6XqxC5x4yaCRoQk-ft9HQC9XHsxcVzgiSARKPkbBXDAo4KtTk6_qFTPmw-Wkrumf8JCZBAySucUkrJnD5kfU7ogCD2Nx2yJFnw8c8k43mnDZS81IbT6XI5krmbjEI5MNQUYJel50WZmvrQaCIxkFdV0xXPmA8sLZ6VBuUzETMqFd0XGo43sEC9P0xosMlqnC6dvZz3pE7cM3eJIBOePwyOLikfTmozk_KIhUgwf9A5E56-sWphu09jxYcPHtz4d5TZ47nrDjrZBEjfzVdTVORctP9-V-cAcQS_zipxF6X5_bTZW1wcK0ruG7HV8st5ZdmNjuqY8H5Q_uAn9Z8UwJDqzkuSXnq3A4fALtgbB_YtrUEKL_npvMdI8Kl9jBUl_UWUGDHIi9SFZYkhnfNGUzMj_ET9O-yx-56YlvgVcBKoxQA3w7BYqwV1IT-qouF0lyfuvFeqrycGyT0dGd4mqQ-9zEnzJhwiSdqkXXvF6IU2GWg0kYX62Kp4D_NEsuYCe-m24N9L&searchType=oneWay&searchBags=0.0",
+                  "price": {
+                    "amount": "19753"
+                  },
+                  "priceEur": {
+                    "amount": "2387.22"
+                  },
+                  "itineraryProvider": {
+                    "code": "KIWI",
+                    "name": "Kiwi.com",
+                    "hasHighProbabilityOfPriceChange": false
+                  }
+                }
+              }
+            ]
+          },
+          "travelHack": {
+            "isTrueHiddenCity": false,
+            "isVirtualInterlining": true,
+            "isThrowawayTicket": false
+          },
+          "duration": 85800,
+          "pnrCount": 2,
+          "sector": {
+            "id": "Sector:12723560cdedca1ba2cf182955b6c5eed47620f3~17feb4d03d47ee79c23468084ddf3617ab7bfb0b|76c7513811f703a67fb2b2d90c050e9c12b02c78",
+            "duration": 85800,
+            "sectorSegments": [
+              {
+                "guarantee": null,
+                "segment": {
+                  "id": "Segment:17feb4d03d47ee79c23468084ddf3617ab7bfb0b",
+                  "source": {
+                    "localTime": "2025-06-30T22:15:00",
+                    "utcTimeIso": "2025-06-30T21:15:00Z",
+                    "station": {
+                      "name": "伦敦希思罗机场",
+                      "code": "LHR",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "伦敦"
+                      },
+                      "country": {
+                        "code": "GB",
+                        "name": "英国"
+                      }
+                    }
+                  },
+                  "destination": {
+                    "localTime": "2025-07-01T03:50:00",
+                    "utcTimeIso": "2025-07-01T00:50:00Z",
+                    "station": {
+                      "name": "雅典埃莱夫塞里奥斯·韦尼泽洛斯国际机场",
+                      "code": "ATH",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "雅典"
+                      },
+                      "country": {
+                        "code": "GR",
+                        "name": "希腊"
+                      }
+                    }
+                  },
+                  "hiddenDestination": null,
+                  "duration": 12900,
+                  "type": "FLIGHT",
+                  "code": "609",
+                  "carrier": {
+                    "name": "Aegean",
+                    "code": "A3"
+                  },
+                  "operatingCarrier": {
+                    "name": "Aegean",
+                    "code": "A3"
+                  },
+                  "cabinClass": "BUSINESS"
+                },
+                "layover": null
+              },
+              {
+                "guarantee": "KIWI_COM",
+                "segment": {
+                  "id": "Segment:76c7513811f703a67fb2b2d90c050e9c12b02c78",
+                  "source": {
+                    "localTime": "2025-07-01T14:05:00",
+                    "utcTimeIso": "2025-07-01T11:05:00Z",
+                    "station": {
+                      "name": "雅典埃莱夫塞里奥斯·韦尼泽洛斯国际机场",
+                      "code": "ATH",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "雅典"
+                      },
+                      "country": {
+                        "code": "GR",
+                        "name": "希腊"
+                      }
+                    }
+                  },
+                  "destination": {
+                    "localTime": "2025-07-02T05:05:00",
+                    "utcTimeIso": "2025-07-01T21:05:00Z",
+                    "station": {
+                      "name": "上海浦东国际机场",
+                      "code": "PVG",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "上海市"
+                      },
+                      "country": {
+                        "code": "CN",
+                        "name": "中国"
+                      }
+                    }
+                  },
+                  "hiddenDestination": null,
+                  "duration": 36000,
+                  "type": "FLIGHT",
+                  "code": "1658",
+                  "carrier": {
+                    "name": "Juneyao Airlines",
+                    "code": "HO"
+                  },
+                  "operatingCarrier": {
+                    "name": "Juneyao Airlines",
+                    "code": "HO"
+                  },
+                  "cabinClass": "BUSINESS"
+                },
+                "layover": {
+                  "duration": 36900,
+                  "isBaggageRecheck": true
+                }
+              }
+            ]
+          },
+          "lastAvailable": {
+            "seatsLeft": 4
+          }
+        },
+        {
+          "__typename": "ItineraryOneWay",
+          "id": "ItineraryOneWay:eyJwcm92aWRlcnMiOiJLSVdJLUJBU0lDOktJV0kiLCJyb3V0ZV9kYXRhIjoiSFU6Nzk2NDpMSFI6MTc1MTMxNzIwMDpDU1g6MTc1MTM1NzcwMDpidXNpbmVzczpGYWxzZTpQRUs6OnxNVTo4NDcwOkNTWDoxNzUxMzY4NTAwOlBWRzoxNzUxMzc2MDAwOmJ1c2luZXNzOlRydWU6SEFOOlRydWU6IiwicHJpY2UiOiIyMjc1NSJ9",
+          "shareId": "eyJyIjoiSFU6Nzk2NDpMSFI6MTc1MTMxNzIwMDpDU1g6MTc1MTM1NzcwMDpidXNpbmVzczpGYWxzZTpQRUs6OnxNVTo4NDcwOkNTWDoxNzUxMzY4NTAwOlBWRzoxNzUxMzc2MDAwOmJ1c2luZXNzOlRydWU6SEFOOlRydWU6IiwiaSI6WyIwZjY0MGRkYzRmMmQwMDAwOGI4MmZlNzZfMHwxYmJhMTc4OTRmMmUwMDAwM2QxNTY5YTVfMCJdLCJ0aGMiOjEsInRhdCI6MCwidmkiOjEsInQiOiJPVyJ9",
+          "price": {
+            "amount": "22755",
+            "priceBeforeDiscount": "22755"
+          },
+          "priceEur": {
+            "amount": "2750.023083"
+          },
+          "provider": {
+            "name": "Kiwi.com",
+            "code": "KIWI-BASIC",
+            "hasHighProbabilityOfPriceChange": false
+          },
+          "bagsInfo": {
+            "includedCheckedBags": 0,
+            "includedHandBags": 0,
+            "hasNoBaggageSupported": true,
+            "hasNoCheckedBaggage": false,
+            "includedPersonalItem": 1
+          },
+          "bookingOptions": {
+            "edges": [
+              {
+                "node": {
+                  "token": "HRjRjrPr1_mAJe_17d537Zkd3srwVKmzTXbWD5eUci9BRZW80WUkZUFYdbYmel3bUIRqP4BHoVeKJTLqxkOGgekqt2DJhMDwiM-m8ZG4mZWiWrhmzjo-ZLe-13uCjmR4abphvGe-HyzMndgOfOtjuoOFp2-Vflizj5aL69UVS3CkWa87KEWmTu-BXNmb0DQmphFZyRnW7o5vs-devlKFYpJSLH-xmmpYabF4-bWePmyPyBCeCPnvI1F-8Gat-sKbrWYdBC6C1or-ddaWd3MPcJMQQVQFZhTC6gWJLOVFrxHU6muTCnhJ1Mab21t3WgnMzky1B0IuUtr3tUchO_HBaCBElaRFa2rYyNaNQjkufAx7F5qwW_O_nGFNaf4Mf4iNdziNQF8dfAGHKwRtX6JhfAOeSE0LuC4kwY9zkwIF9UoygErXqXZvkj7vv2_PfTZw1JNWHQhzskMSjyCVD53d5JPLVQ6P3Tnx0BqJoonDfGcISylECoPtKkcpyyZumkkAZyElJWXZIj09sfwFYgOdKcsD5i5-r24wFQuyeCBAHXwBSmmqgcJU1NKXtpEB6sETLJIhH17Yvi7Cl8JOS_v-yHQ44NFiYdyQ4adROSTNGaczIIkGf8AEUgG-5wVfSZGyBVUK84gJHVCdTybJzVfZ0UADEehDFfxyeB4HJ05lAgiGYqiGq5UdcWv0UP0ZStEA3ieSb1s_okxrJOshMwCm0xCyPuiCYOyj90jyOTjDVUa7jfxCEPRPR5RLelmEI1y_xL_GTM1m2BVHFk6rMigY48HvXmmr8SJlMaffXKNjLHT7hei_45y6VKfouKnvZvEGMALYMr5H8_-S0u2nvlaOZm-5La91cMdBHELsT65vmAT0CkjODcxdCDLNzCmB0_NYEd34ulaOlrWJBQugej0Uff44oHBcGBa9LaCBORtLIY8qYgglZ6kqGWXv26cLBbI42mbf1Ltci9Mkn6u4_9AIh7PRzzmxKrc0Laz35en2gXbEMCWy30Zxzwzfo4XfPFZoTNPBgI8qA2pka0UaHoZmyNHUWRtIk358zR5jyjHwzL0sOCJHS2oAouT_3vHYHm31JhXzTtPyCwt5acG5mvFW5egf5XhLF7IiW8FpQS3apd78=",
+                  "bookingUrl": "/cn/booking/?direct=true&locale=cn&currency=cny&passengers=1-0-0&token=HRjRjrPr1_mAJe_17d537Zkd3srwVKmzTXbWD5eUci9BRZW80WUkZUFYdbYmel3bUIRqP4BHoVeKJTLqxkOGgekqt2DJhMDwiM-m8ZG4mZWiWrhmzjo-ZLe-13uCjmR4abphvGe-HyzMndgOfOtjuoOFp2-Vflizj5aL69UVS3CkWa87KEWmTu-BXNmb0DQmphFZyRnW7o5vs-devlKFYpJSLH-xmmpYabF4-bWePmyPyBCeCPnvI1F-8Gat-sKbrWYdBC6C1or-ddaWd3MPcJMQQVQFZhTC6gWJLOVFrxHU6muTCnhJ1Mab21t3WgnMzky1B0IuUtr3tUchO_HBaCBElaRFa2rYyNaNQjkufAx7F5qwW_O_nGFNaf4Mf4iNdziNQF8dfAGHKwRtX6JhfAOeSE0LuC4kwY9zkwIF9UoygErXqXZvkj7vv2_PfTZw1JNWHQhzskMSjyCVD53d5JPLVQ6P3Tnx0BqJoonDfGcISylECoPtKkcpyyZumkkAZyElJWXZIj09sfwFYgOdKcsD5i5-r24wFQuyeCBAHXwBSmmqgcJU1NKXtpEB6sETLJIhH17Yvi7Cl8JOS_v-yHQ44NFiYdyQ4adROSTNGaczIIkGf8AEUgG-5wVfSZGyBVUK84gJHVCdTybJzVfZ0UADEehDFfxyeB4HJ05lAgiGYqiGq5UdcWv0UP0ZStEA3ieSb1s_okxrJOshMwCm0xCyPuiCYOyj90jyOTjDVUa7jfxCEPRPR5RLelmEI1y_xL_GTM1m2BVHFk6rMigY48HvXmmr8SJlMaffXKNjLHT7hei_45y6VKfouKnvZvEGMALYMr5H8_-S0u2nvlaOZm-5La91cMdBHELsT65vmAT0CkjODcxdCDLNzCmB0_NYEd34ulaOlrWJBQugej0Uff44oHBcGBa9LaCBORtLIY8qYgglZ6kqGWXv26cLBbI42mbf1Ltci9Mkn6u4_9AIh7PRzzmxKrc0Laz35en2gXbEMCWy30Zxzwzfo4XfPFZoTNPBgI8qA2pka0UaHoZmyNHUWRtIk358zR5jyjHwzL0sOCJHS2oAouT_3vHYHm31JhXzTtPyCwt5acG5mvFW5egf5XhLF7IiW8FpQS3apd78%3D&searchType=oneWay&searchBags=0.0",
+                  "price": {
+                    "amount": "22755"
+                  },
+                  "priceEur": {
+                    "amount": "2750.02"
+                  },
+                  "itineraryProvider": {
+                    "code": "KIWI-BASIC",
+                    "name": "Kiwi.com",
+                    "hasHighProbabilityOfPriceChange": false
+                  }
+                }
+              },
+              {
+                "node": {
+                  "token": "HHIo9p2vPm5TSW53JE_y8es4XMSzQ2d8KQkpv7v8l_-Duv8-0OUANQFY55WpjFK6EAQCIwmwlAFks7nGLw_Fd13mqs_0BGb5_uXNbiMa-017qhw6NDWbf3EPbeEYLc7nh7q_K7zQa29TFIMs4W02-Yx044_j0J13SuVlQSXLyftgRyKGn12T-4SInuIxCU_PRjsYQxJXBwyD6J5d-L45pfghfL4BnhX27_HfSafd94d14NYHl6ybqkFUs8Inyo2kSjy1R7kch0Y9SPe7fdGa6XnAjwt9-6wQt7fgIbDItBttn8qaDRXiLNQIZl1KotOpAAr4WZ9YQEHTGitqKFrnPY9fg8206ont667wCn2q-SU9_eUb2IRT407mclGeM-BOaW9aaktd8l_yGKKdNxgl4QAe-I17CKnynYv_KhwzCEUUcG1lTEhMHXT0UcQRaFq_1op0UoIrS6NcJfuYcgxcwHLdY-MlleUKVKARmJo5fwBvI3uSa1f0Zan4kkGTbWvhhPo9E1iHg3M9r30ag3aihXpX-9-fXjo4WoulBIFVNTw2KfZHJHOpYXg2WpwLU9otZGCKATEgV20iR7RiW7r-pgiDVFLtCLF8lPVidzS5BPMfYhceV1bDCXeEMyualcPrUlTO1dLBLoCg_ln911B_Oe-2tJLEYcx_yBMWHh2RJSPSKAzy9Fx5HpKxNBEa7M5KECGd3UzfvoFIHJH_BQIeSEqrwsqtMjN1vFjxRX8bqiewiYY8yrJbJqY4yFTR4FBvN7iVR-tEeEJeS3G1V_qfuT6xwBUu-WpEVts8Etf7LgM1WKeUh6A0oVh4Us1E4FW4j6-jN3jchLZrk2IQAsE0tRKD_Lfb7NrYMrc1vXyDcjB3uHiRTN38LCcf8OZ0SRFtb8zZrlvuEv6hzXt2SpWsI3drXcK5A7olWREXYMgYO0m5PEIjU1jLajrm9NYOPu2xN6wjkYqCDVuQD2-mrZhFlHSBR86Yo_CiUh5kvfAJCY2wimvqUhwIEuEStcTcM1WGy5CNkd-YuEboQqYxxhEIL-dkWctndpP_N6My4sRqsWRSxmU8MEa9K3fxBaRlsfl7eUsYdG1QjUfvoNIJvPmVfA3iS2cBBVd4_dYquHpjdPuKdskM1Qx5LxXgWyo3Ne3KwOkEzjvV9vv3K94fHQpIsZPc6hHAoBvIPnW0G6sc1dKI=",
+                  "bookingUrl": "/cn/booking/?direct=true&locale=cn&currency=cny&passengers=1-0-0&token=HHIo9p2vPm5TSW53JE_y8es4XMSzQ2d8KQkpv7v8l_-Duv8-0OUANQFY55WpjFK6EAQCIwmwlAFks7nGLw_Fd13mqs_0BGb5_uXNbiMa-017qhw6NDWbf3EPbeEYLc7nh7q_K7zQa29TFIMs4W02-Yx044_j0J13SuVlQSXLyftgRyKGn12T-4SInuIxCU_PRjsYQxJXBwyD6J5d-L45pfghfL4BnhX27_HfSafd94d14NYHl6ybqkFUs8Inyo2kSjy1R7kch0Y9SPe7fdGa6XnAjwt9-6wQt7fgIbDItBttn8qaDRXiLNQIZl1KotOpAAr4WZ9YQEHTGitqKFrnPY9fg8206ont667wCn2q-SU9_eUb2IRT407mclGeM-BOaW9aaktd8l_yGKKdNxgl4QAe-I17CKnynYv_KhwzCEUUcG1lTEhMHXT0UcQRaFq_1op0UoIrS6NcJfuYcgxcwHLdY-MlleUKVKARmJo5fwBvI3uSa1f0Zan4kkGTbWvhhPo9E1iHg3M9r30ag3aihXpX-9-fXjo4WoulBIFVNTw2KfZHJHOpYXg2WpwLU9otZGCKATEgV20iR7RiW7r-pgiDVFLtCLF8lPVidzS5BPMfYhceV1bDCXeEMyualcPrUlTO1dLBLoCg_ln911B_Oe-2tJLEYcx_yBMWHh2RJSPSKAzy9Fx5HpKxNBEa7M5KECGd3UzfvoFIHJH_BQIeSEqrwsqtMjN1vFjxRX8bqiewiYY8yrJbJqY4yFTR4FBvN7iVR-tEeEJeS3G1V_qfuT6xwBUu-WpEVts8Etf7LgM1WKeUh6A0oVh4Us1E4FW4j6-jN3jchLZrk2IQAsE0tRKD_Lfb7NrYMrc1vXyDcjB3uHiRTN38LCcf8OZ0SRFtb8zZrlvuEv6hzXt2SpWsI3drXcK5A7olWREXYMgYO0m5PEIjU1jLajrm9NYOPu2xN6wjkYqCDVuQD2-mrZhFlHSBR86Yo_CiUh5kvfAJCY2wimvqUhwIEuEStcTcM1WGy5CNkd-YuEboQqYxxhEIL-dkWctndpP_N6My4sRqsWRSxmU8MEa9K3fxBaRlsfl7eUsYdG1QjUfvoNIJvPmVfA3iS2cBBVd4_dYquHpjdPuKdskM1Qx5LxXgWyo3Ne3KwOkEzjvV9vv3K94fHQpIsZPc6hHAoBvIPnW0G6sc1dKI%3D&searchType=oneWay&searchBags=0.0",
+                  "price": {
+                    "amount": "23748"
+                  },
+                  "priceEur": {
+                    "amount": "2870.03"
+                  },
+                  "itineraryProvider": {
+                    "code": "KIWI",
+                    "name": "Kiwi.com",
+                    "hasHighProbabilityOfPriceChange": false
+                  }
+                }
+              }
+            ]
+          },
+          "travelHack": {
+            "isTrueHiddenCity": true,
+            "isVirtualInterlining": true,
+            "isThrowawayTicket": false
+          },
+          "duration": 58800,
+          "pnrCount": 2,
+          "sector": {
+            "id": "Sector:ffaaff431ad3d17e583fb1f03c10645d8e2bd8a2~a42dca9d02fe8fb3c63b04ae6dccf5e224fea530|d2e48a284d2a124fff5bfb85481a141468144ea4",
+            "duration": 58800,
+            "sectorSegments": [
+              {
+                "guarantee": null,
+                "segment": {
+                  "id": "Segment:a42dca9d02fe8fb3c63b04ae6dccf5e224fea530",
+                  "source": {
+                    "localTime": "2025-06-30T22:00:00",
+                    "utcTimeIso": "2025-06-30T21:00:00Z",
+                    "station": {
+                      "name": "伦敦希思罗机场",
+                      "code": "LHR",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "伦敦"
+                      },
+                      "country": {
+                        "code": "GB",
+                        "name": "英国"
+                      }
+                    }
+                  },
+                  "destination": {
+                    "localTime": "2025-07-01T16:15:00",
+                    "utcTimeIso": "2025-07-01T08:15:00Z",
+                    "station": {
+                      "name": "长沙黄花国际机场",
+                      "code": "CSX",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "长沙市"
+                      },
+                      "country": {
+                        "code": "CN",
+                        "name": "中国"
+                      }
+                    }
+                  },
+                  "hiddenDestination": {
+                    "code": "PEK",
+                    "name": "北京首都国际机场",
+                    "city": {
+                      "name": "北京市"
+                    },
+                    "country": {
+                      "code": "CN",
+                      "name": "中国"
+                    }
+                  },
+                  "duration": 40500,
+                  "type": "FLIGHT",
+                  "code": "7964",
+                  "carrier": {
+                    "name": "Hainan Airlines",
+                    "code": "HU"
+                  },
+                  "operatingCarrier": {
+                    "name": "Hainan Airlines",
+                    "code": "HU"
+                  },
+                  "cabinClass": "BUSINESS"
+                },
+                "layover": null
+              },
+              {
+                "guarantee": "KIWI_COM",
+                "segment": {
+                  "id": "Segment:d2e48a284d2a124fff5bfb85481a141468144ea4",
+                  "source": {
+                    "localTime": "2025-07-01T19:15:00",
+                    "utcTimeIso": "2025-07-01T11:15:00Z",
+                    "station": {
+                      "name": "长沙黄花国际机场",
+                      "code": "CSX",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "长沙市"
+                      },
+                      "country": {
+                        "code": "CN",
+                        "name": "中国"
+                      }
+                    }
+                  },
+                  "destination": {
+                    "localTime": "2025-07-01T21:20:00",
+                    "utcTimeIso": "2025-07-01T13:20:00Z",
+                    "station": {
+                      "name": "上海浦东国际机场",
+                      "code": "PVG",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "上海市"
+                      },
+                      "country": {
+                        "code": "CN",
+                        "name": "中国"
+                      }
+                    }
+                  },
+                  "hiddenDestination": {
+                    "code": "HAN",
+                    "name": "内排国际机场",
+                    "city": {
+                      "name": "河内市"
+                    },
+                    "country": {
+                      "code": "VN",
+                      "name": "越南"
+                    }
+                  },
+                  "duration": 7500,
+                  "type": "FLIGHT",
+                  "code": "8470",
+                  "carrier": {
+                    "name": "China Eastern Airlines",
+                    "code": "MU"
+                  },
+                  "operatingCarrier": {
+                    "name": "Shanghai Airlines",
+                    "code": "FM"
+                  },
+                  "cabinClass": "BUSINESS"
+                },
+                "layover": {
+                  "duration": 10800,
+                  "isBaggageRecheck": true
+                }
+              }
+            ]
+          },
+          "lastAvailable": {
+            "seatsLeft": 1
+          }
+        },
+        {
+          "__typename": "ItineraryOneWay",
+          "id": "ItineraryOneWay:eyJwcm92aWRlcnMiOiJLSVdJLUJBU0lDOktJV0kiLCJyb3V0ZV9kYXRhIjoiQkE6Mzk2OkxIUjoxNzUxMzAzNDAwOkJSVToxNzUxMzA3OTAwOmJ1c2luZXNzOkZhbHNlOjo6fEhVOjc5MjI6QlJVOjE3NTEzNjQwMDA6UFZHOjE3NTE0MDM2MDA6YnVzaW5lc3M6VHJ1ZTo6VHJ1ZToiLCJwcmljZSI6IjIyMDQ1In0=",
+          "shareId": "eyJyIjoiQkE6Mzk2OkxIUjoxNzUxMzAzNDAwOkJSVToxNzUxMzA3OTAwOmJ1c2luZXNzOkZhbHNlOjo6fEhVOjc5MjI6QlJVOjE3NTEzNjQwMDA6UFZHOjE3NTE0MDM2MDA6YnVzaW5lc3M6VHJ1ZTo6VHJ1ZToiLCJpIjpbIjBmNjQxZjJiNGYyZDAwMDBmNTBiZjkwN18wfDFmMmIxNzIyNGYyZTAwMDBiYWRlZGJjMV8wIl0sInRoYyI6MCwidGF0IjowLCJ2aSI6MSwidCI6Ik9XIn0=",
+          "price": {
+            "amount": "22045",
+            "priceBeforeDiscount": "22045"
+          },
+          "priceEur": {
+            "amount": "2664.217045"
+          },
+          "provider": {
+            "name": "Kiwi.com",
+            "code": "KIWI-BASIC",
+            "hasHighProbabilityOfPriceChange": false
+          },
+          "bagsInfo": {
+            "includedCheckedBags": 1,
+            "includedHandBags": 1,
+            "hasNoBaggageSupported": false,
+            "hasNoCheckedBaggage": false,
+            "includedPersonalItem": 1
+          },
+          "bookingOptions": {
+            "edges": [
+              {
+                "node": {
+                  "token": "H0wGBFfvcU0yX6sfV-vFG-HYWZ87_v47qIFL8XqvHvVtffWWR8Q8YwaREdpG6zKSyeA7Myw6a3xYd8EYE2Kcb2zgtux1rNxfjit2GnJGwZ9STjWbYvgjXfyoiYkuDMXd1JSyekMKkMG6B_Za5uiRiblkizXUsojIsb3SHITut-lGLb33-3i3SGlOaW2vZmc38mIoKDCIGpGkMCos1mmYysgvgotRc9qhG-WgWjiDj83kGaVAQm4h8ElCE85v9-BAIYCjz4rUMCKuC_z-xOQZhIGrhF485cUyVMhf-Dn6JkHa8I_JpyFHiB8F4eIWFkV8U7XH_tP32KNDUWoQsg80AtLuFKbhRwe0k1I_tyI76JqTg82X_BQ6HpjtuworNMXJDN_oqNFl87kpMzEF2JQmf-xvmuI4UOXZ6Zrl3klxQvcg5BR9czI6CBqwIXS_qnicZNbbmplZrQLaRALE3Hvi0PWoAY5B4ds3sLPrXUyPLymccVxUh9yKIjy7dSDHp060QL4RqljDQm8TsqfFa8q7O1g3QL3RLzt6HdwxvffIv4k8Qbfi9oBEb8dFKbdQX9pkIrcOhwWsmWARypJ3Ab3L-RQawyH_2l9TImsmu7_g32c1vunUCqVk1Vodwgzn3HPcPguQTres8d0B6uIXath-V2-ytFv_lZxhc_qhWq88qzNsjCxgi-lED0y-OV5mjUALemCwG8jsjk7HYxegIEXVHrNRRJHDrzWtq3IPVSK1lDc57_zRYjFo3CbEYIvuq3gvEmTO-HY7WROO3io84DeOm0o4EzGdnnV52Wst1x9s1BYheqOK8ZVs0Gmb0FEAmddXPiEOYMNrNnbTDQCCNmRBr-dM0lioDwY_0gHdP3_e23eF51dWFfP6iKXfbZv6qAMVnU8l6Po7YXa6BtGkIiZaqrzF1hB9tS1hSKeuMx75fyy2JG4v5AWvFOcPbZknB-TOtFWF3Fy6croo5gn1j_rg0o91rSTnuh6GJfIW1EyRZwHnBfrsmmJDnwVn-tCrOoH2X",
+                  "bookingUrl": "/cn/booking/?direct=true&locale=cn&currency=cny&passengers=1-0-0&token=H0wGBFfvcU0yX6sfV-vFG-HYWZ87_v47qIFL8XqvHvVtffWWR8Q8YwaREdpG6zKSyeA7Myw6a3xYd8EYE2Kcb2zgtux1rNxfjit2GnJGwZ9STjWbYvgjXfyoiYkuDMXd1JSyekMKkMG6B_Za5uiRiblkizXUsojIsb3SHITut-lGLb33-3i3SGlOaW2vZmc38mIoKDCIGpGkMCos1mmYysgvgotRc9qhG-WgWjiDj83kGaVAQm4h8ElCE85v9-BAIYCjz4rUMCKuC_z-xOQZhIGrhF485cUyVMhf-Dn6JkHa8I_JpyFHiB8F4eIWFkV8U7XH_tP32KNDUWoQsg80AtLuFKbhRwe0k1I_tyI76JqTg82X_BQ6HpjtuworNMXJDN_oqNFl87kpMzEF2JQmf-xvmuI4UOXZ6Zrl3klxQvcg5BR9czI6CBqwIXS_qnicZNbbmplZrQLaRALE3Hvi0PWoAY5B4ds3sLPrXUyPLymccVxUh9yKIjy7dSDHp060QL4RqljDQm8TsqfFa8q7O1g3QL3RLzt6HdwxvffIv4k8Qbfi9oBEb8dFKbdQX9pkIrcOhwWsmWARypJ3Ab3L-RQawyH_2l9TImsmu7_g32c1vunUCqVk1Vodwgzn3HPcPguQTres8d0B6uIXath-V2-ytFv_lZxhc_qhWq88qzNsjCxgi-lED0y-OV5mjUALemCwG8jsjk7HYxegIEXVHrNRRJHDrzWtq3IPVSK1lDc57_zRYjFo3CbEYIvuq3gvEmTO-HY7WROO3io84DeOm0o4EzGdnnV52Wst1x9s1BYheqOK8ZVs0Gmb0FEAmddXPiEOYMNrNnbTDQCCNmRBr-dM0lioDwY_0gHdP3_e23eF51dWFfP6iKXfbZv6qAMVnU8l6Po7YXa6BtGkIiZaqrzF1hB9tS1hSKeuMx75fyy2JG4v5AWvFOcPbZknB-TOtFWF3Fy6croo5gn1j_rg0o91rSTnuh6GJfIW1EyRZwHnBfrsmmJDnwVn-tCrOoH2X&searchType=oneWay&searchBags=0.0",
+                  "price": {
+                    "amount": "22045"
+                  },
+                  "priceEur": {
+                    "amount": "2664.22"
+                  },
+                  "itineraryProvider": {
+                    "code": "KIWI-BASIC",
+                    "name": "Kiwi.com",
+                    "hasHighProbabilityOfPriceChange": false
+                  }
+                }
+              },
+              {
+                "node": {
+                  "token": "H0whEfDnNR6Jk8Z0TIIlaYcXY4oDTgU2xrbzine2uIgxKNFp59veMA1yV7Vw4WTqh_RqShAqpBzX9yYATPtn-6slIcgMPjo9uohCHrDvyTVPqmIzmapV8NWtZdphJVcu73d2U_9_IuHmflGPA6sLWslqeZugm-iVWrzNLyHg3EB5oMfkAOJjG9zjUYFM5zb20_qJ7S5CtttPowJ7H59TAvLIbB1r1IUF68ZKqCRQqPu5FTz94gmWeTG11X3bOiN82zIizxI9umJ6CwItk6Eg7Qo0c0VfuDdiu1maqqfVuSLGaSfBaErw9dU7C6E5p8V3M4MLBIbma94LO5ToN134LlzTY7NaUrW-pNeSc391DCZAeyl2rClGBFYEU0Id15EAExR4BedMUKUxhKF-qejrg9MNgdWKngW4cpqLhnApMAR_kONGiqapz-pUw4Mmk48KY_jlcxlMvIO8d0RlQt6bh5BYr4p0aGL28BQk_hO8khcS59kNLsQIrE2YrxwB0-sBET72Pp03vqR382NS0RatIkjhDtSowm9X-d1jtynulr0u3EpcUqwg0j-N3_1xaaZMFuUD6zv7vlMSA01hdVudD6EUwrsQ5v_i5S9m_-7ZEe6UePYhWLBqmthti_PRJ5AyB0CEoqiuoDvkE8fXiQpX-VbeN0sBb39xij7yI0uHplUbiG4KkKq1I9U7eu9z5KEJs-w4CTTNJvN8lBZoIaZY5nVbojLgqBAXyB-pjLkKeV1DCgHWCH5N3eboMKfv9ypalPtK1yvw3U-ywqypPDIOZGHDud3Wxonyd5kEEIpuKmS98FCaaWVolmiVF0Y18ojlBDfGjayG4TuhOG5nzS5mkwZclZlyeUkKfXOLaJyBlDFh6X7uFZCkGjwuHdAxJFVmcTq70yESBzmckqMAiWal651HmGk-NOEDOOQLQG7W0VZeeM-ae5bCvpJRYMGuSsuBuo_Z-DoCXtpK_3GXIlDcfh2N08XzOgG9uPsmXu1iDt23_msAxPk9SENhT98C-cots6EGZ4a77EKPsyHimBSSpWwYHpXy6LFsQeASwl68AQetz1rKc26oxIA7Wp9WHLNd3BQyQEsHJY545vx71hNnOEm3SjHtoJxOsDW28RqlRmEk6v2ABcmr1o5vnsHGJYuW1cR8HCK0kv5ypq9hYIKH5JkT1NLIeybH24qMbd1QIyAc=",
+                  "bookingUrl": "/cn/booking/?direct=true&locale=cn&currency=cny&passengers=1-0-0&token=H0whEfDnNR6Jk8Z0TIIlaYcXY4oDTgU2xrbzine2uIgxKNFp59veMA1yV7Vw4WTqh_RqShAqpBzX9yYATPtn-6slIcgMPjo9uohCHrDvyTVPqmIzmapV8NWtZdphJVcu73d2U_9_IuHmflGPA6sLWslqeZugm-iVWrzNLyHg3EB5oMfkAOJjG9zjUYFM5zb20_qJ7S5CtttPowJ7H59TAvLIbB1r1IUF68ZKqCRQqPu5FTz94gmWeTG11X3bOiN82zIizxI9umJ6CwItk6Eg7Qo0c0VfuDdiu1maqqfVuSLGaSfBaErw9dU7C6E5p8V3M4MLBIbma94LO5ToN134LlzTY7NaUrW-pNeSc391DCZAeyl2rClGBFYEU0Id15EAExR4BedMUKUxhKF-qejrg9MNgdWKngW4cpqLhnApMAR_kONGiqapz-pUw4Mmk48KY_jlcxlMvIO8d0RlQt6bh5BYr4p0aGL28BQk_hO8khcS59kNLsQIrE2YrxwB0-sBET72Pp03vqR382NS0RatIkjhDtSowm9X-d1jtynulr0u3EpcUqwg0j-N3_1xaaZMFuUD6zv7vlMSA01hdVudD6EUwrsQ5v_i5S9m_-7ZEe6UePYhWLBqmthti_PRJ5AyB0CEoqiuoDvkE8fXiQpX-VbeN0sBb39xij7yI0uHplUbiG4KkKq1I9U7eu9z5KEJs-w4CTTNJvN8lBZoIaZY5nVbojLgqBAXyB-pjLkKeV1DCgHWCH5N3eboMKfv9ypalPtK1yvw3U-ywqypPDIOZGHDud3Wxonyd5kEEIpuKmS98FCaaWVolmiVF0Y18ojlBDfGjayG4TuhOG5nzS5mkwZclZlyeUkKfXOLaJyBlDFh6X7uFZCkGjwuHdAxJFVmcTq70yESBzmckqMAiWal651HmGk-NOEDOOQLQG7W0VZeeM-ae5bCvpJRYMGuSsuBuo_Z-DoCXtpK_3GXIlDcfh2N08XzOgG9uPsmXu1iDt23_msAxPk9SENhT98C-cots6EGZ4a77EKPsyHimBSSpWwYHpXy6LFsQeASwl68AQetz1rKc26oxIA7Wp9WHLNd3BQyQEsHJY545vx71hNnOEm3SjHtoJxOsDW28RqlRmEk6v2ABcmr1o5vnsHGJYuW1cR8HCK0kv5ypq9hYIKH5JkT1NLIeybH24qMbd1QIyAc%3D&searchType=oneWay&searchBags=0.0",
+                  "price": {
+                    "amount": "23013"
+                  },
+                  "priceEur": {
+                    "amount": "2781.2"
+                  },
+                  "itineraryProvider": {
+                    "code": "KIWI",
+                    "name": "Kiwi.com",
+                    "hasHighProbabilityOfPriceChange": false
+                  }
+                }
+              }
+            ]
+          },
+          "travelHack": {
+            "isTrueHiddenCity": false,
+            "isVirtualInterlining": true,
+            "isThrowawayTicket": false
+          },
+          "duration": 100200,
+          "pnrCount": 2,
+          "sector": {
+            "id": "Sector:6e6c8cd311e0c0901de046b3f8b8853c0e4abc1c~cb78a49ad44a6cf1c35c89cebf28a90bf6761d1f|c799cef8a2256705bce1788b1a48b6098a7569e6",
+            "duration": 100200,
+            "sectorSegments": [
+              {
+                "guarantee": null,
+                "segment": {
+                  "id": "Segment:cb78a49ad44a6cf1c35c89cebf28a90bf6761d1f",
+                  "source": {
+                    "localTime": "2025-06-30T18:10:00",
+                    "utcTimeIso": "2025-06-30T17:10:00Z",
+                    "station": {
+                      "name": "伦敦希思罗机场",
+                      "code": "LHR",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "伦敦"
+                      },
+                      "country": {
+                        "code": "GB",
+                        "name": "英国"
+                      }
+                    }
+                  },
+                  "destination": {
+                    "localTime": "2025-06-30T20:25:00",
+                    "utcTimeIso": "2025-06-30T18:25:00Z",
+                    "station": {
+                      "name": "布鲁塞尔机场",
+                      "code": "BRU",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "布鲁塞尔"
+                      },
+                      "country": {
+                        "code": "BE",
+                        "name": "比利时"
+                      }
+                    }
+                  },
+                  "hiddenDestination": null,
+                  "duration": 4500,
+                  "type": "FLIGHT",
+                  "code": "396",
+                  "carrier": {
+                    "name": "British Airways",
+                    "code": "BA"
+                  },
+                  "operatingCarrier": {
+                    "name": "British Airways",
+                    "code": "BA"
+                  },
+                  "cabinClass": "BUSINESS"
+                },
+                "layover": null
+              },
+              {
+                "guarantee": "KIWI_COM",
+                "segment": {
+                  "id": "Segment:c799cef8a2256705bce1788b1a48b6098a7569e6",
+                  "source": {
+                    "localTime": "2025-07-01T12:00:00",
+                    "utcTimeIso": "2025-07-01T10:00:00Z",
+                    "station": {
+                      "name": "布鲁塞尔机场",
+                      "code": "BRU",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "布鲁塞尔"
+                      },
+                      "country": {
+                        "code": "BE",
+                        "name": "比利时"
+                      }
+                    }
+                  },
+                  "destination": {
+                    "localTime": "2025-07-02T05:00:00",
+                    "utcTimeIso": "2025-07-01T21:00:00Z",
+                    "station": {
+                      "name": "上海浦东国际机场",
+                      "code": "PVG",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "上海市"
+                      },
+                      "country": {
+                        "code": "CN",
+                        "name": "中国"
+                      }
+                    }
+                  },
+                  "hiddenDestination": null,
+                  "duration": 39600,
+                  "type": "FLIGHT",
+                  "code": "7922",
+                  "carrier": {
+                    "name": "Hainan Airlines",
+                    "code": "HU"
+                  },
+                  "operatingCarrier": {
+                    "name": "Hainan Airlines",
+                    "code": "HU"
+                  },
+                  "cabinClass": "BUSINESS"
+                },
+                "layover": {
+                  "duration": 56100,
+                  "isBaggageRecheck": true
+                }
+              }
+            ]
+          },
+          "lastAvailable": {
+            "seatsLeft": 3
+          }
+        },
+        {
+          "__typename": "ItineraryOneWay",
+          "id": "ItineraryOneWay:eyJwcm92aWRlcnMiOiJLSVdJLUJBU0lDOktJV0kiLCJyb3V0ZV9kYXRhIjoiSFU6Nzk2NDpMSFI6MTc1MTMxNzIwMDpDU1g6MTc1MTM1NzcwMDpidXNpbmVzczpGYWxzZTpQRUs6OnxNVTo4NDg0OkNTWDoxNzUxNDEzODAwOlBWRzoxNzUxNDIwNzAwOmJ1c2luZXNzOlRydWU6SEtHOlRydWU6IiwicHJpY2UiOiIyMjc5NCJ9",
+          "shareId": "eyJyIjoiSFU6Nzk2NDpMSFI6MTc1MTMxNzIwMDpDU1g6MTc1MTM1NzcwMDpidXNpbmVzczpGYWxzZTpQRUs6OnxNVTo4NDg0OkNTWDoxNzUxNDEzODAwOlBWRzoxNzUxNDIwNzAwOmJ1c2luZXNzOlRydWU6SEtHOlRydWU6IiwiaSI6WyIwZjY0MGRkYzRmMmQwMDAwOGI4MmZlNzZfMHwxYmJhMTMzNzRmMmYwMDAwOGI2MTAzMjZfMCJdLCJ0aGMiOjEsInRhdCI6MCwidmkiOjEsInQiOiJPVyJ9",
+          "price": {
+            "amount": "22794",
+            "priceBeforeDiscount": "22794"
+          },
+          "priceEur": {
+            "amount": "2754.736372"
+          },
+          "provider": {
+            "name": "Kiwi.com",
+            "code": "KIWI-BASIC",
+            "hasHighProbabilityOfPriceChange": false
+          },
+          "bagsInfo": {
+            "includedCheckedBags": 0,
+            "includedHandBags": 0,
+            "hasNoBaggageSupported": true,
+            "hasNoCheckedBaggage": false,
+            "includedPersonalItem": 1
+          },
+          "bookingOptions": {
+            "edges": [
+              {
+                "node": {
+                  "token": "HuvrRn6H7MKjELhYCpp-RkI5iAqNjFlXGGoMV6xuDeREYRvmI-mdpoWdgcZTIbhr0dc9Vau8-RrT5MPTyBD02-MT-q0fvrkAmbtSW-rXY9RXSHfmcP1wTZNVCxt1DrdJbrLIP8ZfHbS5tZL6g94yuymJHtN5BspotWUp9AR1V7XbqMx81GqySVF9pAUpY3PvFG6yFA8ftJI2ALFgqE7H22F1FYUXZLCpWOIdUjhdiJSYmngY4TrAzlYdv-L_T8KpZvo4El9p_RDT1rnyKPGpEHW1iAYisUik-pBz042THiw8h8YqKvWn_sQ_B0bG78l_Q-As10oIDyNADSZQHARFJoClZU4NYnER_A7O7dP5tD7IgGjSNyzauT3n_R8obc56fs9LoV11yG_EiZ4xMEuAxHcnjIeWGb232qL1fCf0JvZDnvoLxvrQpm6Xj8GG1uY7S76UeEKUCYg41UK9Pc7zT5MMAa6zwG7yU5EM92WzE1NS1mY9Urr9mJO3-D1r6Xo_qq6p_k4k_IgHJX9r28Sj7f3n1TDUadGWZG84yFbsi9nITPut0ahgXr5cKflDnuLIhIGhLTF1t3-8kpGWruwIwSmzOpfwYAuPtt9cRm1BuB27zS6ezEwSgvEDkDLT7rwL-mhPE_VYZXsX9nTTdFMQEg5sW-5ndEPZSYg5ov_9_kTGiidVGRZplP31SubxiPquvIIx-Iphvp9Vs88Oso3PP7GK4eiwNp27S1PcNgnYGr2qUX0DT5_Y_viC-Wk1vD0rcMgs6-cWCgSPqOmI-zF-NBj1x8PTqpBxz0w1Q7mPAJE3TkjMHglzZQSLPQFy3U3hc2leqoWMkt5FjLO-tCHnp1y31xoqJpmERv9UcqbqyBJz1XG73IFIAmMz2qtvVfMwxbE5aB1FcnqbpRZGcDIbON505lBKkMdVTVRxyJZQOghNFyVZZ6nTMoCqUcJp2mF1oZCSXLoPFZpNa-ogOmTp7naCLukKGbqNhp8H_6YejvR2lWpV-l6BlQL4kPJuSjAEYXJ1VTq9GaQlCN7r0lsz4cVwfRpEKZXjomZrqLKoUYF5FtDPFIqq1e2K0VyUUP5p-Qw1SoYpFW2FhNT-5ucTvgg==",
+                  "bookingUrl": "/cn/booking/?direct=true&locale=cn&currency=cny&passengers=1-0-0&token=HuvrRn6H7MKjELhYCpp-RkI5iAqNjFlXGGoMV6xuDeREYRvmI-mdpoWdgcZTIbhr0dc9Vau8-RrT5MPTyBD02-MT-q0fvrkAmbtSW-rXY9RXSHfmcP1wTZNVCxt1DrdJbrLIP8ZfHbS5tZL6g94yuymJHtN5BspotWUp9AR1V7XbqMx81GqySVF9pAUpY3PvFG6yFA8ftJI2ALFgqE7H22F1FYUXZLCpWOIdUjhdiJSYmngY4TrAzlYdv-L_T8KpZvo4El9p_RDT1rnyKPGpEHW1iAYisUik-pBz042THiw8h8YqKvWn_sQ_B0bG78l_Q-As10oIDyNADSZQHARFJoClZU4NYnER_A7O7dP5tD7IgGjSNyzauT3n_R8obc56fs9LoV11yG_EiZ4xMEuAxHcnjIeWGb232qL1fCf0JvZDnvoLxvrQpm6Xj8GG1uY7S76UeEKUCYg41UK9Pc7zT5MMAa6zwG7yU5EM92WzE1NS1mY9Urr9mJO3-D1r6Xo_qq6p_k4k_IgHJX9r28Sj7f3n1TDUadGWZG84yFbsi9nITPut0ahgXr5cKflDnuLIhIGhLTF1t3-8kpGWruwIwSmzOpfwYAuPtt9cRm1BuB27zS6ezEwSgvEDkDLT7rwL-mhPE_VYZXsX9nTTdFMQEg5sW-5ndEPZSYg5ov_9_kTGiidVGRZplP31SubxiPquvIIx-Iphvp9Vs88Oso3PP7GK4eiwNp27S1PcNgnYGr2qUX0DT5_Y_viC-Wk1vD0rcMgs6-cWCgSPqOmI-zF-NBj1x8PTqpBxz0w1Q7mPAJE3TkjMHglzZQSLPQFy3U3hc2leqoWMkt5FjLO-tCHnp1y31xoqJpmERv9UcqbqyBJz1XG73IFIAmMz2qtvVfMwxbE5aB1FcnqbpRZGcDIbON505lBKkMdVTVRxyJZQOghNFyVZZ6nTMoCqUcJp2mF1oZCSXLoPFZpNa-ogOmTp7naCLukKGbqNhp8H_6YejvR2lWpV-l6BlQL4kPJuSjAEYXJ1VTq9GaQlCN7r0lsz4cVwfRpEKZXjomZrqLKoUYF5FtDPFIqq1e2K0VyUUP5p-Qw1SoYpFW2FhNT-5ucTvgg%3D%3D&searchType=oneWay&searchBags=0.0",
+                  "price": {
+                    "amount": "22794"
+                  },
+                  "priceEur": {
+                    "amount": "2754.74"
+                  },
+                  "itineraryProvider": {
+                    "code": "KIWI-BASIC",
+                    "name": "Kiwi.com",
+                    "hasHighProbabilityOfPriceChange": false
+                  }
+                }
+              },
+              {
+                "node": {
+                  "token": "Hkb_FaJJ-ENOqkzmnEO6k2qG4TsI29Jpj6sqw9hJKQHvKGfrHv2SG5KLv-cTCQ69aLFsnpFpsxf-ZyXxQcL5BIFaGeCdAjc4jcutTIY8dze5hadtgYPZ4iz16d5hQZKuRh6hQishBN4gOpfKi5HA9-tgWIeUOPAK5wOcuUvwzRSTWSx_ucBa8kc2pcjjb6CHoZtGELdGZJxmOXx60b3XXDmXxUGU7OGYOfnWnioLK98jjpVpK_YLcmyXgCI3jNGbmH8MoHbJJBikcvCB3Zhv2KUtnqQJII7weBrSap9NzaKq1L_0fVpZFu1K_fc7xsluuOt0TkYC9rC6sKXxZ7-a6V7cIubkZyLaTVNhMjfxiyCJML32LDZvx8Q4GfHvDtfWAL5QdmYHAJBYgXJO4wyUhZSd25HlSiKcrDUWbRXuKLWIzDXfjy-8znjQZ_HW6OljoAh2AGM6kqgu2JrF6eMjnzk_2y_c8-YhsX_JwTQAzwZGu_81pv-v5U3kb9Hy3styBoHRFKgX3KMfv-E-YqGkxm3dkPWdzPCt09Ed-D742tq-N93RYH2QYKnP3IWlRi8cU6AR1CukTBnthwhn_f_aopwAhbnUGXoivQXwQ7y0vsfBuK4mIo3qAwpX1xqVxec2-HE5FWchyw7_-nfgvGWsb9WtwlCuYOWRCd7gCH6ioFzNpzIJim2kY-hUL9_U37EKGsUc5WTv4H37PJQCg9AAsToIF4tTPAu-0y6L9QgfCW3bfS4VYlMo960Ut71gMh8xu_0AHCmK3B3KTIjur5e5rjhsOz69jrsq7GoDotERgiwJ-Uq7niOonKXQucxlpTlu6D3KwvrgTkWcs6fJgDutAFcG084n9lzv_44Tzm_qZQTn4dUnDTHs2fUd0grx72A6cWO3sMW0Uq-YSz3vym8V3VQlHN__-csmQGLOEGXbPY2HzYF5je5yUaorRdYi-T5jREQsQIZ2OiLrqgAHaSEODowovFeExVKRm7UZPvYWUg4LYCFcXF1usxdbqlhtoCAoG7LClYL1QVBg5SHHbJ0aBHpnCFem77U6VVCpcAuSoZDHgOHUU6wBDByzD5x1y-Y1RZzhWgEj4dfmdLWzO8DeUN0l9MijNNBL43stfsENG2DxFvMyfy5yTdS74Q3krE5dwjYcSWuCzz7VEc17a44fDPA==",
+                  "bookingUrl": "/cn/booking/?direct=true&locale=cn&currency=cny&passengers=1-0-0&token=Hkb_FaJJ-ENOqkzmnEO6k2qG4TsI29Jpj6sqw9hJKQHvKGfrHv2SG5KLv-cTCQ69aLFsnpFpsxf-ZyXxQcL5BIFaGeCdAjc4jcutTIY8dze5hadtgYPZ4iz16d5hQZKuRh6hQishBN4gOpfKi5HA9-tgWIeUOPAK5wOcuUvwzRSTWSx_ucBa8kc2pcjjb6CHoZtGELdGZJxmOXx60b3XXDmXxUGU7OGYOfnWnioLK98jjpVpK_YLcmyXgCI3jNGbmH8MoHbJJBikcvCB3Zhv2KUtnqQJII7weBrSap9NzaKq1L_0fVpZFu1K_fc7xsluuOt0TkYC9rC6sKXxZ7-a6V7cIubkZyLaTVNhMjfxiyCJML32LDZvx8Q4GfHvDtfWAL5QdmYHAJBYgXJO4wyUhZSd25HlSiKcrDUWbRXuKLWIzDXfjy-8znjQZ_HW6OljoAh2AGM6kqgu2JrF6eMjnzk_2y_c8-YhsX_JwTQAzwZGu_81pv-v5U3kb9Hy3styBoHRFKgX3KMfv-E-YqGkxm3dkPWdzPCt09Ed-D742tq-N93RYH2QYKnP3IWlRi8cU6AR1CukTBnthwhn_f_aopwAhbnUGXoivQXwQ7y0vsfBuK4mIo3qAwpX1xqVxec2-HE5FWchyw7_-nfgvGWsb9WtwlCuYOWRCd7gCH6ioFzNpzIJim2kY-hUL9_U37EKGsUc5WTv4H37PJQCg9AAsToIF4tTPAu-0y6L9QgfCW3bfS4VYlMo960Ut71gMh8xu_0AHCmK3B3KTIjur5e5rjhsOz69jrsq7GoDotERgiwJ-Uq7niOonKXQucxlpTlu6D3KwvrgTkWcs6fJgDutAFcG084n9lzv_44Tzm_qZQTn4dUnDTHs2fUd0grx72A6cWO3sMW0Uq-YSz3vym8V3VQlHN__-csmQGLOEGXbPY2HzYF5je5yUaorRdYi-T5jREQsQIZ2OiLrqgAHaSEODowovFeExVKRm7UZPvYWUg4LYCFcXF1usxdbqlhtoCAoG7LClYL1QVBg5SHHbJ0aBHpnCFem77U6VVCpcAuSoZDHgOHUU6wBDByzD5x1y-Y1RZzhWgEj4dfmdLWzO8DeUN0l9MijNNBL43stfsENG2DxFvMyfy5yTdS74Q3krE5dwjYcSWuCzz7VEc17a44fDPA%3D%3D&searchType=oneWay&searchBags=0.0",
+                  "price": {
+                    "amount": "23789"
+                  },
+                  "priceEur": {
+                    "amount": "2874.99"
+                  },
+                  "itineraryProvider": {
+                    "code": "KIWI",
+                    "name": "Kiwi.com",
+                    "hasHighProbabilityOfPriceChange": false
+                  }
+                }
+              }
+            ]
+          },
+          "travelHack": {
+            "isTrueHiddenCity": true,
+            "isVirtualInterlining": true,
+            "isThrowawayTicket": false
+          },
+          "duration": 103500,
+          "pnrCount": 2,
+          "sector": {
+            "id": "Sector:22276592b91c71f941ce79ae396ee5edb1b0b26e~a42dca9d02fe8fb3c63b04ae6dccf5e224fea530|04abde452d846b094defba12c31866ef375a380e",
+            "duration": 103500,
+            "sectorSegments": [
+              {
+                "guarantee": null,
+                "segment": {
+                  "id": "Segment:a42dca9d02fe8fb3c63b04ae6dccf5e224fea530",
+                  "source": {
+                    "localTime": "2025-06-30T22:00:00",
+                    "utcTimeIso": "2025-06-30T21:00:00Z",
+                    "station": {
+                      "name": "伦敦希思罗机场",
+                      "code": "LHR",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "伦敦"
+                      },
+                      "country": {
+                        "code": "GB",
+                        "name": "英国"
+                      }
+                    }
+                  },
+                  "destination": {
+                    "localTime": "2025-07-01T16:15:00",
+                    "utcTimeIso": "2025-07-01T08:15:00Z",
+                    "station": {
+                      "name": "长沙黄花国际机场",
+                      "code": "CSX",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "长沙市"
+                      },
+                      "country": {
+                        "code": "CN",
+                        "name": "中国"
+                      }
+                    }
+                  },
+                  "hiddenDestination": {
+                    "code": "PEK",
+                    "name": "北京首都国际机场",
+                    "city": {
+                      "name": "北京市"
+                    },
+                    "country": {
+                      "code": "CN",
+                      "name": "中国"
+                    }
+                  },
+                  "duration": 40500,
+                  "type": "FLIGHT",
+                  "code": "7964",
+                  "carrier": {
+                    "name": "Hainan Airlines",
+                    "code": "HU"
+                  },
+                  "operatingCarrier": {
+                    "name": "Hainan Airlines",
+                    "code": "HU"
+                  },
+                  "cabinClass": "BUSINESS"
+                },
+                "layover": null
+              },
+              {
+                "guarantee": "KIWI_COM",
+                "segment": {
+                  "id": "Segment:04abde452d846b094defba12c31866ef375a380e",
+                  "source": {
+                    "localTime": "2025-07-02T07:50:00",
+                    "utcTimeIso": "2025-07-01T23:50:00Z",
+                    "station": {
+                      "name": "长沙黄花国际机场",
+                      "code": "CSX",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "长沙市"
+                      },
+                      "country": {
+                        "code": "CN",
+                        "name": "中国"
+                      }
+                    }
+                  },
+                  "destination": {
+                    "localTime": "2025-07-02T09:45:00",
+                    "utcTimeIso": "2025-07-02T01:45:00Z",
+                    "station": {
+                      "name": "上海浦东国际机场",
+                      "code": "PVG",
+                      "type": "AIRPORT",
+                      "city": {
+                        "name": "上海市"
+                      },
+                      "country": {
+                        "code": "CN",
+                        "name": "中国"
+                      }
+                    }
+                  },
+                  "hiddenDestination": {
+                    "code": "HKG",
+                    "name": "香港国际机场",
+                    "city": {
+                      "name": "中国香港"
+                    },
+                    "country": {
+                      "code": "HK",
+                      "name": "中国香港"
+                    }
+                  },
+                  "duration": 6900,
+                  "type": "FLIGHT",
+                  "code": "8484",
+                  "carrier": {
+                    "name": "China Eastern Airlines",
+                    "code": "MU"
+                  },
+                  "operatingCarrier": {
+                    "name": "Shanghai Airlines",
+                    "code": "FM"
+                  },
+                  "cabinClass": "BUSINESS"
+                },
+                "layover": {
+                  "duration": 56100,
+                  "isBaggageRecheck": true
+                }
+              }
+            ]
+          },
+          "lastAvailable": {
+            "seatsLeft": 1
+          }
+        }
+      ]
+    }
+  }
+}

@@ -42,9 +42,9 @@ class AirportSearchAPI:
     def _load_airport_data(self):
         """Load airport translation data from JSON files."""
         try:
-            # Load enhanced airport data
+            # Load enhanced airport data from package data directory
             translations_path = (
-                Path(__file__).parent.parent.parent
+                Path(__file__).parent.parent
                 / "data"
                 / "translations"
                 / "airports_enhanced_cn.json"

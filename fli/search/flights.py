@@ -1,10 +1,11 @@
 """Flight search implementation.
 
-This module provides the core flight search functionality, interfacing directly
-with Google Flights' API to find available flights and their details.
+This module provides the core flight search functionality, interfacing with
+Google Flights' API and Kiwi.com API to find available flights and their details.
 """
 
 import json
+import asyncio
 from copy import deepcopy
 from datetime import datetime
 
@@ -17,6 +18,7 @@ from fli.models import (
 )
 from fli.models.google_flights.base import LocalizationConfig, TripType
 from fli.search.client import get_client
+from fli.api.kiwi_flights import KiwiFlightsAPI
 
 
 class SearchFlights:
@@ -309,3 +311,311 @@ class SearchFlights:
 
         """
         return getattr(Airport, airport_code)
+
+
+class SearchKiwiFlights:
+    """Kiwi hidden city flight search implementation with Google Flights compatible interface.
+
+    This class provides the same interface as SearchFlights but searches for hidden city flights
+    using Kiwi.com's API, making it easy to switch between Google Flights and Kiwi searches.
+    """
+
+    def __init__(self, localization_config: LocalizationConfig = None):
+        """Initialize the Kiwi search client.
+
+        Args:
+            localization_config: Configuration for language and currency settings
+        """
+        self.localization_config = localization_config or LocalizationConfig()
+        self.kiwi_client = KiwiFlightsAPI(localization_config)
+
+    def search(
+        self, filters: FlightSearchFilters, top_n: int = 5
+    ) -> list[FlightResult | tuple[FlightResult, FlightResult]] | None:
+        """Search for hidden city flights using the same interface as Google Flights.
+
+        Args:
+            filters: Flight search filters (same as Google Flights)
+            top_n: Number of flights to return
+
+        Returns:
+            List of FlightResult objects or flight pairs for round-trip
+        """
+        # Run async search in sync context
+        return asyncio.run(self._async_search(filters, top_n))
+
+    async def _async_search(
+        self, filters: FlightSearchFilters, top_n: int = 5
+    ) -> list[FlightResult | tuple[FlightResult, FlightResult]] | None:
+        """Async implementation of the search method."""
+        try:
+            # Extract search parameters from filters
+            origin = filters.flight_segments[0].departure_airport[0][0].name
+            destination = filters.flight_segments[0].arrival_airport[0][0].name
+            departure_date = filters.flight_segments[0].travel_date
+            adults = filters.passenger_info.adults
+
+            # Convert seat type to cabin class
+            cabin_class = self._convert_seat_type_to_cabin_class(filters.seat_type)
+
+            if filters.trip_type == TripType.ONE_WAY:
+                # Single trip search
+                result = await self.kiwi_client.search_oneway_hidden_city(
+                    origin=origin,
+                    destination=destination,
+                    departure_date=departure_date,
+                    adults=adults,
+                    limit=top_n,
+                    cabin_class=cabin_class
+                )
+
+                if result.get("success"):
+                    flights = []
+                    for flight_data in result.get("flights", []):
+                        # Only return hidden city flights
+                        if flight_data.get("is_hidden_city"):
+                            flight_result = self._convert_kiwi_to_flight_result(flight_data)
+                            flights.append(flight_result)
+                    return flights[:top_n]
+
+            elif filters.trip_type == TripType.ROUND_TRIP:
+                # Round trip search
+                if len(filters.flight_segments) < 2:
+                    return None
+
+                return_date = filters.flight_segments[1].travel_date
+                result = await self.kiwi_client.search_roundtrip_hidden_city(
+                    origin=origin,
+                    destination=destination,
+                    departure_date=departure_date,
+                    return_date=return_date,
+                    adults=adults,
+                    limit=top_n,
+                    cabin_class=cabin_class
+                )
+
+                if result.get("success"):
+                    flight_pairs = []
+                    for flight_data in result.get("flights", []):
+                        # Only return hidden city flights
+                        if flight_data.get("is_hidden_city"):
+                            outbound = self._convert_kiwi_roundtrip_to_flight_result(
+                                flight_data, "outbound"
+                            )
+                            inbound = self._convert_kiwi_roundtrip_to_flight_result(
+                                flight_data, "inbound"
+                            )
+                            flight_pairs.append((outbound, inbound))
+                    return flight_pairs[:top_n]
+
+            return None
+
+        except Exception as e:
+            raise Exception(f"Kiwi search failed: {str(e)}") from e
+
+    def _convert_kiwi_to_flight_result(self, kiwi_flight: dict) -> FlightResult:
+        """Convert Kiwi flight data to FlightResult format with complete route information.
+
+        Args:
+            kiwi_flight: Flight data from Kiwi API
+
+        Returns:
+            FlightResult object compatible with Google Flights format
+        """
+        try:
+            # Create flight legs for all segments
+            legs = []
+            route_segments = kiwi_flight.get("route_segments", [])
+
+            if route_segments:
+                # Multi-segment flight - create leg for each segment
+                for segment in route_segments:
+                    leg = FlightLeg(
+                        airline=self._parse_airline_from_code(segment.get("carrier", "")),
+                        flight_number=segment.get("flight_number", ""),
+                        departure_airport=self._parse_airport_from_code(segment.get("from", "")),
+                        arrival_airport=self._parse_airport_from_code(segment.get("to", "")),
+                        departure_datetime=self._parse_kiwi_datetime(segment.get("departure_time", "")),
+                        arrival_datetime=self._parse_kiwi_datetime(segment.get("arrival_time", "")),
+                        duration=segment.get("duration", 0) // 60,  # Convert to minutes
+                    )
+                    legs.append(leg)
+            else:
+                # Single segment flight - fallback to original logic
+                leg = FlightLeg(
+                    airline=self._parse_airline_from_code(kiwi_flight.get("carrier_code", "")),
+                    flight_number=kiwi_flight.get("flight_number", ""),
+                    departure_airport=self._parse_airport_from_code(kiwi_flight.get("departure_airport", "")),
+                    arrival_airport=self._parse_airport_from_code(kiwi_flight.get("arrival_airport", "")),
+                    departure_datetime=self._parse_kiwi_datetime(kiwi_flight.get("departure_time", "")),
+                    arrival_datetime=self._parse_kiwi_datetime(kiwi_flight.get("arrival_time", "")),
+                    duration=kiwi_flight.get("duration_minutes", 0),
+                )
+                legs.append(leg)
+
+            # Create flight result
+            flight_result = FlightResult(
+                price=kiwi_flight.get("price", 0),
+                duration=kiwi_flight.get("duration_minutes", 0),
+                stops=max(0, kiwi_flight.get("segment_count", 1) - 1),
+                legs=legs,
+                # Add hidden city information as metadata
+                hidden_city_info={
+                    "is_hidden_city": kiwi_flight.get("is_hidden_city", False),
+                    "hidden_destination_code": kiwi_flight.get("hidden_destination_code", ""),
+                    "hidden_destination_name": kiwi_flight.get("hidden_destination_name", ""),
+                    "is_throwaway": kiwi_flight.get("is_throwaway", False),
+                    "route_segments": route_segments,  # Include complete route info
+                }
+            )
+
+            return flight_result
+
+        except Exception as e:
+            raise Exception(f"Failed to convert Kiwi flight data: {e}") from e
+
+    def _convert_kiwi_roundtrip_to_flight_result(self, kiwi_flight: dict, direction: str) -> FlightResult:
+        """Convert Kiwi round-trip flight data to FlightResult format.
+
+        Args:
+            kiwi_flight: Round-trip flight data from Kiwi API
+            direction: "outbound" or "inbound"
+
+        Returns:
+            FlightResult object for the specified direction
+        """
+        try:
+            leg_data = kiwi_flight.get(direction, {})
+
+            # Create flight leg
+            leg = FlightLeg(
+                airline=self._parse_airline_from_code(leg_data.get("carrier_code", "")),
+                flight_number=leg_data.get("flight_number", ""),
+                departure_airport=self._parse_airport_from_code(leg_data.get("departure_airport", "")),
+                arrival_airport=self._parse_airport_from_code(leg_data.get("arrival_airport", "")),
+                departure_datetime=self._parse_kiwi_datetime(leg_data.get("departure_time", "")),
+                arrival_datetime=self._parse_kiwi_datetime(leg_data.get("arrival_time", "")),
+                duration=leg_data.get("duration", 0),
+            )
+
+            # Create flight result
+            flight_result = FlightResult(
+                price=kiwi_flight.get("total_price", 0) // 2,  # Split price for each direction
+                duration=leg_data.get("duration", 0),
+                stops=0,  # Assuming direct flights for now
+                legs=[leg],
+                # Add hidden city information
+                hidden_city_info={
+                    "is_hidden_city": leg_data.get("is_hidden", False),
+                    "hidden_destination_code": leg_data.get("hidden_destination_code", ""),
+                    "hidden_destination_name": leg_data.get("hidden_destination_name", ""),
+                    "direction": direction,
+                }
+            )
+
+            return flight_result
+
+        except Exception as e:
+            raise Exception(f"Failed to convert Kiwi round-trip flight data: {e}") from e
+
+    def _parse_airline_from_code(self, airline_code: str) -> Airline:
+        """Convert airline code to Airline enum.
+
+        Args:
+            airline_code: Airline code (e.g., "CA", "BA")
+
+        Returns:
+            Airline enum value or default
+        """
+        try:
+            if not airline_code:
+                return list(Airline)[0]  # Default airline
+
+            # Handle numeric codes
+            if airline_code[0].isdigit():
+                airline_code = f"_{airline_code}"
+
+            # Try to get the airline enum
+            if hasattr(Airline, airline_code):
+                return getattr(Airline, airline_code)
+            else:
+                # Return default if not found
+                return list(Airline)[0]
+
+        except Exception:
+            return list(Airline)[0]
+
+    def _parse_airport_from_code(self, airport_code: str) -> Airport:
+        """Convert airport code to Airport enum.
+
+        Args:
+            airport_code: Airport code (e.g., "LHR", "PEK")
+
+        Returns:
+            Airport enum value or default
+        """
+        try:
+            if not airport_code:
+                return list(Airport)[0]  # Default airport
+
+            # Try to get the airport enum
+            if hasattr(Airport, airport_code):
+                return getattr(Airport, airport_code)
+            else:
+                # Return default if not found
+                return list(Airport)[0]
+
+        except Exception:
+            return list(Airport)[0]
+
+    def _parse_kiwi_datetime(self, datetime_str: str) -> datetime:
+        """Parse Kiwi datetime string to datetime object.
+
+        Args:
+            datetime_str: Datetime string from Kiwi API
+
+        Returns:
+            Parsed datetime object or current time as fallback
+        """
+        try:
+            if not datetime_str:
+                return datetime.now()
+
+            # Try different datetime formats that Kiwi might use
+            formats = [
+                "%Y-%m-%dT%H:%M:%S",
+                "%Y-%m-%d %H:%M:%S",
+                "%Y-%m-%dT%H:%M:%S.%f",
+                "%Y-%m-%dT%H:%M:%SZ",
+            ]
+
+            for fmt in formats:
+                try:
+                    return datetime.strptime(datetime_str, fmt)
+                except ValueError:
+                    continue
+
+            # If all formats fail, return current time
+            return datetime.now()
+
+        except Exception:
+            return datetime.now()
+
+    def _convert_seat_type_to_cabin_class(self, seat_type) -> str:
+        """Convert SeatType enum to Kiwi API cabin class string.
+
+        Args:
+            seat_type: SeatType enum value
+
+        Returns:
+            Cabin class string for Kiwi API
+        """
+        # Import here to avoid circular imports
+        from fli.models.google_flights.base import SeatType
+
+        if seat_type == SeatType.BUSINESS:
+            return "BUSINESS"
+        elif seat_type == SeatType.FIRST:
+            return "FIRST"
+        else:
+            return "ECONOMY"  # Default to economy

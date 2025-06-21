@@ -24,6 +24,7 @@
 **Smart Flights 的增强功能**：
 - 🌍 **中英文双语支持** - 完整的本地化界面和数据
 - 🏢 **机场搜索 API** - 智能机场查询和搜索功能
+- 🎯 **隐藏城市航班搜索** - 集成 Kiwi.com API，发现隐藏城市机票优惠
 - 📚 **完整文档** - 详细的 API 参考和使用指南
 - 🎯 **优化体验** - 更好的 CLI 界面和错误处理
 - 📦 **包名优化** - 更直观的 `smart-flights` 包名
@@ -38,6 +39,7 @@
 - [🎯 功能特性](#功能特性)
 - [🖥️ CLI 使用方法](#cli-使用方法)
 - [🖥️ 完整 CLI 命令参考](#️-完整-cli-命令参考)
+- [🎯 隐藏城市航班搜索](#隐藏城市航班搜索)
 - [🐍 Python API 详细使用方法](#python-api-详细使用方法)
 - [📚 完整 API 参考](#-完整-api-参考)
 - [✈️ 支持的机场和航空公司](#支持的机场和航空公司)
@@ -61,11 +63,13 @@ fli --help
 
 - 🔍 **强大搜索**
     - 单程航班搜索
+    - 往返航班搜索
     - 灵活的出发时间
     - 多航空公司支持
     - 舱位等级选择
     - 中转偏好设置
     - 自定义结果排序
+    - **隐藏城市航班搜索** 🎯
 
 - 💺 **舱位等级**
     - 经济舱
@@ -381,6 +385,135 @@ fli cheap SFO NRT \
 | `--city`         | 按城市搜索              | `--city`               |
 | `--country`      | 按国家搜索              | `--country`            |
 
+## 🎯 隐藏城市航班搜索
+
+Smart Flights 集成了 Kiwi.com API，提供强大的隐藏城市航班搜索功能。隐藏城市航班是一种旅行技巧，通过预订到更远目的地的航班，在中转站下机，从而获得更便宜的机票价格。
+
+### 什么是隐藏城市航班？
+
+隐藏城市航班（Hidden City Flights）是指：
+- 🎯 **预订到更远的目的地**：比如想去北京，但预订到西安的航班（经北京中转）
+- 💰 **价格更便宜**：由于航空公司定价策略，有时中转航班比直飞更便宜
+- ✈️ **在中转站下机**：在北京下机，不继续飞往西安
+- 🎫 **仅适用于单程**：往返票无法使用此技巧
+
+### 使用 Python API 搜索隐藏城市航班
+
+#### 基础隐藏城市搜索
+
+```python
+from fli.search import SearchKiwiFlights  # 专门的隐藏城市搜索
+from fli.models import FlightSearchFilters, PassengerInfo, FlightSegment, Airport
+from fli.models.google_flights.base import LocalizationConfig, Language, Currency, TripType, SeatType
+
+# 创建中文/人民币配置
+config = LocalizationConfig(
+    language=Language.CHINESE,
+    currency=Currency.CNY,
+    region="CN"
+)
+
+# 创建隐藏城市搜索客户端
+search_client = SearchKiwiFlights(config)
+
+# 创建搜索过滤器（与 Google Flights 完全相同的接口）
+filters = FlightSearchFilters(
+    trip_type=TripType.ONE_WAY,  # 隐藏城市仅支持单程
+    passenger_info=PassengerInfo(
+        adults=1,
+        children=0,
+        infants_on_lap=0,
+        infants_in_seat=0
+    ),
+    flight_segments=[
+        FlightSegment(
+            departure_airport=[[Airport.LHR, 0]],  # 伦敦希思罗
+            arrival_airport=[[Airport.PVG, 0]],    # 上海浦东
+            travel_date="2025-06-30"
+        )
+    ],
+    seat_type=SeatType.ECONOMY  # 或 SeatType.BUSINESS
+)
+
+# 执行搜索（与 Google Flights 完全相同的调用方式）
+results = search_client.search(filters, top_n=5)
+
+# 处理结果
+if results:
+    for i, flight in enumerate(results, 1):
+        print(f"\n航班 {i}:")
+        print(f"💰 价格: ¥{flight.price}")
+        print(f"⏱️ 时长: {flight.duration // 60}小时{flight.duration % 60}分钟")
+        print(f"🔄 中转: {flight.stops}次")
+
+        # 显示完整航班路径
+        if len(flight.legs) > 1:
+            print(f"🛣️ 完整路径:")
+            for j, leg in enumerate(flight.legs, 1):
+                print(f"  航段 {j}: {leg.departure_airport.name} -> {leg.arrival_airport.name}")
+                print(f"    🏢 {leg.airline.name} {leg.flight_number}")
+                print(f"    🕐 {leg.departure_datetime.strftime('%H:%M')} -> {leg.arrival_datetime.strftime('%H:%M')}")
+
+        # 隐藏城市信息
+        if flight.hidden_city_info and flight.hidden_city_info.get("is_hidden_city"):
+            print(f"🎯 隐藏城市: {flight.hidden_city_info.get('hidden_destination_name')}")
+            print(f"🎯 隐藏代码: {flight.hidden_city_info.get('hidden_destination_code')}")
+else:
+    print("❌ 未找到隐藏城市航班")
+```
+
+#### 与 Google Flights 的接口兼容性
+
+隐藏城市搜索与 Google Flights 搜索使用**完全相同的接口**，您可以轻松切换：
+
+```python
+from fli.search import SearchFlights, SearchKiwiFlights
+
+# 创建相同的搜索过滤器
+filters = FlightSearchFilters(...)
+
+# Google Flights 搜索
+google_search = SearchFlights(localization_config)
+google_results = google_search.search(filters, top_n=5)
+
+# Kiwi 隐藏城市搜索 - 完全相同的接口！
+kiwi_search = SearchKiwiFlights(localization_config)
+kiwi_results = kiwi_search.search(filters, top_n=5)
+
+# 比较结果
+print(f"Google Flights: {len(google_results) if google_results else 0} 个航班")
+print(f"Kiwi 隐藏城市: {len(kiwi_results) if kiwi_results else 0} 个隐藏城市航班")
+```
+
+### 隐藏城市航班的注意事项
+
+⚠️ **重要提醒**：
+1. **仅适用于单程票**：往返票无法使用隐藏城市技巧
+2. **不要托运行李**：行李会被运送到最终目的地
+3. **航空公司政策**：违反航空公司条款，可能面临账户封禁
+4. **仅最后一段**：只能在最后一个航段的中转站下机
+5. **风险自负**：请了解相关风险后谨慎使用
+
+💡 **最佳实践**：
+- 优先考虑经济舱，隐藏城市机会更多
+- 选择有中转的航班（允许 1 次中转）
+- 比较隐藏城市价格与直飞价格
+- 确保中转时间充足，避免误机
+
+### 支持的功能
+
+✅ **支持的搜索类型**：
+- 单程隐藏城市航班（推荐）
+- 往返隐藏城市航班（机会较少）
+- 经济舱/商务舱/头等舱隐藏城市航班
+
+✅ **支持的功能**：
+- 中英文双语界面
+- 人民币/美元双货币显示
+- 完整航班路径显示
+- 隐藏目的地信息
+- 与 Google Flights 相同的接口
+
 ## Python API 详细使用方法
 
 ### 1. 航班搜索 API
@@ -574,6 +707,35 @@ results = search.search(filters, top_n=10)
 
 **方法：**
 - `search(filters: FlightSearchFilters, top_n: int = 5)` - 搜索航班
+
+#### SearchKiwiFlights - 隐藏城市航班搜索
+```python
+from fli.search import SearchKiwiFlights
+from fli.models.google_flights.base import LocalizationConfig, Language, Currency
+
+# 创建本地化配置
+localization_config = LocalizationConfig(
+    language=Language.CHINESE,  # 或 Language.ENGLISH
+    currency=Currency.CNY,      # 或 Currency.USD
+    region="CN"                 # 或 "US"
+)
+
+# 初始化隐藏城市搜索客户端
+search = SearchKiwiFlights(localization_config=localization_config)
+
+# 执行搜索（与 Google Flights 完全相同的接口）
+results = search.search(filters, top_n=5)
+```
+
+**方法：**
+- `search(filters: FlightSearchFilters, top_n: int = 5)` - 搜索隐藏城市航班
+
+**特点：**
+- 与 `SearchFlights` 完全相同的接口
+- 专门搜索隐藏城市航班
+- 支持单程和往返搜索
+- 支持所有舱位类型
+- 返回包含隐藏城市信息的 `FlightResult` 对象
 
 #### SearchDates - 日期价格搜索
 ```python

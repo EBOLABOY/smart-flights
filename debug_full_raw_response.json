@@ -1,0 +1,101 @@
+{
+  "data": {
+    "onewayItineraries": {
+      "__typename": "Itineraries",
+      "metadata": {
+        "itinerariesCount": 2,
+        "hasMorePending": false
+      },
+      "itineraries": [
+        {
+          "__typename": "ItineraryOneWay",
+          "id": "ItineraryOneWay:eyJwcm92aWRlcnMiOiJLSVdJLUJBU0lDOktJV0kiLCJyb3V0ZV9kYXRhIjoiQ0E6ODU2OkxIUjoxNzUxMzE5NjAwOlBFSzoxNzUxMzU0NzAwOmVjb25vbXk6RmFsc2U6OjoiLCJwcmljZSI6IjQ4MDkifQ==",
+          "price": {
+            "amount": "4809"
+          },
+          "priceEur": {
+            "amount": "581.184839"
+          },
+          "duration": 35100,
+          "travelHack": {
+            "isTrueHiddenCity": false,
+            "isThrowawayTicket": false
+          },
+          "sector": {
+            "sectorSegments": [
+              {
+                "segment": {
+                  "source": {
+                    "localTime": "2025-06-30T22:40:00",
+                    "station": {
+                      "code": "LHR",
+                      "name": "伦敦希思罗机场"
+                    }
+                  },
+                  "destination": {
+                    "localTime": "2025-07-01T15:25:00",
+                    "station": {
+                      "code": "PEK",
+                      "name": "北京首都国际机场"
+                    }
+                  },
+                  "hiddenDestination": null,
+                  "carrier": {
+                    "code": "CA",
+                    "name": "Air China"
+                  },
+                  "code": "856",
+                  "duration": 35100
+                }
+              }
+            ]
+          }
+        },
+        {
+          "__typename": "ItineraryOneWay",
+          "id": "ItineraryOneWay:eyJwcm92aWRlcnMiOiJLSVdJLUJBU0lDOktJV0kiLCJyb3V0ZV9kYXRhIjoiQ0E6OTM4OkxIUjoxNzUxMzExNTAwOlBFSzoxNzUxMzQ2OTAwOmVjb25vbXk6RmFsc2U6OjoiLCJwcmljZSI6IjQ4MDkifQ==",
+          "price": {
+            "amount": "4809"
+          },
+          "priceEur": {
+            "amount": "581.184839"
+          },
+          "duration": 35400,
+          "travelHack": {
+            "isTrueHiddenCity": false,
+            "isThrowawayTicket": false
+          },
+          "sector": {
+            "sectorSegments": [
+              {
+                "segment": {
+                  "source": {
+                    "localTime": "2025-06-30T20:25:00",
+                    "station": {
+                      "code": "LHR",
+                      "name": "伦敦希思罗机场"
+                    }
+                  },
+                  "destination": {
+                    "localTime": "2025-07-01T13:15:00",
+                    "station": {
+                      "code": "PEK",
+                      "name": "北京首都国际机场"
+                    }
+                  },
+                  "hiddenDestination": null,
+                  "carrier": {
+                    "code": "CA",
+                    "name": "Air China"
+                  },
+                  "code": "938",
+                  "duration": 35400
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

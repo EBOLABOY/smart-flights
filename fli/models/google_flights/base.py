@@ -185,9 +185,9 @@ class LocalizationConfig:
                 import json
                 from pathlib import Path
 
-                # Get the path to the airlines translation file
+                # Get the path to the airlines translation file from package data directory
                 translations_path = (
-                    Path(__file__).parent.parent.parent.parent
+                    Path(__file__).parent.parent.parent
                     / "data"
                     / "translations"
                     / "airlines_cn.json"
@@ -304,6 +304,7 @@ class FlightResult(BaseModel):
     price: NonNegativeFloat  # in specified currency
     duration: PositiveInt  # total duration in minutes
     stops: NonNegativeInt
+    hidden_city_info: dict | None = None  # Optional hidden city information from Kiwi API
 
 
 class FlightSegment(BaseModel):
