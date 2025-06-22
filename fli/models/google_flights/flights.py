@@ -181,9 +181,24 @@ class FlightSearchFilters(BaseModel):
 
         return filters
 
-    def encode(self) -> str:
-        """URL encode the formatted filters for API request."""
+    def encode(self, enhanced_search: bool = False) -> str:
+        """URL encode the formatted filters for API request.
+
+        Args:
+            enhanced_search: If True, use extended search mode (135+ flights)
+                           If False, use basic search mode (12 flights)
+
+        Returns:
+            URL-encoded filter string for API request
+        """
         formatted_filters = self.format()
+
+        # Modify the constants for enhanced search
+        if enhanced_search:
+            # Change the second constant from 0 to 1 to enable extended search
+            # This unlocks 135+ flights instead of just 12
+            formatted_filters[-3] = 1  # Change second constant from 0 to 1
+
         # First convert the formatted filters to a JSON string
         formatted_json = json.dumps(formatted_filters, separators=(",", ":"))
         # Then wrap it in a list with null

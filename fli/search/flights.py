@@ -44,7 +44,48 @@ class SearchFlights:
         self.localization_config = localization_config or LocalizationConfig()
 
     def search(
-        self, filters: FlightSearchFilters, top_n: int = 5
+        self, filters: FlightSearchFilters, top_n: int = 5, enhanced_search: bool = False
+    ) -> list[FlightResult | tuple[FlightResult, FlightResult]] | None:
+        """Search for flights using the given FlightSearchFilters.
+
+        Args:
+            filters: Full flight search object including airports, dates, and preferences
+            top_n: Number of flights to limit the return flight search to
+            enhanced_search: If True, use extended search mode (135+ flights)
+                           If False, use basic search mode (12 flights)
+
+        Returns:
+            List of FlightResult objects containing flight details, or None if no results
+
+        Raises:
+            Exception: If the search fails or returns invalid data
+        """
+        return self._search_internal(filters, top_n, enhanced_search)
+
+    def search_extended(
+        self, filters: FlightSearchFilters, top_n: int = 50
+    ) -> list[FlightResult | tuple[FlightResult, FlightResult]] | None:
+        """Search for flights using extended search mode for maximum results.
+
+        This method automatically uses the extended search mode that returns 135+ flights
+        instead of the basic 12 flights. It's equivalent to calling search() with
+        enhanced_search=True but provides a cleaner API for users who always want
+        maximum results.
+
+        Args:
+            filters: Full flight search object including airports, dates, and preferences
+            top_n: Number of flights to limit the return flight search to (default: 50)
+
+        Returns:
+            List of FlightResult objects containing flight details, or None if no results
+
+        Raises:
+            Exception: If the search fails or returns invalid data
+        """
+        return self._search_internal(filters, top_n, enhanced_search=True)
+
+    def _search_internal(
+        self, filters: FlightSearchFilters, top_n: int = 5, enhanced_search: bool = False
     ) -> list[FlightResult | tuple[FlightResult, FlightResult]] | None:
         """Search for flights using the given FlightSearchFilters.
 
@@ -59,7 +100,7 @@ class SearchFlights:
             Exception: If the search fails or returns invalid data
 
         """
-        encoded_filters = filters.encode()
+        encoded_filters = filters.encode(enhanced_search=enhanced_search)
 
         # Build URL with localization parameters
         url_with_params = f"{self.BASE_URL}?hl={self.localization_config.api_language_code}&gl={self.localization_config.region}&curr={self.localization_config.api_currency_code}"
@@ -98,7 +139,7 @@ class SearchFlights:
             for selected_flight in flights[:top_n]:
                 selected_flight_filters = deepcopy(filters)
                 selected_flight_filters.flight_segments[0].selected_flight = selected_flight
-                return_flights = self.search(selected_flight_filters, top_n=top_n)
+                return_flights = self._search_internal(selected_flight_filters, top_n=top_n, enhanced_search=enhanced_search)
                 if return_flights is not None:
                     flight_pairs.extend(
                         (selected_flight, return_flight) for return_flight in return_flights
