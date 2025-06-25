@@ -19,14 +19,18 @@ logger = logging.getLogger(__name__)
 class KiwiOnewayAPI:
     """Specialized API for one-way hidden city flight searches."""
     
-    def __init__(self, localization_config: LocalizationConfig = None):
+    def __init__(self, localization_config: LocalizationConfig = None, cabin_class: str = "ECONOMY", hidden_city_only: bool = False):
         """Initialize the one-way API client.
         
         Args:
             localization_config: Configuration for language and currency settings
+            cabin_class: Cabin class for the flight search (e.g., "ECONOMY", "BUSINESS")
+            hidden_city_only: If True, return only hidden city flights. Default is False.
         """
         self.localization_config = localization_config or LocalizationConfig()
         self.kiwi_client = KiwiFlightsAPI(localization_config)
+        self.cabin_class = cabin_class
+        self.hidden_city_only = hidden_city_only
     
     async def search_hidden_city_flights(self, origin: str, destination: str,
                                         departure_date: str, adults: int = 1,
@@ -95,7 +99,8 @@ class KiwiOnewayAPI:
                 destination=destination.upper(),
                 departure_date=departure_date,
                 adults=adults,
-                limit=limit
+                limit=limit,
+                cabin_class=self.cabin_class
             )
             
             if not search_result.get("success"):
@@ -104,6 +109,11 @@ class KiwiOnewayAPI:
                     "error": search_result.get("error", "Unknown search error")
                 }
             
+            # If hidden_city_only is True, filter for hidden city flights
+            if self.hidden_city_only:
+                flights = search_result.get("flights", [])
+                search_result["flights"] = [f for f in flights if f.get("is_hidden_city")]
+
             # Format the response
             formatted_response = self._format_oneway_response(
                 search_result, origin, destination, departure_date, adults
@@ -172,13 +182,9 @@ class KiwiOnewayAPI:
         """
         flights = search_result.get("flights", [])
         
-        # Format flight information - only include hidden city flights
+        # Format flight information
         formatted_flights = []
         for flight in flights:
-            # Only include hidden city flights
-            if not flight.get("is_hidden_city", False):
-                continue
-
             # Calculate duration in hours
             duration_hours = round(flight.get("duration_minutes", 0) / 60, 1)
 

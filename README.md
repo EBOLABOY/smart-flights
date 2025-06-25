@@ -1496,3 +1496,89 @@ poetry publish
 ---
 
 **Smart Flights** - 让航班搜索更智能、更便捷！ ✈️
+
+---
+
+## 用法示例
+
+以下是如何使用本库进行不同类型航班搜索的示例。
+
+### 1. 基本单程搜索（经济舱）
+
+这是一个最基础的用法，搜索从伦敦 (LHR) 到北京 (PEK) 的单程经济舱机票。
+
+```python
+from fli.api.kiwi_oneway import KiwiOnewayAPI
+
+api = KiwiOnewayAPI(
+    fly_from="LHR",
+    fly_to="PEK",
+    date_from="2025-08-01",
+    date_to="2025-08-01"
+)
+flights = api.search()
+print(flights)
+```
+
+### 2. 商务舱往返搜索
+
+搜索从纽约 (JFK) 到巴黎 (CDG) 的往返商务舱机票。
+
+```python
+from fli.api.kiwi_roundtrip import KiwiRoundtripAPI
+
+api = KiwiRoundtripAPI(
+    fly_from="JFK",
+    fly_to="CDG",
+    date_from="2025-09-10",
+    date_to="2025-09-10",
+    return_from="2025-09-20",
+    return_to="2025-09-20",
+    cabin_class="BUSINESS"  # 指定商务舱
+)
+flights = api.search()
+print(flights)
+```
+
+### 3. 只搜索隐藏城市航班（商务舱）
+
+如果你只对“隐藏城市”这种特殊票价感兴趣，可以设置 `hidden_city_only=True`。
+
+```python
+from fli.api.kiwi_oneway import KiwiOnewayAPI
+
+api = KiwiOnewayAPI(
+    fly_from="LHR",
+    fly_to="PEK",
+    date_from="2025-08-01",
+    date_to="2025-08-01",
+    cabin_class="BUSINESS",
+    hidden_city_only=True  # 只返回隐藏城市航班
+)
+hidden_flights = api.search()
+print(hidden_flights)
+```
+
+### 4. 高级往返搜索
+
+这是一个包含所有可用参数的复杂往返搜索示例。
+
+```python
+from fli.api.kiwi_roundtrip import KiwiRoundtripAPI
+
+api = KiwiRoundtripAPI(
+    fly_from="SIN",
+    fly_to="TYO",
+    date_from="2025-11-01",
+    date_to="2025-11-05",
+    return_from="2025-11-15",
+    return_to="2025-11-20",
+    cabin_class="PREMIUM_ECONOMY", # 指定超级经济舱
+    hidden_city_only=False, # 返回所有类型的航班
+    adults=2,
+    children=1,
+    infants=0
+)
+flights = api.search()
+print(flights)
+```
