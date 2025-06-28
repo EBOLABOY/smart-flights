@@ -298,7 +298,8 @@ class KiwiFlightsAPI:
         self.timeout = 30.0
     
     def _build_search_variables(self, origin: str, destination: str,
-                               departure_date: str, adults: int = 1, cabin_class: str = "ECONOMY") -> Dict[str, Any]:
+                               departure_date: str, adults: int = 1, cabin_class: str = "ECONOMY",
+                               limit: int = 50) -> Dict[str, Any]:
         """Build search variables for Kiwi API request - 基于真实浏览器请求负载.
 
         Args:
@@ -352,7 +353,7 @@ class KiwiFlightsAPI:
                 "transportTypes": ["FLIGHT"],
                 "contentProviders": ["KIWI"],  # 关键：内容提供商
                 "flightsApiLimit": 25,  # 关键：API限制
-                "limit": 10  # 关键：结果限制
+                "limit": limit  # 关键：结果限制，动态设置
             },
             "options": {
                 "sortBy": "QUALITY",  # 修正为 QUALITY 而不是 PRICE
@@ -406,28 +407,32 @@ class KiwiFlightsAPI:
 
     async def search_oneway_hidden_city(self, origin: str, destination: str,
                                        departure_date: str, adults: int = 1,
-                                       limit: int = 10, cabin_class: str = "ECONOMY") -> Dict[str, Any]:
-        """Search for one-way hidden city flights.
+                                       limit: int = 50, cabin_class: str = "ECONOMY",
+                                       enable_pagination: bool = True, max_pages: int = 10) -> Dict[str, Any]:
+        """Search for one-way hidden city flights with automatic pagination.
 
         Args:
             origin: Origin airport code (e.g., 'PEK')
             destination: Destination airport code (e.g., 'LAX')
             departure_date: Departure date in YYYY-MM-DD format
             adults: Number of adult passengers
-            limit: Maximum number of results to return
+            limit: Maximum number of results per page (default: 10)
+            cabin_class: Cabin class ('ECONOMY', 'BUSINESS', 'FIRST')
+            enable_pagination: Whether to automatically fetch all pages (default: True)
+            max_pages: Maximum number of pages to fetch (default: 5)
 
         Returns:
-            Dictionary containing search results and metadata
+            Dictionary containing search results and metadata from all pages
         """
         search_id = f"oneway_hidden_{int(time.time())}"
         logger.info(f"[{search_id}] Searching one-way hidden city flights: {origin} -> {destination}")
 
         try:
             # Build search variables
-            variables = self._build_search_variables(origin, destination, departure_date, adults, cabin_class)
+            variables = self._build_search_variables(origin, destination, departure_date, adults, cabin_class, limit)
 
-            # 使用最佳实践查询以获得更好的隐藏城市航班结果
-            best_practice_query = """
+            # 使用支持分页的查询以获得完整的航班结果
+            paginated_query = """
 query SearchItinerariesQuery(
   $search: SearchOnewayInput
   $filter: ItinerariesFilterInput
@@ -439,6 +444,12 @@ query SearchItinerariesQuery(
       error: message
     }
     ... on Itineraries {
+      server {
+        requestId
+        environment
+        packageVersion
+        serverToken
+      }
       metadata {
         itinerariesCount
         hasMorePending
@@ -496,28 +507,35 @@ query SearchItinerariesQuery(
 """
 
             payload = {
-                "query": best_practice_query,
+                "query": paginated_query,
                 "variables": variables
             }
 
             # Send request
             api_url = f"{KIWI_GRAPHQL_ENDPOINT}?featureName=SearchOneWayItinerariesQuery"
 
-            async with httpx.AsyncClient(timeout=self.timeout) as client:
-                response = await client.post(api_url, headers=self.headers, json=payload)
+            # 根据是否启用分页选择不同的处理方式
+            if enable_pagination:
+                return await self._search_with_pagination(
+                    paginated_query, variables, search_id, limit, max_pages
+                )
+            else:
+                # 传统的单页搜索
+                async with httpx.AsyncClient(timeout=self.timeout) as client:
+                    response = await client.post(api_url, headers=self.headers, json=payload)
 
-                logger.info(f"[{search_id}] Response status: {response.status_code}")
+                    logger.info(f"[{search_id}] Response status: {response.status_code}")
 
-                if response.status_code == 200:
-                    response_data = response.json()
-                    return self._parse_oneway_response(response_data, search_id, limit)
-                else:
-                    logger.error(f"[{search_id}] Request failed: {response.status_code} - {response.text}")
-                    return {
-                        "success": False,
-                        "error": f"HTTP {response.status_code}",
-                        "details": response.text
-                    }
+                    if response.status_code == 200:
+                        response_data = response.json()
+                        return self._parse_oneway_response(response_data, search_id, limit)
+                    else:
+                        logger.error(f"[{search_id}] Request failed: {response.status_code} - {response.text}")
+                        return {
+                            "success": False,
+                            "error": f"HTTP {response.status_code}",
+                            "details": response.text
+                        }
 
         except Exception as e:
             logger.error(f"[{search_id}] Search failed: {e}")
@@ -796,6 +814,7 @@ query SearchItinerariesQuery(
                 "price_eur": price_eur,
                 "currency": self.localization_config.currency.value,
                 "currency_symbol": self.localization_config.currency_symbol,
+                "duration": duration // 60 if duration else 0,  # 转换秒到分钟
                 "duration_minutes": duration // 60 if duration else 0,
                 "is_hidden_city": is_hidden_city,
                 "is_throwaway": is_throwaway,
@@ -1015,6 +1034,159 @@ query SearchItinerariesQuery(
             query_type += "_oneway"
 
         return query_type
+
+    async def _search_with_pagination(
+        self,
+        query: str,
+        base_variables: Dict[str, Any],
+        search_id: str,
+        limit: int,
+        max_pages: int
+    ) -> Dict[str, Any]:
+        """执行分页搜索以获取所有可用航班
+
+        Args:
+            query: GraphQL查询字符串
+            base_variables: 基础查询变量
+            search_id: 搜索ID用于日志
+            limit: 每页限制数量
+            max_pages: 最大页数
+
+        Returns:
+            包含所有页面航班数据的字典
+        """
+        all_flights = []
+        all_flight_ids = set()  # 用于去重
+        page_count = 0
+        server_token = None
+        total_api_count = 0
+        hidden_city_count = 0
+
+        logger.info(f"[{search_id}] Starting paginated search (max_pages: {max_pages})")
+
+        try:
+            api_url = f"{KIWI_GRAPHQL_ENDPOINT}?featureName=SearchItinerariesQuery"
+
+            async with httpx.AsyncClient(timeout=self.timeout) as client:
+                while page_count < max_pages:
+                    page_count += 1
+                    logger.info(f"[{search_id}] Fetching page {page_count}")
+
+                    # 准备当前页的变量 - 使用深拷贝避免引用问题
+                    current_variables = {
+                        "search": base_variables["search"].copy(),
+                        "filter": base_variables["filter"].copy(),
+                        "options": base_variables["options"].copy()
+                    }
+                    current_variables["options"]["serverToken"] = server_token
+
+                    payload = {
+                        "query": query,
+                        "variables": current_variables
+                    }
+
+                    # 发送请求
+                    response = await client.post(api_url, headers=self.headers, json=payload)
+
+                    if response.status_code != 200:
+                        logger.error(f"[{search_id}] Page {page_count} failed: {response.status_code}")
+                        break
+
+                    response_data = response.json()
+
+                    # 检查响应格式
+                    if 'data' not in response_data or 'onewayItineraries' not in response_data['data']:
+                        logger.error(f"[{search_id}] Page {page_count} invalid response format")
+                        if 'errors' in response_data:
+                            logger.error(f"[{search_id}] GraphQL errors: {response_data['errors']}")
+                        break
+
+                    itineraries_data = response_data['data']['onewayItineraries']
+
+                    # 检查API错误
+                    if itineraries_data.get('__typename') == 'AppError':
+                        logger.error(f"[{search_id}] API error: {itineraries_data.get('error', 'Unknown')}")
+                        break
+
+                    # 获取数据
+                    itineraries = itineraries_data.get('itineraries', [])
+                    metadata = itineraries_data.get('metadata', {})
+                    server_info = itineraries_data.get('server', {})
+
+                    # 更新总计数（只在第一页设置）
+                    if page_count == 1:
+                        total_api_count = metadata.get('itinerariesCount', 0)
+
+                    logger.info(f"[{search_id}] Page {page_count}: {len(itineraries)} flights")
+
+                    # 处理航班数据
+                    page_new_flights = 0
+                    for itinerary in itineraries:
+                        flight_info = self._extract_oneway_flight_info(itinerary)
+                        if flight_info:
+                            flight_id = flight_info.get('id', '')
+                            # 去重检查
+                            if flight_id and flight_id not in all_flight_ids:
+                                all_flight_ids.add(flight_id)
+                                all_flights.append(flight_info)
+                                page_new_flights += 1
+
+                                if flight_info.get('is_hidden_city'):
+                                    hidden_city_count += 1
+
+                    logger.info(f"[{search_id}] Page {page_count}: {page_new_flights} new unique flights")
+
+                    # 检查是否有serverToken继续分页
+                    # 注意：忽略hasMorePending，因为KIWI API可能返回false但仍有更多数据
+                    has_more = metadata.get('hasMorePending', False)
+                    new_server_token = server_info.get('serverToken')
+
+                    logger.info(f"[{search_id}] hasMorePending: {has_more}, serverToken: {'有' if new_server_token else '无'}")
+
+                    if not new_server_token:
+                        logger.info(f"[{search_id}] No serverToken received, stopping pagination")
+                        break
+
+                    # 如果没有新的航班且已经获取了多页，停止分页
+                    if page_new_flights == 0 and page_count > 1:
+                        logger.info(f"[{search_id}] No new flights on page {page_count}, stopping pagination")
+                        break
+
+                    # 更新token用于下一页
+                    server_token = new_server_token
+
+                    # 避免请求过快
+                    await asyncio.sleep(1)
+
+            logger.info(f"[{search_id}] Pagination complete: {len(all_flights)} unique flights from {page_count} pages")
+
+            return {
+                "success": True,
+                "search_id": search_id,
+                "trip_type": "oneway",
+                "total_count": total_api_count,
+                "hidden_city_count": hidden_city_count,
+                "has_more": False,  # 分页完成后设为False
+                "flights": all_flights,
+                "pagination_info": {
+                    "pages_fetched": page_count,
+                    "max_pages": max_pages,
+                    "unique_flights": len(all_flights),
+                    "total_flights_processed": sum(len(page.get('itineraries', [])) for page in [])
+                }
+            }
+
+        except Exception as e:
+            logger.error(f"[{search_id}] Pagination failed: {e}")
+            return {
+                "success": False,
+                "error": f"Pagination error: {str(e)}",
+                "flights": all_flights,  # 返回已获取的航班
+                "pagination_info": {
+                    "pages_fetched": page_count,
+                    "error_on_page": page_count + 1 if page_count < max_pages else None
+                }
+            }
 
 
 # Global instance for easy access
