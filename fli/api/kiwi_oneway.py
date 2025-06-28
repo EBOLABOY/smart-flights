@@ -34,7 +34,7 @@ class KiwiOnewayAPI:
     
     async def search_hidden_city_flights(self, origin: str, destination: str,
                                         departure_date: str, adults: int = 1,
-                                        limit: int = 10) -> Dict[str, Any]:
+                                        limit: int = 50) -> Dict[str, Any]:
         """Search for one-way hidden city flights.
         
         Args:
@@ -42,7 +42,7 @@ class KiwiOnewayAPI:
             destination: Destination airport code (e.g., 'LAX', 'LHR')
             departure_date: Departure date in YYYY-MM-DD format
             adults: Number of adult passengers (default: 1)
-            limit: Maximum number of results to return (default: 10)
+            limit: Maximum number of results to return (default: 50)
             
         Returns:
             Dictionary containing search results with the following structure:

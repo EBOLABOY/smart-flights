@@ -416,7 +416,7 @@ class KiwiFlightsAPI:
             destination: Destination airport code (e.g., 'LAX')
             departure_date: Departure date in YYYY-MM-DD format
             adults: Number of adult passengers
-            limit: Maximum number of results per page (default: 10)
+            limit: Maximum number of results per page (default: 50)
             cabin_class: Cabin class ('ECONOMY', 'BUSINESS', 'FIRST')
             enable_pagination: Whether to automatically fetch all pages (default: True)
             max_pages: Maximum number of pages to fetch (default: 5)
@@ -546,7 +546,7 @@ query SearchItinerariesQuery(
 
     async def search_roundtrip_hidden_city(self, origin: str, destination: str,
                                           departure_date: str, return_date: str,
-                                          adults: int = 1, limit: int = 10, cabin_class: str = "ECONOMY") -> Dict[str, Any]:
+                                          adults: int = 1, limit: int = 50, cabin_class: str = "ECONOMY") -> Dict[str, Any]:
         """Search for round-trip hidden city flights.
 
         Args:

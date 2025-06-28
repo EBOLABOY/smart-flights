@@ -34,7 +34,7 @@ class KiwiRoundtripAPI:
     
     async def search_hidden_city_flights(self, origin: str, destination: str,
                                         departure_date: str, return_date: str,
-                                        adults: int = 1, limit: int = 10) -> Dict[str, Any]:
+                                        adults: int = 1, limit: int = 50) -> Dict[str, Any]:
         """Search for round-trip hidden city flights.
         
         Args:
@@ -43,7 +43,7 @@ class KiwiRoundtripAPI:
             departure_date: Departure date in YYYY-MM-DD format
             return_date: Return date in YYYY-MM-DD format
             adults: Number of adult passengers (default: 1)
-            limit: Maximum number of results to return (default: 10)
+            limit: Maximum number of results to return (default: 50)
             
         Returns:
             Dictionary containing search results with the following structure:
