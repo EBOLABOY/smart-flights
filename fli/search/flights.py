@@ -75,14 +75,50 @@ class SearchFlights:
         Args:
             filters: Full flight search object including airports, dates, and preferences
             top_n: Number of flights to limit the return flight search to (default: 50)
+                  For round-trip flights, this limits the number of outbound flights
+                  to consider for pairing with return flights.
 
         Returns:
             List of FlightResult objects containing flight details, or None if no results
 
         Raises:
             Exception: If the search fails or returns invalid data
+
+        Note:
+            For round-trip flights, the total number of combinations will be:
+            min(outbound_flights, top_n) × return_flights_per_outbound
+            To get more combinations, increase the top_n parameter.
         """
         return self._search_internal(filters, top_n, enhanced_search=True)
+
+    def search_extended_max_combinations(
+        self, filters: FlightSearchFilters, max_outbound: int = 100, max_return_per_outbound: int = 50
+    ) -> list[FlightResult | tuple[FlightResult, FlightResult]] | None:
+        """Search for flights with maximum combinations for round-trip flights.
+
+        This method is optimized for round-trip searches where you want to maximize
+        the number of flight combinations while controlling the search scope.
+
+        Args:
+            filters: Full flight search object including airports, dates, and preferences
+            max_outbound: Maximum number of outbound flights to consider (default: 100)
+            max_return_per_outbound: Maximum return flights per outbound flight (default: 50)
+
+        Returns:
+            List of FlightResult objects or flight pairs, or None if no results
+
+        Raises:
+            Exception: If the search fails or returns invalid data
+
+        Note:
+            This method can generate up to max_outbound × max_return_per_outbound combinations
+            for round-trip flights, but will take longer to execute.
+        """
+        if filters.trip_type == TripType.ROUND_TRIP:
+            return self._search_internal(filters, max_outbound, enhanced_search=True)
+        else:
+            # For one-way flights, use the standard extended search
+            return self._search_internal(filters, max_outbound, enhanced_search=True)
 
     def _search_internal(
         self, filters: FlightSearchFilters, top_n: int = 5, enhanced_search: bool = False
@@ -413,10 +449,14 @@ class SearchKiwiFlights:
                 if result.get("success"):
                     flights = []
                     for flight_data in result.get("flights", []):
-                        # Only return hidden city flights
-                        if flight_data.get("is_hidden_city"):
+                        # Return all flights, not just hidden city flights
+                        # This allows users to see both regular and hidden city options
+                        try:
                             flight_result = self._convert_kiwi_to_flight_result(flight_data)
                             flights.append(flight_result)
+                        except Exception as e:
+                            # Skip flights that can't be converted
+                            continue
                     return flights[:top_n]
 
             elif filters.trip_type == TripType.ROUND_TRIP:
@@ -438,8 +478,9 @@ class SearchKiwiFlights:
                 if result.get("success"):
                     flight_pairs = []
                     for flight_data in result.get("flights", []):
-                        # Only return hidden city flights
-                        if flight_data.get("is_hidden_city"):
+                        # Return all flights, not just hidden city flights
+                        # This allows users to see both regular and hidden city options
+                        try:
                             outbound = self._convert_kiwi_roundtrip_to_flight_result(
                                 flight_data, "outbound"
                             )
@@ -447,6 +488,9 @@ class SearchKiwiFlights:
                                 flight_data, "inbound"
                             )
                             flight_pairs.append((outbound, inbound))
+                        except Exception as e:
+                            # Skip flights that can't be converted
+                            continue
                     return flight_pairs[:top_n]
 
             return None
@@ -494,9 +538,19 @@ class SearchKiwiFlights:
                 )
                 legs.append(leg)
 
+            # Extract and convert price safely
+            price_value = kiwi_flight.get("price", 0)
+            if isinstance(price_value, str):
+                try:
+                    price_value = float(price_value)
+                except (ValueError, TypeError):
+                    price_value = 0
+            elif price_value is None:
+                price_value = 0
+
             # Create flight result
             flight_result = FlightResult(
-                price=kiwi_flight.get("price", 0),
+                price=price_value,
                 duration=kiwi_flight.get("duration_minutes", 0),
                 stops=max(0, kiwi_flight.get("segment_count", 1) - 1),
                 legs=legs,
@@ -539,9 +593,26 @@ class SearchKiwiFlights:
                 duration=leg_data.get("duration", 0),
             )
 
+            # Extract and convert price safely for round-trip
+            total_price = kiwi_flight.get("total_price", 0)
+            if total_price == 0:
+                # Fallback to main price field
+                total_price = kiwi_flight.get("price", 0)
+
+            if isinstance(total_price, str):
+                try:
+                    total_price = float(total_price)
+                except (ValueError, TypeError):
+                    total_price = 0
+            elif total_price is None:
+                total_price = 0
+
+            # Split price for each direction (outbound/inbound)
+            direction_price = total_price / 2 if total_price > 0 else 0
+
             # Create flight result
             flight_result = FlightResult(
-                price=kiwi_flight.get("total_price", 0) // 2,  # Split price for each direction
+                price=direction_price,
                 duration=leg_data.get("duration", 0),
                 stops=0,  # Assuming direct flights for now
                 legs=[leg],
@@ -551,6 +622,7 @@ class SearchKiwiFlights:
                     "hidden_destination_code": leg_data.get("hidden_destination_code", ""),
                     "hidden_destination_name": leg_data.get("hidden_destination_name", ""),
                     "direction": direction,
+                    "total_price": total_price,  # Store total price for reference
                 }
             )
 
