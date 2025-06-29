@@ -1,3 +1,5 @@
+from ..airline import Airline
+from ..airport import Airport
 from .base import (
     DisplayMode,
     FlightLeg,

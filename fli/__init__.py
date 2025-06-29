@@ -20,9 +20,9 @@ from .models.google_flights import (
     TimeRestrictions,
     TripType,
 )
-from .localization import LocalizationConfig, Language, Currency
+from .models.google_flights.base import LocalizationConfig, Language, Currency
 
-__version__ = "0.6.0"
+__version__ = "0.6.1"
 __author__ = "Fli Team"
 __email__ = "contact@fli.dev"
 
