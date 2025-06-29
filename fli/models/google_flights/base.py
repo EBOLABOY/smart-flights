@@ -31,15 +31,26 @@ class SeatType(Enum):
     FIRST = 4
 
 
+class DisplayMode(Enum):
+    """Flight display modes - how flights are initially presented."""
+
+    BEST = 1        # 最佳 - 综合排序（价格、时间、便利性）
+    CHEAPEST = 2    # 价格最低 - 以最低价格为主要展示标准
+
+
 class SortBy(Enum):
     """Available sorting options for flight results."""
 
     NONE = 0
-    TOP_FLIGHTS = 1
-    CHEAPEST = 2
-    DEPARTURE_TIME = 3
-    ARRIVAL_TIME = 4
-    DURATION = 5
+    TOP_FLIGHTS = 1         # 保持兼容性，等同于 BEST
+    CHEAPEST = 2           # 保持兼容性，等同于 PRICE
+    PRICE = 2              # 按价格排序（从低到高）
+    DEPARTURE_TIME = 3     # 按出发时间排序
+    ARRIVAL_TIME = 4       # 按到达时间排序
+    DURATION = 5           # 按飞行时长排序
+    EMISSIONS = 6          # 按碳排放量排序
+    STOPS = 7              # 按中转次数排序
+    AIRLINE = 8            # 按航空公司排序
 
 
 class TripType(Enum):
@@ -313,6 +324,7 @@ class FlightResult(BaseModel):
     duration: PositiveInt  # total duration in minutes
     stops: NonNegativeInt
     hidden_city_info: dict | None = None  # Optional hidden city information from Kiwi API
+    price_unavailable: bool = False  # True if airline doesn't provide direct pricing
 
 
 class FlightSegment(BaseModel):

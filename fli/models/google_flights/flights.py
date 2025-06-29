@@ -10,6 +10,7 @@ from pydantic import (
 from fli.models.airline import Airline
 from fli.models.airport import Airport
 from fli.models.google_flights.base import (
+    DisplayMode,
     FlightSegment,
     LayoverRestrictions,
     MaxStops,
@@ -36,7 +37,8 @@ class FlightSearchFilters(BaseModel):
     airlines: list[Airline] | None = None
     max_duration: PositiveInt | None = None
     layover_restrictions: LayoverRestrictions | None = None
-    sort_by: SortBy = SortBy.NONE
+    display_mode: DisplayMode = DisplayMode.BEST  # 展示模式：最佳 或 价格最低
+    sort_by: SortBy = SortBy.NONE                 # 排序方式：价格、时间、时长等
 
     def format(self) -> list:
         """Format filters into Google Flights API structure.
@@ -198,6 +200,45 @@ class FlightSearchFilters(BaseModel):
             # Change the second constant from 0 to 1 to enable extended search
             # This unlocks 135+ flights instead of just 12
             formatted_filters[-3] = 1  # Change second constant from 0 to 1
+
+        # First convert the formatted filters to a JSON string
+        formatted_json = json.dumps(formatted_filters, separators=(",", ":"))
+        # Then wrap it in a list with null
+        wrapped_filters = [None, formatted_json]
+        # Finally, encode the whole thing
+        return urllib.parse.quote(json.dumps(wrapped_filters, separators=(",", ":")))
+
+    def encode_with_state_token(
+        self,
+        enhanced_search: bool = False,
+        price_anchor: int | None = None,
+        state_token: str | None = None
+    ) -> str:
+        """URL encode the formatted filters with state token for sorted requests.
+
+        Args:
+            enhanced_search: If True, use extended search mode
+            price_anchor: Price anchor point for sorting (e.g., 4179)
+            state_token: State token from initial response for pagination
+
+        Returns:
+            URL-encoded filter string with state token for sorted API request
+        """
+        formatted_filters = self.format()
+
+        # Modify the constants for enhanced search
+        if enhanced_search:
+            formatted_filters[-3] = 1
+
+        # 根据您提供的实际f.req结构，添加状态令牌
+        if state_token is not None:
+            if price_anchor is not None:
+                # 添加状态数据块: [[null, price_anchor], "state_token"]
+                state_data = [[None, price_anchor], state_token]
+            else:
+                # 只添加状态令牌，不使用价格锚点: [null, "state_token"]
+                state_data = [None, state_token]
+            formatted_filters.append(state_data)
 
         # First convert the formatted filters to a JSON string
         formatted_json = json.dumps(formatted_filters, separators=(",", ":"))
