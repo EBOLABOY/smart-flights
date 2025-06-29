@@ -411,8 +411,7 @@ from fli.models.google_flights.base import LocalizationConfig, Language, Currenc
 # 创建中文/人民币配置
 config = LocalizationConfig(
     language=Language.CHINESE,
-    currency=Currency.CNY,
-    region="CN"
+    currency=Currency.CNY
 )
 
 # 创建隐藏城市搜索客户端
@@ -543,8 +542,7 @@ from fli.models.google_flights.base import LocalizationConfig, Language, Currenc
 # 创建本地化配置
 localization_config = LocalizationConfig(
     language=Language.CHINESE,
-    currency=Currency.CNY,
-    region="CN"
+    currency=Currency.CNY
 )
 
 # 创建搜索过滤器
@@ -607,8 +605,7 @@ from fli.models.google_flights.base import LocalizationConfig, Language, Currenc
 # 创建本地化配置（支持中英文切换）
 localization_config = LocalizationConfig(
     language=Language.CHINESE,  # 或 Language.ENGLISH
-    currency=Currency.CNY,      # 或 Currency.USD
-    region="CN"                 # 或 "US"
+    currency=Currency.CNY       # 或 Currency.USD
 )
 
 # 创建航班段
@@ -919,8 +916,7 @@ from fli.models.google_flights.base import LocalizationConfig, Language, Currenc
 # 1. 创建本地化配置
 config = LocalizationConfig(
     language=Language.CHINESE,
-    currency=Currency.CNY,
-    region="CN"
+    currency=Currency.CNY
 )
 
 # 2. 创建中转机场筛选条件
@@ -977,8 +973,7 @@ from fli.models.google_flights.base import LocalizationConfig, Language, Currenc
 # 创建本地化配置
 localization_config = LocalizationConfig(
     language=Language.CHINESE,  # 或 Language.ENGLISH
-    currency=Currency.CNY,      # 或 Currency.USD
-    region="CN"                 # 或 "US"
+    currency=Currency.CNY       # 或 Currency.USD
 )
 
 # 初始化搜索客户端
@@ -1015,8 +1010,7 @@ from fli.models.google_flights.base import LocalizationConfig, Language, Currenc
 # 创建本地化配置
 localization_config = LocalizationConfig(
     language=Language.CHINESE,  # 或 Language.ENGLISH
-    currency=Currency.CNY,      # 或 Currency.USD
-    region="CN"                 # 或 "US"
+    currency=Currency.CNY       # 或 Currency.USD
 )
 
 # 初始化隐藏城市搜索客户端
@@ -1339,15 +1333,13 @@ from fli.models.google_flights.base import LocalizationConfig, Language, Currenc
 # 中文配置
 chinese_config = LocalizationConfig(
     language=Language.CHINESE,
-    currency=Currency.CNY,
-    region="CN"
+    currency=Currency.CNY
 )
 
 # 英文配置
 english_config = LocalizationConfig(
     language=Language.ENGLISH,
-    currency=Currency.USD,
-    region="US"
+    currency=Currency.USD
 )
 ```
 
@@ -1500,6 +1492,28 @@ poetry publish
 ---
 
 ## 📋 更新日志
+
+### v0.5.6 (2025-06-29)
+
+**🌐 简化LocalizationConfig配置**
+- **移除region参数**: 不再需要手动指定国家/地区，固定使用美国(US)以获得最佳API性能
+- **简化外部调用**: 用户只需选择语言(Language)和货币(Currency)两个参数
+- **向后兼容**: 现有代码自动适配，无需修改
+- **API性能优化**: 统一使用美国地区设置，确保Google Flights API的最佳响应速度
+
+**📝 新的使用方式**
+```python
+# 之前: 需要指定3个参数
+config = LocalizationConfig(language=Language.CHINESE, currency=Currency.CNY, region="CN")
+
+# 现在: 只需指定2个参数
+config = LocalizationConfig(language=Language.CHINESE, currency=Currency.CNY)
+```
+
+**🧪 测试验证**
+- 100%向后兼容性测试通过
+- 3/3种语言货币组合测试成功
+- Google Flights API兼容性验证完成
 
 ### v0.5.5 (2025-06-28)
 

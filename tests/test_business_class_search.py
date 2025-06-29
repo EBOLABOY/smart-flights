@@ -76,8 +76,7 @@ def test_search_extended_raw_response():
     # 创建本地化配置 - 中文
     localization_config = LocalizationConfig(
         language=Language.CHINESE,
-        currency=Currency.CNY,
-        region="CN"
+        currency=Currency.CNY
     )
 
     # 创建搜索客户端
@@ -317,8 +316,7 @@ def test_roundtrip_search_with_raw_data():
     # 创建本地化配置 - 中文
     localization_config = LocalizationConfig(
         language=Language.CHINESE,
-        currency=Currency.CNY,
-        region="CN"
+        currency=Currency.CNY
     )
 
     # 创建搜索客户端
@@ -508,8 +506,7 @@ def test_roundtrip_enhanced_search_analysis():
     # 创建本地化配置 - 中文
     localization_config = LocalizationConfig(
         language=Language.CHINESE,
-        currency=Currency.CNY,
-        region="CN"
+        currency=Currency.CNY
     )
 
     # 创建搜索客户端

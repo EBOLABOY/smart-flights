@@ -77,15 +77,23 @@ class Language(Enum):
 
 @dataclass
 class LocalizationConfig:
-    """Configuration for language and currency settings."""
+    """Configuration for language and currency settings.
+
+    Note: Region is fixed to 'US' for optimal Google Flights API performance.
+    Only language and currency can be customized.
+    """
 
     language: Language = Language.ENGLISH
     currency: Currency = Currency.USD
-    region: str = "US"  # Default region
 
     def __post_init__(self):
         """Initialize after dataclass creation."""
         pass
+
+    @property
+    def region(self) -> str:
+        """Get the region code. Fixed to 'US' for optimal API performance."""
+        return "US"
 
     @property
     def api_language_code(self) -> str:
