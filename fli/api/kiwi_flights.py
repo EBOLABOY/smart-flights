@@ -299,7 +299,7 @@ class KiwiFlightsAPI:
     
     def _build_search_variables(self, origin: str, destination: str,
                                departure_date: str, adults: int = 1, cabin_class: str = "ECONOMY",
-                               limit: int = 50) -> Dict[str, Any]:
+                               limit: int = 50, hidden_city_only: bool = False) -> Dict[str, Any]:
         """Build search variables for Kiwi API request - 基于真实浏览器请求负载.
 
         Args:
@@ -307,6 +307,9 @@ class KiwiFlightsAPI:
             destination: Destination airport code (e.g., 'LAX')
             departure_date: Departure date in YYYY-MM-DD format
             adults: Number of adult passengers
+            cabin_class: Cabin class ('ECONOMY', 'BUSINESS', 'FIRST')
+            limit: Maximum number of results to return
+            hidden_city_only: If True, enable hidden city specific filters. If False, search all flight types.
 
         Returns:
             Dictionary containing search variables
@@ -332,8 +335,8 @@ class KiwiFlightsAPI:
                     "adults": adults,
                     "children": 0,
                     "infants": 0,
-                    "adultsHoldBags": [0],
-                    "adultsHandBags": [0],  # 修正为 [0] 而不是 [1]
+                    "adultsHoldBags": [0] * adults,  # 每个成人的托运行李数量
+                    "adultsHandBags": [0] * adults,  # 每个成人的手提行李数量
                     "childrenHoldBags": [],
                     "childrenHandBags": []
                 },
@@ -347,11 +350,13 @@ class KiwiFlightsAPI:
                 "allowChangeInboundSource": True,
                 "allowDifferentStationConnection": True,
                 "enableSelfTransfer": True,
-                "enableThrowAwayTicketing": True,
-                "enableTrueHiddenCity": True,  # 关键：启用隐藏城市
+                # 动态控制隐藏城市相关过滤器
+                "enableThrowAwayTicketing": hidden_city_only,  # 只在隐藏城市模式下启用
+                "enableTrueHiddenCity": hidden_city_only,  # 只在隐藏城市模式下启用
                 "maxStopsCount": 1,  # 搜索直飞和1次中转航班
                 "transportTypes": ["FLIGHT"],
-                "contentProviders": ["KIWI"],  # 关键：内容提供商
+                # 动态设置内容提供商：目前只支持KIWI
+                "contentProviders": ["KIWI"],
                 "flightsApiLimit": 25,  # 关键：API限制
                 "limit": limit  # 关键：结果限制，动态设置
             },
@@ -375,7 +380,8 @@ class KiwiFlightsAPI:
 
     def _build_roundtrip_variables(self, origin: str, destination: str,
                                   departure_date: str, return_date: str,
-                                  adults: int = 1, cabin_class: str = "ECONOMY") -> Dict[str, Any]:
+                                  adults: int = 1, cabin_class: str = "ECONOMY",
+                                  hidden_city_only: bool = False) -> Dict[str, Any]:
         """Build search variables for round-trip Kiwi API request - 基于成功的单程请求负载模式.
 
         Args:
@@ -384,12 +390,14 @@ class KiwiFlightsAPI:
             departure_date: Departure date in YYYY-MM-DD format
             return_date: Return date in YYYY-MM-DD format
             adults: Number of adult passengers
+            cabin_class: Cabin class ('ECONOMY', 'BUSINESS', 'FIRST')
+            hidden_city_only: If True, enable hidden city specific filters. If False, search all flight types.
 
         Returns:
             Dictionary containing search variables
         """
-        # 复用单程的构建逻辑作为基础
-        variables = self._build_search_variables(origin, destination, departure_date, adults, cabin_class)
+        # 复用单程的构建逻辑作为基础，传递hidden_city_only参数
+        variables = self._build_search_variables(origin, destination, departure_date, adults, cabin_class, hidden_city_only=hidden_city_only)
 
         # 添加返程日期
         ret_date_obj = datetime.strptime(return_date, "%Y-%m-%d")
@@ -408,8 +416,9 @@ class KiwiFlightsAPI:
     async def search_oneway_hidden_city(self, origin: str, destination: str,
                                        departure_date: str, adults: int = 1,
                                        limit: int = 50, cabin_class: str = "ECONOMY",
-                                       enable_pagination: bool = True, max_pages: int = 10) -> Dict[str, Any]:
-        """Search for one-way hidden city flights with automatic pagination.
+                                       enable_pagination: bool = True, max_pages: int = 10,
+                                       hidden_city_only: bool = False) -> Dict[str, Any]:
+        """Search for one-way flights with automatic pagination.
 
         Args:
             origin: Origin airport code (e.g., 'PEK')
@@ -419,7 +428,8 @@ class KiwiFlightsAPI:
             limit: Maximum number of results per page (default: 50)
             cabin_class: Cabin class ('ECONOMY', 'BUSINESS', 'FIRST')
             enable_pagination: Whether to automatically fetch all pages (default: True)
-            max_pages: Maximum number of pages to fetch (default: 5)
+            max_pages: Maximum number of pages to fetch (default: 10)
+            hidden_city_only: If True, search only hidden city flights. If False, search all flight types.
 
         Returns:
             Dictionary containing search results and metadata from all pages
@@ -428,8 +438,8 @@ class KiwiFlightsAPI:
         logger.info(f"[{search_id}] Searching one-way hidden city flights: {origin} -> {destination}")
 
         try:
-            # Build search variables
-            variables = self._build_search_variables(origin, destination, departure_date, adults, cabin_class, limit)
+            # Build search variables with hidden_city_only parameter
+            variables = self._build_search_variables(origin, destination, departure_date, adults, cabin_class, limit, hidden_city_only)
 
             # 使用支持分页的查询以获得完整的航班结果
             paginated_query = """
@@ -546,8 +556,9 @@ query SearchItinerariesQuery(
 
     async def search_roundtrip_hidden_city(self, origin: str, destination: str,
                                           departure_date: str, return_date: str,
-                                          adults: int = 1, limit: int = 50, cabin_class: str = "ECONOMY") -> Dict[str, Any]:
-        """Search for round-trip hidden city flights.
+                                          adults: int = 1, limit: int = 50, cabin_class: str = "ECONOMY",
+                                          hidden_city_only: bool = False) -> Dict[str, Any]:
+        """Search for round-trip flights.
 
         Args:
             origin: Origin airport code
@@ -556,6 +567,8 @@ query SearchItinerariesQuery(
             return_date: Return date in YYYY-MM-DD format
             adults: Number of adult passengers
             limit: Maximum number of results to return
+            cabin_class: Cabin class ('ECONOMY', 'BUSINESS', 'FIRST')
+            hidden_city_only: If True, search only hidden city flights. If False, search all flight types.
 
         Returns:
             Dictionary containing search results and metadata
@@ -564,8 +577,8 @@ query SearchItinerariesQuery(
         logger.info(f"[{search_id}] Searching round-trip hidden city flights: {origin} ⇄ {destination}")
 
         try:
-            # Build search variables
-            variables = self._build_roundtrip_variables(origin, destination, departure_date, return_date, adults, cabin_class)
+            # Build search variables with hidden_city_only parameter
+            variables = self._build_roundtrip_variables(origin, destination, departure_date, return_date, adults, cabin_class, hidden_city_only)
 
             payload = {
                 "query": ROUNDTRIP_HIDDEN_CITY_QUERY,

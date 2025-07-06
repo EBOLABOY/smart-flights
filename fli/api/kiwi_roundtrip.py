@@ -113,7 +113,7 @@ class KiwiRoundtripAPI:
             }
         
         try:
-            # Perform the search
+            # Perform the search with hidden_city_only parameter
             search_result = await self.kiwi_client.search_roundtrip_hidden_city(
                 origin=origin.upper(),
                 destination=destination.upper(),
@@ -121,7 +121,8 @@ class KiwiRoundtripAPI:
                 return_date=return_date,
                 adults=adults,
                 limit=limit,
-                cabin_class=self.cabin_class
+                cabin_class=self.cabin_class,
+                hidden_city_only=self.hidden_city_only
             )
             
             if not search_result.get("success"):

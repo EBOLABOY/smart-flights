@@ -391,20 +391,22 @@ class SearchFlights:
 
 
 class SearchKiwiFlights:
-    """Kiwi hidden city flight search implementation with Google Flights compatible interface.
+    """Kiwi flight search implementation with Google Flights compatible interface.
 
-    This class provides the same interface as SearchFlights but searches for hidden city flights
-    using Kiwi.com's API, making it easy to switch between Google Flights and Kiwi searches.
+    This class provides the same interface as SearchFlights but searches for flights
+    using Kiwi.com's API, with optional hidden city flight filtering.
     """
 
-    def __init__(self, localization_config: LocalizationConfig = None):
+    def __init__(self, localization_config: LocalizationConfig = None, hidden_city_only: bool = False):
         """Initialize the Kiwi search client.
 
         Args:
             localization_config: Configuration for language and currency settings
+            hidden_city_only: If True, search only hidden city flights. If False, search all flight types.
         """
         self.localization_config = localization_config or LocalizationConfig()
         self.kiwi_client = KiwiFlightsAPI(localization_config)
+        self.hidden_city_only = hidden_city_only
 
     def search(
         self, filters: FlightSearchFilters, top_n: int = 5
@@ -443,7 +445,8 @@ class SearchKiwiFlights:
                     departure_date=departure_date,
                     adults=adults,
                     limit=top_n,
-                    cabin_class=cabin_class
+                    cabin_class=cabin_class,
+                    hidden_city_only=self.hidden_city_only
                 )
 
                 if result.get("success"):
@@ -472,7 +475,8 @@ class SearchKiwiFlights:
                     return_date=return_date,
                     adults=adults,
                     limit=top_n,
-                    cabin_class=cabin_class
+                    cabin_class=cabin_class,
+                    hidden_city_only=self.hidden_city_only
                 )
 
                 if result.get("success"):

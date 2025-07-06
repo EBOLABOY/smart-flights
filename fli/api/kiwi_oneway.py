@@ -93,14 +93,15 @@ class KiwiOnewayAPI:
             }
         
         try:
-            # Perform the search
+            # Perform the search with hidden_city_only parameter
             search_result = await self.kiwi_client.search_oneway_hidden_city(
                 origin=origin.upper(),
                 destination=destination.upper(),
                 departure_date=departure_date,
                 adults=adults,
                 limit=limit,
-                cabin_class=self.cabin_class
+                cabin_class=self.cabin_class,
+                hidden_city_only=self.hidden_city_only
             )
             
             if not search_result.get("success"):
